@@ -22,13 +22,15 @@ export function Index() {
   const [noticeHeight, setNoticeHeight] = useState(0);
   const [rtl, setRtl] = useState(arcoDirection === 'rtl');
 
-  async function getUser() {
-    try {
-      const { data } = await axios.get(`${requestDomain}/common/api/auth/userInfo`, {
+  function getUser() {
+    axios
+      .get(`${requestDomain}/common/api/auth/userInfo`, {
         withCredentials: true,
-      });
-      setUser(data.result);
-    } catch (err) {}
+      })
+      .then(({ data }) => {
+        setUser(data.result);
+      })
+      .catch(() => {});
   }
 
   useEffect(() => {

@@ -25,6 +25,7 @@ We use [Github issues](https://github.com/arco-design/arco-design/issues) for bu
 ## Sending a pull request
 
 **This project uses [Yarn](https://yarnpkg.com/) for package management. Please install Yarn before development.**
+**Use Node.js 18 LTS (see `.nvmrc`) for local development compatibility.**
 
 1. Fork [the repository](https://github.com/arco-design/arco-design) and create your branch from `main`. For new feature, please submit your changes directly to the `feature` branch. Other changes should go against `main` branch.
 1. Run `yarn run init` in the repository root.

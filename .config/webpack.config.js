@@ -1,9 +1,41 @@
 // 自定义 webpack 构建配置
+const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const { version } = require('../package.json');
+const ArcoWebpackPlugin = require('@arco-plugins/webpack-react');
 // const { getPWAConfig } = require('../site/config/pwa');
+
+const defaultArcoTheme = '@arco-themes/react-navy';
+
+const resolveArcoThemePackage = () => {
+  if (process.env.ARCO_THEME) {
+    return process.env.ARCO_THEME;
+  }
+
+  const localThemeRoot = path.resolve(__dirname, '../node_modules/@arco-themes');
+  if (!fs.existsSync(localThemeRoot)) {
+    return defaultArcoTheme;
+  }
+
+  const localThemes = fs
+    .readdirSync(localThemeRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .sort();
+
+  if (!localThemes.length) {
+    return defaultArcoTheme;
+  }
+
+  const customThemes = localThemes.filter((name) => `@arco-themes/${name}` !== defaultArcoTheme);
+  if (customThemes.length) {
+    return `@arco-themes/${customThemes[0]}`;
+  }
+
+  return `@arco-themes/${localThemes[0]}`;
+};
 
 // 组件 dist 打包
 exports.component = (config) => {
@@ -36,9 +68,17 @@ exports.icon = (config) => {
 // 官网
 exports.site = (config, env) => {
   const isProd = env === 'prod';
+  const activeArcoTheme = resolveArcoThemePackage();
+
   if (isProd) {
     config.output.publicPath = '/';
   }
+
+  config.plugins.push(
+    new ArcoWebpackPlugin({
+      theme: activeArcoTheme,
+    })
+  );
 
   config.entry = {
     react: path.resolve(__dirname, '../site/src/index.js'),
@@ -74,6 +114,7 @@ exports.site = (config, env) => {
   );
 
   config.resolve.alias['@arco-design/web-react'] = path.resolve(__dirname, '..');
+  config.resolve.alias['@active-arco-theme'] = activeArcoTheme;
   // config.resolve.alias['dayjs$'] = 'moment-timezone';
   // update the react-dnd, with issue: https://github.com/facebook/react/issues/20235
   config.resolve.alias['react/jsx-runtime'] = require.resolve('react/jsx-runtime.js');
