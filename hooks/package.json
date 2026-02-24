@@ -9,7 +9,7 @@
     "build:cjs": "rm -rf ./lib && npx tsc -p tsconfig.cjs.json",
     "build:dist": "cd ../ && BUILD_TYPE=hooks ./node_modules/.bin/arco-scripts build:component:dist",
     "generate": "rm -rf src-es/* && rm -rf src-lib/* &&  node ./scripts/generate.js ",
-    "build": "yarn generate && yarn build:cjs && yarn build:es"
+    "build": "npm run generate && npm run build:cjs && npm run build:es"
   },
   "peerDependencies": {
     "react": ">=16",

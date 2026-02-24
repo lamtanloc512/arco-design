@@ -5,11 +5,11 @@ This guide keeps the project setup stable and documents how to customize theme/c
 ## 1. Run the Project
 
 - Recommended runtime: Node.js 18 LTS (`.nvmrc`)
-- Package manager: Yarn (project default)
+- Package manager: Bun
 
 ```bash
-yarn install
-yarn dev:site
+bun install
+bun run dev:site
 ```
 
 Bun can run scripts too:
@@ -21,9 +21,9 @@ Bun can run scripts too:
 ## 2. Contribute
 
 1. Read `CONTRIBUTING.md`
-2. Run `yarn run init`
-3. Start docs/dev site with `yarn dev:site`
-4. Validate with `yarn eslint`, `yarn stylelint`, `yarn test`
+2. Run `bun run init`
+3. Start docs/dev site with `bun run dev:site`
+4. Validate with `bun run eslint`, `bun run stylelint`, `bun run test`
 
 Storybook uses built outputs (`es` / `dist`) and does not hot-reload token changes from source.
 
@@ -33,13 +33,52 @@ Storybook uses built outputs (`es` / `dist`) and does not hot-reload token chang
 NODE_OPTIONS=--openssl-legacy-provider ~/.bun/bin/bun run demo
 ```
 
-## 3. Theme Customization (Token First)
+## 3. Use This Fork As Your Own Package
+
+Recommended approach: publish under your scope, then alias it back to `@arco-design/web-react` in app projects.
+This avoids mass-renaming imports across the codebase.
+
+1. Change root package name in `package.json`:
+
+```json
+{
+  "name": "@your-scope/web-react"
+}
+```
+
+2. Build locally:
+
+```bash
+bun run build
+```
+
+3. Publish:
+
+```bash
+PATH="$HOME/.bun/bin:$PATH" bun publish --ignore-scripts --access public
+```
+
+4. In your next project, install your package but keep Arco import path:
+
+```bash
+bun add @arco-design/web-react@npm:@your-scope/web-react@2.66.10
+```
+
+Now your code can keep:
+
+```ts
+import { Button } from '@arco-design/web-react';
+```
+
+and it will resolve to your forked package.
+
+## 4. Theme Customization (Token First)
 
 Edit tokens first, avoid broad CSS overrides.
 
 - Theme package source: `node_modules/@arco-themes/*`
 - Active theme is loaded by webpack plugin from local `@arco-themes` automatically.
-  - Override explicitly with env var: `ARCO_THEME=@arco-themes/<your-theme> yarn dev:site`
+  - Override explicitly with env var: `ARCO_THEME=@arco-themes/<your-theme> bun run dev:site`
 - Site/Storybook also import `~@active-arco-theme/theme.less` so your package styles are applied directly.
 
 - Global primitives: `components/style/theme/global.less`
@@ -70,7 +109,7 @@ modifyVars: {
 }
 ```
 
-## 4. Component Customization
+## 5. Component Customization
 
 Adjust component token files before writing extra styles:
 
@@ -80,7 +119,7 @@ Adjust component token files before writing extra styles:
 - `components/Modal/style/token.less`
 - `components/Tabs/style/token.less`
 
-## 5. Squircle.js (Optional)
+## 6. Squircle.js (Optional)
 
 Use [squircle.js](https://squircle.js.org/) in app-level UI when you want smoother corners, without inline styles.
 
@@ -101,7 +140,7 @@ export function HeroPanel() {
 }
 ```
 
-## 6. Rules
+## 7. Rules
 
 - Do: prefer tokens and `token.less` files
 - Do: keep docs/examples in English by default
