@@ -1,3 +1,20 @@
+## 2.66.17
+
+2026-10-10
+
+### 🐛 BugFix
+
+- Fix page jitter and horizontal scrollbar flicker caused by transient popup overflow when Cascader panel width changes([#3197](https://github.com/arco-design/arco-design/pull/3197))
+
+## 2.66.11
+
+2026-03-06
+
+### 🆕 Feature
+
+- Add the information of the currently selected options to the renderFormat parameter of the Cascader component.([#3146](https://github.com/arco-design/arco-design/pull/3146))
+- The `Cascader` component supports quickly selecting the missing items when the default values are incomplete.([#3133](https://github.com/arco-design/arco-design/pull/3133))
+
 ## 2.66.3
 
 2025-08-06

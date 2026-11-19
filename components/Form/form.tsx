@@ -10,7 +10,7 @@ import scrollIntoView, { Options as ScrollIntoViewOptions } from 'scroll-into-vi
 import merge from 'lodash/merge';
 import cs from '../_util/classNames';
 import useForm from './useForm';
-import { FormProps, FormInstance, FieldError, KeyType } from './interface';
+import { FormProps, FormInstance, FieldError, KeyType, ValidateOptions } from './interface';
 import ConfigProvider, { ConfigContext } from '../ConfigProvider';
 import {
   FormContext as RawFormContext,
@@ -29,6 +29,13 @@ function getFormElementId<FieldKey extends KeyType = string>(
 ): string {
   const id = (field as string).replace(/[\[\.]/g, '_').replace(/\]/g, '');
   return prefix ? `${prefix}-${id}` : `${id}`;
+}
+
+function getFieldElement(node: HTMLElement, elementId: string) {
+  const target = document.getElementById(elementId);
+  if (target && node.contains(target)) {
+    return target;
+  }
 }
 
 const defaultProps = {
@@ -100,10 +107,11 @@ const Form = <
     if (!node) {
       return;
     }
-    let fieldNode = node.querySelector(`#${getFormElementId(id, field as string)}`);
+    const fieldElementId = getFormElementId(id, field as string);
+    let fieldNode = getFieldElement(node, fieldElementId);
     if (!fieldNode) {
       // 如果设置了nostyle， fieldNode不存在，尝试直接查询表单控件
-      fieldNode = node.querySelector(`#${getFormElementId(id, field as string)}${ID_SUFFIX}`);
+      fieldNode = getFieldElement(node, `${fieldElementId}${ID_SUFFIX}`);
     }
     fieldNode &&
       scrollIntoView(fieldNode, {
@@ -120,10 +128,16 @@ const Form = <
       formProviderCtx.onFormValuesChange && formProviderCtx.onFormValuesChange(props.id, value);
     },
     onChange: props.onChange,
-    onValidateFail: (errors: { [key in FieldKey]: FieldError<FieldValue> }) => {
+    onValidateFail: (
+      errors: { [key in FieldKey]: FieldError<FieldValue> },
+      options?: ValidateOptions
+    ) => {
+      if (options?.noScrollToFirstError) {
+        return;
+      }
       if (props.scrollToFirstError) {
-        const options = isObject(props.scrollToFirstError) ? props.scrollToFirstError : {};
-        formInstance.scrollToField((Object.keys(errors) as FieldKey[])[0], options);
+        const scrollOptions = isObject(props.scrollToFirstError) ? props.scrollToFirstError : {};
+        formInstance.scrollToField((Object.keys(errors) as FieldKey[])[0], scrollOptions);
       }
     },
     onSubmitFailed: props.onSubmitFailed,

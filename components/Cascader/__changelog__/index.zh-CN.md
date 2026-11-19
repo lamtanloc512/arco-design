@@ -1,3 +1,20 @@
+## 2.66.17
+
+2026-10-10
+
+### 🐛 问题修复
+
+- 修复级联面板宽度变化时弹层瞬时越界，导致页面横向滚动条闪烁和抖动的问题([#3197](https://github.com/arco-design/arco-design/pull/3197))
+
+## 2.66.11
+
+2026-03-06
+
+### 🆕 功能升级
+
+- `Cascader` 的 renderFormat 参数添加当前被选中的 options 信息([#3146](https://github.com/arco-design/arco-design/pull/3146))
+- `Cascader` 组件在默认值不完整时支持快速选中缺少的项([#3133](https://github.com/arco-design/arco-design/pull/3133))
+
 ## 2.66.3
 
 2025-08-06

@@ -22,6 +22,9 @@ export default function Footer(props) {
     extra,
     mode,
     shortcutsPlacementLeft,
+    disableConfirm,
+    nowDisabled,
+    disabledDate,
   } = props;
 
   const hasShortcuts = isArray(shortcuts) && shortcuts.length > 0;
@@ -33,7 +36,9 @@ export default function Footer(props) {
       {extra && <div className={`${prefixCls}-footer-extra-wrapper`}>{extra}</div>}
       {!showTime && showNowBtn && mode === 'date' && (
         <div className={`${prefixCls}-footer-now-wrapper`}>
-          <Link onClick={onSelectNow}>{DATEPICKER_LOCALE.today}</Link>
+          <Link disabled={nowDisabled} onClick={onSelectNow}>
+            {DATEPICKER_LOCALE.today}
+          </Link>
         </div>
       )}
       {shouldShouldShortcuts || showTime ? (
@@ -49,6 +54,9 @@ export default function Footer(props) {
               onMouseLeaveShortcut={onMouseLeaveShortcut}
               onSelectShortcut={onSelectShortcut}
               showTime={showTime}
+              nowDisabled={nowDisabled}
+              disabledDate={disabledDate}
+              mode={mode}
             />
           ) : (
             <div />
@@ -65,15 +73,17 @@ export default function Footer(props) {
               >
                 {isTimePanel ? DATEPICKER_LOCALE.selectDate : DATEPICKER_LOCALE.selectTime}
               </Button>
-              <Button
-                className={`${prefixCls}-btn-confirm`}
-                type="primary"
-                size="mini"
-                disabled={disabled}
-                onClick={onClickConfirmBtn}
-              >
-                {DATEPICKER_LOCALE.ok}
-              </Button>
+              {!disableConfirm && (
+                <Button
+                  className={`${prefixCls}-btn-confirm`}
+                  type="primary"
+                  size="mini"
+                  disabled={disabled}
+                  onClick={onClickConfirmBtn}
+                >
+                  {DATEPICKER_LOCALE.ok}
+                </Button>
+              )}
             </>
           )}
         </div>

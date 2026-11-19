@@ -1,3 +1,20 @@
+## 2.66.16
+
+2026-07-14
+
+### 🐛 BugFix
+
+- Fix a Trigger positioning issue where horizontal bounds inside a custom container could be miscalculated because the popup itself inflated the container width.([#3192](https://github.com/arco-design/arco-design/pull/3192))
+
+## 2.66.11
+
+2026-03-06
+
+### 🐛 BugFix
+
+- Fix the issue where the `Tooltip` component causes a white screen when rendering an array containing a single element wrapped by it.([#3141](https://github.com/arco-design/arco-design/pull/3141))
+- Fix the issue where the `Trigger` component throws the error "Cannot read properties of undefined (reading 'className')" during runtime, which causes the page to crash.([#3132](https://github.com/arco-design/arco-design/pull/3132))
+
 ## 2.66.0
 
 2025-04-03

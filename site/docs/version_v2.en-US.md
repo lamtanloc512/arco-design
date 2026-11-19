@@ -2,6 +2,109 @@
 changelog: true
 ---
 
+## 2.66.17
+
+2026-10-10
+
+### 🐛 BugFix
+
+- Fix an infinite update loop that could occur when a multiple Select uses responsive `maxTagCount` and receives repeated resize notifications.([#3199](https://github.com/arco-design/arco-design/pull/3199))
+- Fix page jitter and horizontal scrollbar flicker caused by transient popup overflow when Cascader panel width changes([#3197](https://github.com/arco-design/arco-design/pull/3197))
+
+## 2.66.16
+
+2026-07-14
+
+### 🐛 BugFix
+
+- Fix the left border logic of the action column to resolve missing or redundant border lines.([#3193](https://github.com/arco-design/arco-design/pull/3193))
+- Fix a Trigger positioning issue where horizontal bounds inside a custom container could be miscalculated because the popup itself inflated the container width.([#3192](https://github.com/arco-design/arco-design/pull/3192))
+
+## 2.66.15
+
+2026-05-08
+
+### 🐛 BugFix
+
+- Fix the issue where the click event of the close button in the `Image.Preview` popup bubbles up, causing the parent element's click event to be triggered mistakenly.([#3178](https://github.com/arco-design/arco-design/pull/3178))
+- Fix the scrollbar jitter issue of `Tree` when using the virtual list inside Modal. After expanding/collapsing nodes or completing loadMore, the problem occurs due to excessive scroll calibration after VirtualList data changes, untimely recalculation of the old virtual viewport state, and automatic scroll compensation caused by browser focus and scroll anchoring affecting virtual DOM reflow.([#3177](https://github.com/arco-design/arco-design/pull/3177))
+- Fix the issue that synchronously measuring and updating the `Menu` overflow state inside the ResizeObserver callback triggers continuous layout jitter and causes the browser to report a loop error.([#3176](https://github.com/arco-design/arco-design/pull/3176))
+- Fix the issue where form.scrollToField in the `Form` component throws an invalid selector error and fails to scroll when targeting a field ID that starts with a number or contains special characters.([#3175](https://github.com/arco-design/arco-design/pull/3175))
+- Fix the issue of the `InputTag` component: when the drag-and-drop sorting capability dragToSort is enabled, the unsaved input content (which has not been confirmed as a tag by pressing Enter) can be dragged directly during input. An error will be thrown after the drag operation is completed.([#3174](https://github.com/arco-design/arco-design/pull/3174))
+- Fix the issue that in the showSearch mode of the `Select` component, when the Option content is wrapped by HTML tags (such as Tooltip, Popover, div, etc.) and retainInputValue: true is configured, the selected content in the input box will be cleared and not displayed when focusing the dropdown box again after selecting an option.([#3173](https://github.com/arco-design/arco-design/pull/3173))
+
+## 2.66.14
+
+2026-04-16
+
+### 🆕 Feature
+
+- The built-in search of the `Select` component supports matching string label values, reducing user customization costs.([#3171](https://github.com/arco-design/arco-design/pull/3171))
+- Add configuration capability for the word count position of Input.TextArea, supporting displaying the count text of showWordLimit below the input box. This resolves issues such as overlapping count text with input content and failure to meet expected display requirements in business scenarios.([#3170](https://github.com/arco-design/arco-design/pull/3170))
+- Add a disabled parameter to the children function of the Radio component to support the requirement of displaying different content when the `Radio` is in a disabled state.([#3163](https://github.com/arco-design/arco-design/pull/3163))
+
+### 🐛 BugFix
+
+- Fixed the issue where the cursor jumps when typing Chinese in the Input component added inside Tree.Node of the `Tree` component.([#3169](https://github.com/arco-design/arco-design/pull/3169))
+- Fixed the issue where the time information was lost and displayed as 12:00:00 AM when passing a string value to `DatePicker` with format="YYYY/MM/DD hh:mm:ss A".([#3167](https://github.com/arco-design/arco-design/pull/3167))
+- Fixed the issue where when the first form item inside the Modal component is a DatePicker, the focus does not automatically move to the `DatePicker` input box after opening for the first time but falls back to the body, and the ESC key cannot close the modal.([#3166](https://github.com/arco-design/arco-design/pull/3166))
+- Fixed the issue where when both defaultPageSize and sizeCanChange were set for `Table` pagination, the initial page size displayed in the pagination selector was the first item of sizeOptions or the default value 10 instead of defaultPageSize, causing inconsistency between the displayed page size and the actual number of entries rendered in the Table.([#3165](https://github.com/arco-design/arco-design/pull/3165))
+- Fixed the issue where when using native horizontal smooth scrolling in `Table` with separated Table header and Table body mode (by setting the scroll-y property), the horizontal scrolling barely took effect and exhibited slight jitter.([#3164](https://github.com/arco-design/arco-design/pull/3164))
+
+## 2.66.13
+
+2026-04-03
+
+### 🐛 BugFix
+
+- Fixed the issue where the maximum width limit set via the max property for the right area of the `ResizeBox.SplitGroup` component did not take effect during actual resizing operations.([#3161](https://github.com/arco-design/arco-design/pull/3161))
+- Fix the issue where positioning becomes invalid after setting the width via triggerProps in the `Select` component.([#3160](https://github.com/arco-design/arco-design/pull/3160))
+- Fixed the issue where the "Today" shortcut button at the bottom remained clickable after disabling dates after today using the disabledDate prop in the `DatePicker` component.([#3159](https://github.com/arco-design/arco-design/pull/3159))
+- Fix the infinite jitter issue that occurs with horizontal `tabs` at specific window positions.([#3158](https://github.com/arco-design/arco-design/pull/3158))
+
+## 2.66.12
+
+2026-03-20
+
+### 🐛 BugFix
+
+- Fix the issue where the width does not expand with input during Chinese input method composition when `Select` is in single-selection mode with autoWidth enabled.([#3157](https://github.com/arco-design/arco-design/pull/3157))
+- Fix the issue where the selected value is not displayed and the dropdown displays abnormally due to incorrect width when the selected value is a ReactNode (such as wrapped by Tooltip or div) after focusing, while `Select` is in autoWidth mode.([#3156](https://github.com/arco-design/arco-design/pull/3156))
+- Fix the issue where the dropdown list width is not fully occupied by text after setting autoAlignPopupMinWidth for the `Select` component.([#3154](https://github.com/arco-design/arco-design/pull/3154))
+- Fix the issue where direction='vertical' does not take effect when type='button' is set for `Radio.Group`, and the buttons are still arranged horizontally.([#3153](https://github.com/arco-design/arco-design/pull/3153))
+- Fix the issue where the placeholder shifts and visually shakes when clearing content in the `InputTag` component.([#3152](https://github.com/arco-design/arco-design/pull/3152))
+- Fix the issue where decimal point input fails to display correctly in the controlled mode of `InputNumber`.([#3151](https://github.com/arco-design/arco-design/pull/3151))
+- Fix the issue where the dropdown list width of the `Select` component fails to adapt to content automatically after searching.([#3150](https://github.com/arco-design/arco-design/pull/3150))
+- Fixed the issue where invoking the normalize function via `form.setFieldValue` leads to unexpected behavior in scenarios such as copying, and supplemented the interface documentation accordingly.([#3149](https://github.com/arco-design/arco-design/pull/3149))
+
+## 2.66.11
+
+2026-03-06
+
+### 💎 Enhancement
+
+- Optimize `Tabs` component scrolling performance; resolve scrolling stuttering.([#3131](https://github.com/arco-design/arco-design/pull/3131))
+
+### 🆕 Feature
+
+- Add the information of the currently selected options to the renderFormat parameter of the Cascader component.([#3146](https://github.com/arco-design/arco-design/pull/3146))
+- Add a manual remove method to `Notification.useNotification`.([#3145](https://github.com/arco-design/arco-design/pull/3145))
+- A new noScrollToFirstError parameter is added to the validate method of the `Form` component to control the scrolling behavior.([#3144](https://github.com/arco-design/arco-design/pull/3144))
+- The `Cascader` component supports quickly selecting the missing items when the default values are incomplete.([#3133](https://github.com/arco-design/arco-design/pull/3133))
+
+### 🐛 BugFix
+
+- Fix the issue where expandedKeys does not take effect after the `Tree` component loads data asynchronously.([#3142](https://github.com/arco-design/arco-design/pull/3142))
+- Fix the issue where the `Tooltip` component causes a white screen when rendering an array containing a single element wrapped by it.([#3141](https://github.com/arco-design/arco-design/pull/3141))
+- Fix the issue where the autoSize feature of the `TextArea` component becomes ineffective after switching to the disabled state.([#3140](https://github.com/arco-design/arco-design/pull/3140))
+- If a field in the `Form` contains square brackets [], the value will be abnormally parsed into an object after calling getFieldsValue().([#3139](https://github.com/arco-design/arco-design/pull/3139))
+- Fix the issue where the actual displayed value of the `InputNumber` component is not updated in a timely manner after the value is changed in controlled mode.([#3138](https://github.com/arco-design/arco-design/pull/3138))
+- Fix the issue where the `InputTag` component allows clicking the tag close button to delete tags even when it is in the disabled state.([#3137](https://github.com/arco-design/arco-design/pull/3137))
+- Fix the issue where the min/max validation rules of the `InputNumber` component in `FormItem` do not take effect.([#3136](https://github.com/arco-design/arco-design/pull/3136))
+- Fix the issue where form.setFieldValue in the `Form` component does not trigger the normalize function.([#3135](https://github.com/arco-design/arco-design/pull/3135))
+- The disableConfirm configuration in timepickerProps of the `DatePicker` component does not take effect.([#3134](https://github.com/arco-design/arco-design/pull/3134))
+- Fix the issue where the `Trigger` component throws the error "Cannot read properties of undefined (reading 'className')" during runtime, which causes the page to crash.([#3132](https://github.com/arco-design/arco-design/pull/3132))
+
 ## 2.66.10
 
 2026-01-23

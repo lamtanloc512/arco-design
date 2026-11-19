@@ -1,3 +1,19 @@
+## 2.66.13
+
+2026-04-03
+
+### 🐛 BugFix
+
+- Fix the infinite jitter issue that occurs with horizontal `tabs` at specific window positions.([#3158](https://github.com/arco-design/arco-design/pull/3158))
+
+## 2.66.11
+
+2026-03-06
+
+### 💎 Enhancement
+
+- Optimize `Tabs` component scrolling performance; resolve scrolling stuttering.([#3131](https://github.com/arco-design/arco-design/pull/3131))
+
 ## 2.62.0
 
 2024-04-26

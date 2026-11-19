@@ -39,6 +39,7 @@ const TextArea = (baseProps: TextAreaProps, ref) => {
     onPressEnter,
     status,
     clearIcon,
+    wordLimitPosition = 'inside',
     ...rest
   } = props;
 
@@ -79,9 +80,6 @@ const TextArea = (baseProps: TextAreaProps, ref) => {
 
   const textareaDisplayedText = compositionValue || value || '';
   const prefixCls = getPrefixCls('textarea');
-  if (disabled) {
-    textAreaStyle.resize = 'none';
-  }
 
   // set element focus and caret position
   const onFocus = () => {
@@ -111,7 +109,7 @@ const TextArea = (baseProps: TextAreaProps, ref) => {
 
   useIsomorphicLayoutEffect(() => {
     resizeTextAreaHeight();
-  }, [textareaDisplayedText]);
+  }, [textareaDisplayedText, disabled, props.autoSize]);
 
   useImperativeHandle(
     ref,
@@ -131,7 +129,13 @@ const TextArea = (baseProps: TextAreaProps, ref) => {
   );
 
   const valueLength = value ? value.length : 0;
-  const withWrapper = (wordLimitMaxLength && showWordLimit) || allowClear;
+  const withWordLimit = !!(wordLimitMaxLength && showWordLimit);
+  const withWrapper = withWordLimit || allowClear;
+  const wordLimitOutside = withWordLimit && wordLimitPosition === 'outside';
+  const [leftWord, rightWord] = rtl
+    ? [wordLimitMaxLength, valueLength]
+    : [valueLength, wordLimitMaxLength];
+  const wordLimitText = withWordLimit ? `${leftWord}/${rightWord}` : '';
 
   const lengthError = useMemo(() => {
     if (!maxLength && wordLimitMaxLength) {
@@ -158,7 +162,7 @@ const TextArea = (baseProps: TextAreaProps, ref) => {
       {...omit(rest, ['autoSize', 'defaultValue'])}
       maxLength={maxLength}
       ref={textareaRef}
-      style={{ ...style, ...textAreaStyle }}
+      style={{ ...style, ...textAreaStyle, ...(disabled ? { resize: 'none' } : {}) }}
       className={classNames}
       placeholder={placeholder}
       disabled={disabled}
@@ -173,13 +177,11 @@ const TextArea = (baseProps: TextAreaProps, ref) => {
 
   if (withWrapper) {
     const showClearIcon = !disabled && allowClear && value;
-    const [leftWord, rightWord] = rtl
-      ? [wordLimitMaxLength, valueLength]
-      : [valueLength, wordLimitMaxLength];
     return (
       <div
         className={cs(`${prefixCls}-wrapper`, {
           [`${prefixCls}-clear-wrapper`]: allowClear,
+          [`${prefixCls}-wrapper-word-limit-outside`]: wordLimitOutside,
           [`${prefixCls}-wrapper-rtl`]: rtl,
         })}
         style={wrapperStyle}
@@ -208,13 +210,14 @@ const TextArea = (baseProps: TextAreaProps, ref) => {
             </IconHover>
           )
         ) : null}
-        {wordLimitMaxLength && showWordLimit && (
+        {withWordLimit && (
           <span
             className={cs(`${prefixCls}-word-limit`, {
+              [`${prefixCls}-word-limit-outside`]: wordLimitOutside,
               [`${prefixCls}-word-limit-error`]: lengthError,
             })}
           >
-            {leftWord}/{rightWord}
+            {wordLimitText}
           </span>
         )}
       </div>

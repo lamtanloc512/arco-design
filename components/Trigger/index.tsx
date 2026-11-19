@@ -566,6 +566,20 @@ class Trigger extends PureComponent<TriggerProps, TriggerState> {
     return this.getRootElement();
   };
 
+  updatePopupPositionSync = () => {
+    if (this.unmount) {
+      return;
+    }
+
+    const target = this.triggerRef.current;
+    const popupStyle = this.getPopupStyle();
+    if (target && popupStyle) {
+      const style = this.props.style || {};
+      target.style.top = String(style.top || `${popupStyle.top}px`);
+      target.style.left = String(style.left || `${popupStyle.left}px`);
+    }
+  };
+
   updatePopupPosition = (delay = 0, callback?: () => void) => {
     const currentVisible = this.state.popupVisible;
     if (!currentVisible) {
@@ -816,7 +830,11 @@ class Trigger extends PureComponent<TriggerProps, TriggerState> {
     const elementType = (element && typeof element !== 'string' && element.type) as any;
     let child = children;
 
-    if (['string', 'number'].indexOf(typeof children) > -1 || React.Children.count(children) > 1) {
+    if (
+      ['string', 'number'].indexOf(typeof children) > -1 ||
+      React.Children.count(children) > 1 ||
+      isArray(children)
+    ) {
       child = <span>{children}</span>;
     } else if (
       element &&
@@ -1011,10 +1029,23 @@ class Trigger extends PureComponent<TriggerProps, TriggerState> {
     }
 
     const child: any = this.getChild();
-    const popupChildren: any = React.Children.only(popup());
+    const rawPopupChildren: any = popup();
+    let popupChildren: any;
+    if (React.isValidElement(rawPopupChildren)) {
+      popupChildren = rawPopupChildren;
+    } else if (isArray(rawPopupChildren)) {
+      popupChildren = rawPopupChildren.find((n) => React.isValidElement(n)) || <span />;
+    } else {
+      popupChildren = <span />;
+    }
 
-    if (child.props.className) {
-      mergeProps.className = child.props.className;
+    const childProps = React.isValidElement(child) ? (child.props as unknown) : undefined;
+    const childClassName =
+      childProps && typeof (childProps as Record<string, unknown>).className === 'string'
+        ? ((childProps as Record<string, unknown>).className as string)
+        : undefined;
+    if (childClassName) {
+      mergeProps.className = childClassName;
     }
     if (childrenPrefix && popupVisible) {
       mergeProps.className = mergeProps.className
@@ -1121,15 +1152,9 @@ class Trigger extends PureComponent<TriggerProps, TriggerState> {
       >
         <ResizeObserver
           onResize={() => {
-            const target = this.triggerRef.current;
-            if (target) {
-              // Avoid the flickering problem caused by the size change and positioning not being recalculated in time.
-              // TODO: Consider changing the popup style directly  in the next major version
-              const popupStyle = this.getPopupStyle();
-              const style = this.props.style || {};
-              target.style.top = String(style.top || `${popupStyle.top}px`);
-              target.style.left = String(style.left || `${popupStyle.left}px`);
-            }
+            // Avoid the flickering problem caused by the size change and positioning not being recalculated in time.
+            // TODO: Consider changing the popup style directly  in the next major version
+            this.updatePopupPositionSync();
             this.onResize();
           }}
           getTargetDOMNode={() => this.getPopupElement()}

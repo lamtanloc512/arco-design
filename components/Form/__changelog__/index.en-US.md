@@ -1,3 +1,33 @@
+## 2.66.15
+
+2026-05-08
+
+### 🐛 BugFix
+
+- Fix the issue where form.scrollToField in the `Form` component throws an invalid selector error and fails to scroll when targeting a field ID that starts with a number or contains special characters.([#3175](https://github.com/arco-design/arco-design/pull/3175))
+
+## 2.66.12
+
+2026-03-20
+
+### 🐛 BugFix
+
+- Fixed the issue where invoking the normalize function via `form.setFieldValue` leads to unexpected behavior in scenarios such as copying, and supplemented the interface documentation accordingly.([#3149](https://github.com/arco-design/arco-design/pull/3149))
+
+## 2.66.11
+
+2026-03-06
+
+### 🆕 Feature
+
+- A new noScrollToFirstError parameter is added to the validate method of the `Form` component to control the scrolling behavior.([#3144](https://github.com/arco-design/arco-design/pull/3144))
+
+### 🐛 BugFix
+
+- If a field in the `Form` contains square brackets [], the value will be abnormally parsed into an object after calling getFieldsValue().([#3139](https://github.com/arco-design/arco-design/pull/3139))
+- Fix the issue where the min/max validation rules of the InputNumber component in `FormItem` do not take effect.([#3136](https://github.com/arco-design/arco-design/pull/3136))
+- Fix the issue where form.setFieldValue in the `Form` component does not trigger the normalize function.([#3135](https://github.com/arco-design/arco-design/pull/3135))
+
 ## 2.66.10
 
 2026-01-23

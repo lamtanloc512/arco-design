@@ -1,3 +1,46 @@
+## 2.66.17
+
+2026-10-10
+
+### 🐛 问题修复
+
+- 修复多选模式下使用响应式 `maxTagCount` 时，重复的尺寸通知可能导致无限更新的问题。([#3199](https://github.com/arco-design/arco-design/pull/3199))
+
+## 2.66.15
+
+2026-05-08
+
+### 🐛 问题修复
+
+- 修复在 `Select` 组件showSearch模式下，如果Option内容被HTML标签（如Tooltip、Popover或div等）包裹，并且设置了retainInputValue: true，在选中选项后再次聚焦下拉框时，输入框内已选中的内容会被清空，不展示已选中内容的问题([#3173](https://github.com/arco-design/arco-design/pull/3173))
+
+## 2.66.14
+
+2026-04-16
+
+### 🆕 功能升级
+
+- `Select` 组件内置搜索支持匹配 字符串 label值，减少用户定制成本([#3171](https://github.com/arco-design/arco-design/pull/3171))
+
+## 2.66.13
+
+2026-04-03
+
+### 🐛 问题修复
+
+- 修复 `Select` 的triggerProps设置宽度后及定位设置失效问题([#3160](https://github.com/arco-design/arco-design/pull/3160))
+
+## 2.66.12
+
+2026-03-20
+
+### 🐛 问题修复
+
+- 修复 `Select` 单选模式开启 autoWidth 时，中文输入法 composition 期间宽度未跟随输入扩展问题([#3157](https://github.com/arco-design/arco-design/pull/3157))
+- 修复 `Select` 在autoWidth 时，聚焦后已选值为 ReactNode（如 Tooltip、div 包裹）不显示，宽度异常导致下拉展示异常问题([#3156](https://github.com/arco-design/arco-design/pull/3156))
+- 修复 `Select`  组件设置autoAlignPopupMinWidth后下拉列表宽度未被文字占满的问题([#3154](https://github.com/arco-design/arco-design/pull/3154))
+- 修复 `Select` 组件搜索后下拉列表宽度无法自适应内容问题([#3150](https://github.com/arco-design/arco-design/pull/3150))
+
 ## 2.66.0
 
 2025-04-03

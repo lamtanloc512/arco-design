@@ -58,7 +58,7 @@ const needMergeKeys = [
 ] as const;
 
 type MergedPropsType = {
-  [key in typeof needMergeKeys[number]]?: TreeProps[key];
+  [key in (typeof needMergeKeys)[number]]?: TreeProps[key];
 };
 
 class Tree extends Component<TreeProps, TreeState> {
@@ -158,20 +158,51 @@ class Tree extends Component<TreeProps, TreeState> {
 
     if (prevProps !== this.props || !isEqualWith(prevMergedProps, mergedProps)) {
       const newState: Partial<TreeState> = {};
-      if (
-        this.needUpdateTreeData(
-          { ...prevMergedProps, ...prevProps },
-          { ...mergedProps, ...this.props }
-        )
-      ) {
+      const shouldUsePropsNodeList = !('treeData' in this.props);
+      let latestTreeData = this.state.treeData;
+      const treeDataChanged = this.needUpdateTreeData(
+        { ...prevMergedProps, ...prevProps },
+        { ...mergedProps, ...this.props }
+      );
+      if (treeDataChanged) {
         const treeData = this.getTreeData();
-        const nodeList = this.getNodeList(treeData);
-        newState.treeData = treeData;
-        newState.nodeList = nodeList;
+        latestTreeData = treeData;
+
+        if (!shouldUsePropsNodeList) {
+          const nodeList = this.getNodeList(treeData);
+          newState.treeData = treeData;
+          newState.nodeList = nodeList;
+        }
+
+        if ('expandedKeys' in this.props) {
+          const derivedExpandedKeys = this.getInitExpandedKeys(this.props.expandedKeys || []);
+          newState.expandedKeys = derivedExpandedKeys;
+          newState.currentExpandKeys = !mergedProps.animation
+            ? []
+            : [...derivedExpandedKeys, ...this.state.expandedKeys]
+                .reduce((total, next) => {
+                  const index = total.indexOf(next);
+                  if (index === -1) {
+                    total.push(next);
+                  } else {
+                    total.splice(index, 1);
+                  }
+                  return total;
+                }, [])
+                .filter((key, _, array) => {
+                  if (this.key2nodeProps[key]) {
+                    const pathParentKeys = this.key2nodeProps[key].pathParentKeys;
+                    if (pathParentKeys.some((x) => array.indexOf(x) > -1)) {
+                      return false;
+                    }
+                    return this.key2nodeProps[key].children?.length;
+                  }
+                });
+        }
       }
 
       if (
-        newState.treeData ||
+        treeDataChanged ||
         ('checkedKeys' in this.props && !isEqualWith(prevProps.checkedKeys, this.props.checkedKeys))
       ) {
         // 说明treeData变了，需要比较下内部checkedKeys
@@ -226,9 +257,9 @@ class Tree extends Component<TreeProps, TreeState> {
               });
       }
       const currentExpandKeys = newState.currentExpandKeys || this.state.currentExpandKeys;
-      if (newState.treeData && currentExpandKeys) {
+      if (treeDataChanged && currentExpandKeys) {
         newState.currentExpandKeys = currentExpandKeys.filter((key) => {
-          const item = newState.treeData.find((node) => node.key === key);
+          const item = latestTreeData?.find((node) => node.key === key);
           return item && item.children && item.children.length;
         });
       }
@@ -786,6 +817,8 @@ class Tree extends Component<TreeProps, TreeState> {
     const { getPrefixCls, rtl } = this.context;
 
     const prefixCls = getPrefixCls('tree');
+    const nodeList =
+      'treeData' in this.props ? this.state.nodeList : this.getNodeList(this.getTreeData());
 
     return (
       <TreeContext.Provider
@@ -834,7 +867,7 @@ class Tree extends Component<TreeProps, TreeState> {
           currentExpandKeys={this.state.currentExpandKeys}
           getNodeProps={this.getNodeProps}
           getDataSet={this.getDataSet}
-          nodeList={this.state.nodeList}
+          nodeList={nodeList}
           onMouseDown={this.props.onMouseDown}
           ariaProps={{
             role: 'tree',

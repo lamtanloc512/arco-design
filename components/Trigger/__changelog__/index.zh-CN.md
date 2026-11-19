@@ -1,3 +1,20 @@
+## 2.66.16
+
+2026-07-14
+
+### 🐛 问题修复
+
+- 修复 Trigger 在自定义容器中计算横向边界时，因弹层撑大容器宽度导致定位异常的问题。([#3192](https://github.com/arco-design/arco-design/pull/3192))
+
+## 2.66.11
+
+2026-03-06
+
+### 🐛 问题修复
+
+- `Tooltip` 组件包裹单个元素的数组时渲染白屏问题修复([#3141](https://github.com/arco-design/arco-design/pull/3141))
+- 修复`Trigger`组件运行时报错 “Cannot read properties of undefined (reading 'className')”导致页面崩溃问题([#3132](https://github.com/arco-design/arco-design/pull/3132))
+
 ## 2.66.0
 
 2025-04-03

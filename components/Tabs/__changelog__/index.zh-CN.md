@@ -1,3 +1,19 @@
+## 2.66.13
+
+2026-04-03
+
+### 🐛 问题修复
+
+- 修复水平 `Tabs` 在特定窗口位置会出现无限抖动问题([#3158](https://github.com/arco-design/arco-design/pull/3158))
+
+## 2.66.11
+
+2026-03-06
+
+### 💎 功能优化
+
+- `Tabs` 组件滚动性能优化，避免滚动卡顿([#3131](https://github.com/arco-design/arco-design/pull/3131))
+
 ## 2.62.0
 
 2024-04-26

@@ -4,6 +4,7 @@ import { sleep, render } from '../../../tests/util';
 import mountTest from '../../../tests/mountTest';
 import componentConfigTest from '../../../tests/componentConfigTest';
 import Button from '../../Button';
+import Tooltip from '../../Tooltip';
 import Select from '../select';
 import { Enter, Tab } from '../../_util/keycode';
 import { LabeledValue, SelectProps } from '../interface';
@@ -158,6 +159,46 @@ describe('Select', () => {
     expect(wrapper.find('.arco-select-option')).toHaveLength(0);
   });
 
+  it('showSearch matches string label in options and Option children', async () => {
+    wrapper = render(
+      <div>
+        <Select
+          showSearch
+          dropdownMenuClassName="select-with-options"
+          options={[{ label: '中文', value: 'chinese' }]}
+        />
+        <Select showSearch dropdownMenuClassName="select-with-children">
+          <Option value="chinese">中文</Option>
+        </Select>
+      </div>
+    );
+
+    const selectList = wrapper.querySelectorAll('.arco-select');
+    const getPopup = (className: string) => {
+      return document.body.querySelector(`.${className}`) as HTMLElement;
+    };
+
+    fireEvent.click(selectList[0]);
+    await sleep(100);
+
+    const inputList = wrapper.querySelectorAll('input');
+    fireEvent.change(inputList[0], { target: { value: '中' } });
+    let popup = getPopup('select-with-options');
+    expect(popup.querySelectorAll('.arco-select-option')).toHaveLength(1);
+    expect(popup.querySelector('.arco-select-option')).toHaveTextContent('中文');
+    expect(popup.querySelector('.arco-select-highlight')).toHaveTextContent('中');
+
+    fireEvent.change(inputList[0], { target: { value: '' } });
+    fireEvent.click(selectList[1]);
+    await sleep(100);
+
+    fireEvent.change(inputList[1], { target: { value: '中' } });
+    popup = getPopup('select-with-children');
+    expect(popup.querySelectorAll('.arco-select-option')).toHaveLength(1);
+    expect(popup.querySelector('.arco-select-option')).toHaveTextContent('中文');
+    expect(popup.querySelector('.arco-select-highlight')).toHaveTextContent('中');
+  });
+
   it('showSearch async correctly', async () => {
     const onSearch = jest.fn();
     wrapper = render(
@@ -165,6 +206,42 @@ describe('Select', () => {
     );
     fireEvent.change(wrapper.querySelector('input'), { target: { value: 'A' } });
     expect(onSearch.mock.calls[0][0]).toBe('A');
+  });
+
+  it('retainInputValue works with Tooltip wrapped option children', async () => {
+    wrapper = render(
+      <Select showSearch={{ retainInputValue: true }} defaultValue="1">
+        <Option value="1">
+          <Tooltip content="tooltip content">content1</Tooltip>
+        </Option>
+      </Select>
+    );
+
+    const select = wrapper.querySelector('.arco-select');
+    const input = wrapper.querySelector('input') as HTMLInputElement;
+
+    fireEvent.click(select);
+    await sleep(100);
+    expect(input.value).toBe('content1');
+  });
+
+  it('retainInputValue works with div wrapped option children', async () => {
+    wrapper = render(
+      <Select showSearch={{ retainInputValue: true }} defaultValue="1">
+        <Option value="1">
+          <div>content1</div>
+        </Option>
+      </Select>
+    );
+
+    expect(wrapper.querySelector('.arco-select-view-value')).toHaveTextContent('content1');
+
+    const select = wrapper.querySelector('.arco-select');
+    const input = wrapper.querySelector('input') as HTMLInputElement;
+
+    fireEvent.click(select);
+    await sleep(100);
+    expect(input.value).toBe('content1');
   });
 
   it('popup with correct position', async () => {
@@ -179,6 +256,30 @@ describe('Select', () => {
     fireEvent.click(wrapper.querySelector('.arco-select'));
     await sleep(100);
     expect(wrapper.querySelector('.arco-trigger')).toHaveClass('arco-trigger-position-left');
+  });
+
+  it('popup with popupStyle width keeps br position', async () => {
+    wrapper = render(
+      <div style={{ width: 500, position: 'relative' }}>
+        <Select
+          style={{ width: 154 }}
+          options={OPTIONS}
+          triggerProps={{
+            popupStyle: { width: 200 },
+            autoFitPosition: false,
+            position: 'br',
+          }}
+        />
+      </div>
+    );
+
+    const select = wrapper.querySelector('.arco-select');
+    fireEvent.click(select);
+    await sleep(100);
+
+    const trigger = wrapper.querySelector('.arco-trigger');
+    expect(trigger).toHaveClass('arco-trigger-position-br');
+    expect(trigger.style.width).toBe('200px');
   });
 
   it('show value correctly when defaultValue does not exist in options', () => {

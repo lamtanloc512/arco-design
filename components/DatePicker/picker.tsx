@@ -34,7 +34,7 @@ import useMergeProps from '../_util/hooks/useMergeProps';
 import PickerContext from './context';
 import usePrevious from '../_util/hooks/usePrevious';
 import useUpdate from '../_util/hooks/useUpdate';
-import { getDefaultWeekStart, getLocaleDayjsValue } from './util';
+import { getDefaultWeekStart, getLocaleDayjsValue, isDisabledDate } from './util';
 import { pickDataAttributes } from '../_util/pick';
 
 function getFormat(props) {
@@ -73,6 +73,7 @@ interface InnerPickerProps extends PickerProps {
   defaultValue?: CalendarValue | CalendarValue[];
   value?: CalendarValue | CalendarValue[];
   showTime?: boolean | TimePickerProps;
+  timepickerProps?: TimePickerProps;
   onSelect?: (dateString: string, date: Dayjs) => void;
   onChange?: (dateString: string, date: Dayjs) => void;
   showNowBtn?: boolean;
@@ -186,6 +187,7 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
   const [hoverPlaceholderValue, setHoverPlaceholderValue] = useState<string>();
 
   const mergedPopupVisible = 'popupVisible' in props ? props.popupVisible : popupVisible;
+  const prevPopupVisibleRef = useRef<boolean>(mergedPopupVisible);
 
   const mergedValue =
     'value' in props ? (getDayjsValue(propsValue, format, utcOffset, timezone) as Dayjs) : value;
@@ -212,6 +214,8 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
       (getDayjsValue(showTime.defaultValue, showTime.format || 'HH:mm:ss') as Dayjs)) ||
     getNow(utcOffset, timezone);
   const timeValue = panelValue || defaultTimeValue;
+  const nowValue = getNow(utcOffset, timezone);
+  const nowDisabled = isDisabledDate(nowValue, disabledDate, 'date');
 
   function focusInput() {
     refInput.current && refInput.current.focus?.();
@@ -235,6 +239,8 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
   useEffect(() => {
     setInputValue(undefined);
     setHoverPlaceholderValue(undefined);
+    const prevPopupVisible = prevPopupVisibleRef.current;
+    prevPopupVisibleRef.current = mergedPopupVisible;
 
     if (mergedPopupVisible) {
       setPageShowDate(defaultPageShowDate);
@@ -247,7 +253,9 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
       setTimeout(() => {
         setIsTimePanel(false);
         setPanelMode(mode);
-        blurInput();
+        if (prevPopupVisible && document.activeElement === refInput.current?.input) {
+          blurInput();
+        }
       }, 100);
     }
   }, [mergedPopupVisible]);
@@ -289,6 +297,14 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
   function onConfirmValue() {
     setValue(panelValue);
     onHandleChange(panelValue);
+    setOpen(false);
+  }
+
+  function onConfirmTimeValue(v: Dayjs) {
+    const _valueShow = panelValue || getNow(utcOffset, timezone);
+    const newValue = getValueWithTime(_valueShow, v);
+    setValue(newValue);
+    onHandleChange(newValue);
     setOpen(false);
   }
 
@@ -408,7 +424,10 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
   }
 
   function onSelectNow() {
-    const now = getLocaleDayjsValue(getNow(utcOffset, timezone), locale.dayjsLocale);
+    if (nowDisabled) {
+      return;
+    }
+    const now = getLocaleDayjsValue(nowValue, locale.dayjsLocale);
     handlePickerValueChange(now);
     onHandleSelect(now.format(format), now, true);
   }
@@ -448,6 +467,9 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
     onSelectShortcut && onSelectShortcut(shortcut);
     if (typeof shortcut.value === 'function' && isDayjs(shortcut.value())) {
       const time = getDayjsValue(shortcut.value(), format, utcOffset, timezone) as Dayjs;
+      if (isDisabledDate(time, disabledDate, mode)) {
+        return;
+      }
       setValue(time);
       onHandleChange(time);
       setOpen(false);
@@ -479,6 +501,9 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
       onMouseEnterShortcut,
       onMouseLeaveShortcut,
       onSelectShortcut: onHandleSelectShortcut,
+      nowDisabled,
+      disabledDate,
+      mode,
     };
 
     const shouldShowFooter =
@@ -486,6 +511,11 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
       extra ||
       (isArray(shortcuts) && shortcuts.length && !shortcutsPlacementLeft) ||
       (!showTime && panelMode === 'date' && showNowBtn);
+
+    const disableConfirm = Boolean(
+      (props.timepickerProps && (props.timepickerProps as TimePickerProps).disableConfirm) ||
+        (isObject(showTime) && (showTime as TimePickerProps).disableConfirm)
+    );
 
     const content = (
       <>
@@ -495,6 +525,7 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
           getHeaderOperations,
           onSelect: onHandleSelect,
           onTimePickerSelect,
+          onConfirmValue: onConfirmTimeValue,
           onSelectNow,
           popupVisible: mergedPopupVisible,
           format,
@@ -520,9 +551,12 @@ const Picker = (baseProps: InnerPickerProps, ref) => {
             onClickConfirmBtn={onClickConfirmBtn}
             extra={extra}
             mode={panelMode}
+            nowDisabled={nowDisabled}
+            disabledDate={disabledDate}
             shortcutsPlacementLeft={shortcutsPlacementLeft}
             onClickSelectTimeBtn={onClickSelectTimeBtn}
             isTimePanel={isTimePanel}
+            disableConfirm={disableConfirm}
           />
         )}
       </>

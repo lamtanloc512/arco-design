@@ -1,9 +1,8 @@
 import React from 'react';
-import get from 'lodash/get';
 import setWith from 'lodash/setWith';
 import has from 'lodash/has';
 import omit from 'lodash/omit';
-import { cloneDeep, set, iterativelyGetKeys } from './utils';
+import { cloneDeep, set, get, iterativelyGetKeys } from './utils';
 import { isArray, isFunction, isObject, isExist } from '../_util/is';
 import Control from './control';
 import {
@@ -78,7 +77,10 @@ class Store<
   private initialValues: Partial<FormData> = {};
 
   private callbacks: Pick<FormProps<FormData, FieldValue, FieldKey>, innerCallbackType> & {
-    onValidateFail?: (errors: { [key in FieldKey]: FieldError<FieldValue> }) => void;
+    onValidateFail?: (
+      errors: { [key in FieldKey]: FieldError<FieldValue> },
+      options?: ValidateOptions
+    ) => void;
   } = {};
 
   private notifyWatchers() {
@@ -123,7 +125,10 @@ class Store<
 
   public innerSetCallbacks = (
     values: Pick<FormProps<FormData, FieldValue, FieldKey>, innerCallbackType> & {
-      onValidateFail?: (errors: { [key in FieldKey]: FieldError<FieldValue> }) => void;
+      onValidateFail?: (
+        errors: { [key in FieldKey]: FieldError<FieldValue> },
+        options?: ValidateOptions
+      ) => void;
     }
   ) => {
     this.callbacks = values;
@@ -500,7 +505,7 @@ class Store<
       const onValidateFail = (errors) => {
         if (!options?.validateOnly) {
           const { onValidateFail } = this.callbacks;
-          onValidateFail && onValidateFail(errors);
+          onValidateFail && onValidateFail(errors, options);
         }
       };
 

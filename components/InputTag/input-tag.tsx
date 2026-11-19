@@ -186,6 +186,9 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
   };
 
   const tagCloseHandler = (itemValue: ObjectValueType, index: number, event) => {
+    if (disabled || readOnly) {
+      return;
+    }
     onRemove && onRemove(itemValue, index, event);
     valueChangeHandler([...value.slice(0, index), ...value.slice(index + 1)], 'remove');
   };
@@ -392,7 +395,7 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
       );
     });
     return items;
-  }, [value]);
+  }, [value, disabled, readOnly]);
 
   const suffixInput = [
     <ArcoCSSTransition
@@ -409,6 +412,13 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
         autoFocus={autoFocus}
         placeholder={!value.length ? placeholder : ''}
         prefixCls={`${prefixCls}-input`}
+        {...(!value.length
+          ? {
+              style: {
+                order: -1,
+              },
+            }
+          : {})}
         autoFitWidth={{
           delay: () => refDelay.current,
           pure: true,
@@ -519,11 +529,20 @@ function InputTag(baseProps: InputTagProps<string | ObjectValueType>, ref) {
                   arr.splice(isMoveLeft ? toIndex : toIndex - 1, 0, item);
                   return arr;
                 };
+                if (
+                  prevIndex < 0 ||
+                  index < 0 ||
+                  prevIndex >= value.length ||
+                  index > value.length
+                ) {
+                  return;
+                }
                 valueChangeHandler(moveItem(value, prevIndex, index), 'sort');
               }}
             >
-              {childrenTagWithAnimation.concat(suffixInput)}
+              {childrenTagWithAnimation}
             </Draggable>
+            {suffixInput}
           </UsedTransitionGroup>
         ) : (
           <UsedTransitionGroup

@@ -1,3 +1,46 @@
+## 2.66.17
+
+2026-10-10
+
+### 🐛 BugFix
+
+- Fix an infinite update loop that could occur when a multiple Select uses responsive `maxTagCount` and receives repeated resize notifications.([#3199](https://github.com/arco-design/arco-design/pull/3199))
+
+## 2.66.15
+
+2026-05-08
+
+### 🐛 BugFix
+
+- Fix the issue that in the showSearch mode of the `Select` component, when the Option content is wrapped by HTML tags (such as Tooltip, Popover, div, etc.) and retainInputValue: true is configured, the selected content in the input box will be cleared and not displayed when focusing the dropdown box again after selecting an option.([#3173](https://github.com/arco-design/arco-design/pull/3173))
+
+## 2.66.14
+
+2026-04-16
+
+### 🆕 Feature
+
+- The built-in search of the `Select` component supports matching string label values, reducing user customization costs.([#3171](https://github.com/arco-design/arco-design/pull/3171))
+
+## 2.66.13
+
+2026-04-03
+
+### 🐛 BugFix
+
+- Fix the issue where positioning becomes invalid after setting the width via triggerProps in the `Select` component.([#3160](https://github.com/arco-design/arco-design/pull/3160))
+
+## 2.66.12
+
+2026-03-20
+
+### 🐛 BugFix
+
+- Fix the issue where the width does not expand with input during Chinese input method composition when `Select` is in single-selection mode with autoWidth enabled.([#3157](https://github.com/arco-design/arco-design/pull/3157))
+- Fix the issue where the selected value is not displayed and the dropdown displays abnormally due to incorrect width when the selected value is a ReactNode (such as wrapped by Tooltip or div) after focusing, while `Select` is in autoWidth mode.([#3156](https://github.com/arco-design/arco-design/pull/3156))
+- Fix the issue where the dropdown list width is not fully occupied by text after setting autoAlignPopupMinWidth for the `Select` component.([#3154](https://github.com/arco-design/arco-design/pull/3154))
+- Fix the issue where the dropdown list width of the `Select` component fails to adapt to content automatically after searching.([#3150](https://github.com/arco-design/arco-design/pull/3150))
+
 ## 2.66.0
 
 2025-04-03

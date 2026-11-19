@@ -45,6 +45,22 @@ import useMergeProps from '../_util/hooks/useMergeProps';
 import { SelectOptionProps } from '../index';
 import useId from '../_util/hooks/useId';
 
+const nodeToText = (node: ReactNode): string => {
+  if (typeof node === 'string' || typeof node === 'number') {
+    return String(node);
+  }
+
+  if (Array.isArray(node)) {
+    return node.map((item) => nodeToText(item)).join('');
+  }
+
+  if (React.isValidElement(node)) {
+    return nodeToText(node.props?.children);
+  }
+
+  return '';
+};
+
 // 用户创建中的option的origin标识
 const USER_CREATING_OPTION_ORIGIN = 'userCreatingOption';
 
@@ -774,6 +790,16 @@ function Select(baseProps: SelectProps, ref) {
   );
 
   const renderView = (eleView: ReactElement | ReactNode) => {
+    const mergedTriggerProps = { ...triggerProps };
+    const popupStyleWidth = mergedTriggerProps.popupStyle?.width;
+
+    if (popupStyleWidth !== undefined) {
+      mergedTriggerProps.style = {
+        ...mergedTriggerProps.style,
+        width: popupStyleWidth,
+      };
+    }
+
     return (
       <Trigger
         ref={(ref) => (refTrigger.current = ref)}
@@ -794,7 +820,7 @@ function Select(baseProps: SelectProps, ref) {
           refPopupExiting.current = false;
           tryUpdateInputValue('', 'optionListHide');
         }}
-        {...omit(triggerProps, ['popupVisible', 'onVisibleChange'])}
+        {...omit(mergedTriggerProps, ['popupVisible', 'onVisibleChange'])}
       >
         {eleView}
       </Trigger>
@@ -828,13 +854,15 @@ function Select(baseProps: SelectProps, ref) {
           onSort={tryUpdateSelectValue}
           renderText={(value) => {
             const option = getOptionInfoByValue(value);
-            let text = value;
+            let text: ReactNode = value;
+            let textInput = String(value);
             if (isFunction(renderFormat)) {
               const paramsForCallback = getValueAndOptionForCallback(value, false);
               text = renderFormat(
                 (paramsForCallback.option as OptionInfo) || null,
                 paramsForCallback.value as ReactText | LabeledValue
               );
+              textInput = nodeToText(text);
             } else {
               let foundLabelFromProps = false;
               if (labelInValue) {
@@ -845,21 +873,25 @@ function Select(baseProps: SelectProps, ref) {
                   );
                   if (targetLabeledValue) {
                     text = targetLabeledValue.label;
+                    textInput = nodeToText(targetLabeledValue.label);
                     foundLabelFromProps = true;
                   }
                 } else if (isObject(propValue)) {
                   text = (propValue as LabeledValue).label;
+                  textInput = nodeToText((propValue as LabeledValue).label);
                   foundLabelFromProps = true;
                 }
               }
 
               if (!foundLabelFromProps && option && 'children' in option) {
                 text = option.children;
+                textInput = nodeToText(option.children);
               }
             }
 
             return {
               text,
+              textInput,
               disabled: option && option.disabled,
             };
           }}

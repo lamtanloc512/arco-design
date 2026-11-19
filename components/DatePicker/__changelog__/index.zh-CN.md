@@ -1,3 +1,28 @@
+## 2.66.14
+
+2026-04-16
+
+### 🐛 问题修复
+
+- 修复 `DatePicker` 传入字符串 value 且 format="YYYY/MM/DD hh:mm:ss A" 时显示为 12:00:00 凌晨，时间信息丢失问题([#3167](https://github.com/arco-design/arco-design/pull/3167))
+- 修复 Modal 组件内首个表单项为 `DatePicker` 时，首次打开后焦点不会自动聚焦到DatePicker元素输入框上，会回退到 body，ESC 不能关闭弹窗的问题([#3166](https://github.com/arco-design/arco-design/pull/3166))
+
+## 2.66.13
+
+2026-04-03
+
+### 🐛 问题修复
+
+- 修复 `DatePicker` 组件通过disabledDate禁用今天之后，底部的“今天”快捷选择按钮仍然可以点击的问题([#3159](https://github.com/arco-design/arco-design/pull/3159))
+
+## 2.66.11
+
+2026-03-06
+
+### 🐛 问题修复
+
+- `DatePicker` 中timepickerProps配置了disableConfirm不生效([#3134](https://github.com/arco-design/arco-design/pull/3134))
+
 ## 2.66.7
 
 2025-10-31
