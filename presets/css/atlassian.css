@@ -67,6 +67,7 @@ body[data-arco-preset='atlassian'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F;
   --preset-shadow-md: 0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F;
   --preset-shadow-lg: 0px 8px 12px #1E1F2126, 0px 0px 1px #1E1F214F;
@@ -177,6 +178,7 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0px 1px 1px #01040480, 0px 0px 1px #01040480;
   --preset-shadow-md: 0px 1px 1px #01040480, 0px 0px 1px #01040480;
   --preset-shadow-lg: 0px 0px 0px 1px #BDBDBD1F, 0px 8px 12px #0104045C, 0px 0px 1px 1px #01040480;

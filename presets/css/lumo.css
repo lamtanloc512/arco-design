@@ -67,6 +67,7 @@ body[data-arco-preset='lumo'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 4px;
   --preset-radius-button: 4px;
+  --preset-radius-control: 4px;
   --preset-shadow-sm: none;
   --preset-shadow-md: 0 1px 4px -1px hsla(214, 45%, 20%, 0.52);
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 53%, 23%, 0.16), 0 8px 24px -4px hsla(214, 47%, 21%, 0.38);
@@ -170,6 +171,7 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 4px;
   --preset-radius-button: 4px;
+  --preset-radius-control: 4px;
   --preset-shadow-sm: none;
   --preset-shadow-md: 0 1px 4px -1px hsla(214, 20%, 10%, 0.5);
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 8%, 4%, 0.23), 0 8px 24px -4px hsla(214, 16%, 8%, 0.41);

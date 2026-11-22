@@ -47,6 +47,7 @@ body[data-arco-preset='ember'] {
   --preset-radius-card: 12px;
   --preset-radius-popup: 10px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0 1px 2px rgba(68,40,20,.06);
   --preset-shadow-md: 0 6px 18px -4px rgba(68,40,20,.12), 0 2px 4px -2px rgba(68,40,20,.06);
   --preset-shadow-lg: 0 20px 48px -12px rgba(68,40,20,.24), 0 4px 10px -4px rgba(68,40,20,.08);
@@ -127,6 +128,7 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --preset-radius-card: 12px;
   --preset-radius-popup: 10px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.45);
   --preset-shadow-md: 0 6px 18px -4px rgba(0,0,0,.55);
   --preset-shadow-lg: 0 20px 48px -10px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.06);

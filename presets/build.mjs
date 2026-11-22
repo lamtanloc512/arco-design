@@ -112,6 +112,9 @@ function block(name, p, mode) {
   v('preset-radius-card', p.shape.card);
   v('preset-radius-popup', p.shape.popup);
   v('preset-radius-button', p.shape.button);
+  // One radius for every control that sits in a row with others (buttons, fields, selects,
+  // pickers, input groups), so a field and the button beside it always match.
+  v('preset-radius-control', p.shape.control ?? p.shape.button);
   v('preset-shadow-sm', sh[0]);
   v('preset-shadow-md', sh[1]);
   v('preset-shadow-lg', sh[2]);

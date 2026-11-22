@@ -13,7 +13,9 @@ of those variables plus a small polish layer.
 | `atlassian` | `#1868db` (ADS) | ADS neutral scale | 4 / 6 / 8, card 8 | 0.6 | after atlassian.design: Inter, bold tight headings, outlined buttons, pale-blue selection |
 | `violet` | `#7c3aed` | mauve | 8 / 10 / 14, card 14 | 1 | soft, playful |
 
-Radius stays small: no pills, nothing past 14px. No edge bars on rounded shapes. An input with
+Radius stays small: no pills, nothing past 14px. Every control (button, field, select, picker,
+input group) takes one radius, `--preset-radius-control`, so a field and the button beside it
+always match. No edge bars on rounded shapes. An input with
 text addons (`addBefore` / `addAfter`, InputNumber's buttons) is one control: one squircle outline,
 square joins inside, a divider before each addon. Surfaces with a larger radius (cards, dialogs,
 popups, alerts, the FAQ) are drawn as squircles with [Monoco](https://somonoco.com) by `corners.js`,

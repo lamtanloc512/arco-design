@@ -47,6 +47,7 @@ body[data-arco-preset='zinc'] {
   --preset-radius-card: 10px;
   --preset-radius-popup: 8px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.05);
   --preset-shadow-md: 0 4px 12px -2px rgba(0,0,0,.08), 0 2px 4px -2px rgba(0,0,0,.05);
   --preset-shadow-lg: 0 16px 40px -12px rgba(0,0,0,.18), 0 4px 10px -4px rgba(0,0,0,.08);
@@ -127,6 +128,7 @@ body[data-arco-preset='zinc'][arco-theme='dark'] {
   --preset-radius-card: 10px;
   --preset-radius-popup: 8px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.4);
   --preset-shadow-md: 0 4px 14px -2px rgba(0,0,0,.5);
   --preset-shadow-lg: 0 16px 40px -8px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
@@ -199,6 +201,7 @@ body[data-arco-preset='indigo'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 4px;
+  --preset-radius-control: 4px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.05);
   --preset-shadow-md: 0 4px 12px -2px rgba(0,0,0,.08), 0 2px 4px -2px rgba(0,0,0,.05);
   --preset-shadow-lg: 0 16px 40px -12px rgba(0,0,0,.18), 0 4px 10px -4px rgba(0,0,0,.08);
@@ -279,6 +282,7 @@ body[data-arco-preset='indigo'][arco-theme='dark'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 4px;
+  --preset-radius-control: 4px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.4);
   --preset-shadow-md: 0 4px 14px -2px rgba(0,0,0,.5);
   --preset-shadow-lg: 0 16px 40px -8px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
@@ -351,6 +355,7 @@ body[data-arco-preset='ember'] {
   --preset-radius-card: 12px;
   --preset-radius-popup: 10px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0 1px 2px rgba(68,40,20,.06);
   --preset-shadow-md: 0 6px 18px -4px rgba(68,40,20,.12), 0 2px 4px -2px rgba(68,40,20,.06);
   --preset-shadow-lg: 0 20px 48px -12px rgba(68,40,20,.24), 0 4px 10px -4px rgba(68,40,20,.08);
@@ -431,6 +436,7 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --preset-radius-card: 12px;
   --preset-radius-popup: 10px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.45);
   --preset-shadow-md: 0 6px 18px -4px rgba(0,0,0,.55);
   --preset-shadow-lg: 0 20px 48px -10px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.06);
@@ -523,6 +529,7 @@ body[data-arco-preset='lumo'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 4px;
   --preset-radius-button: 4px;
+  --preset-radius-control: 4px;
   --preset-shadow-sm: none;
   --preset-shadow-md: 0 1px 4px -1px hsla(214, 45%, 20%, 0.52);
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 53%, 23%, 0.16), 0 8px 24px -4px hsla(214, 47%, 21%, 0.38);
@@ -626,6 +633,7 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 4px;
   --preset-radius-button: 4px;
+  --preset-radius-control: 4px;
   --preset-shadow-sm: none;
   --preset-shadow-md: 0 1px 4px -1px hsla(214, 20%, 10%, 0.5);
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 8%, 4%, 0.23), 0 8px 24px -4px hsla(214, 16%, 8%, 0.41);
@@ -721,6 +729,7 @@ body[data-arco-preset='atlassian'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F;
   --preset-shadow-md: 0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F;
   --preset-shadow-lg: 0px 8px 12px #1E1F2126, 0px 0px 1px #1E1F214F;
@@ -831,6 +840,7 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 6px;
+  --preset-radius-control: 6px;
   --preset-shadow-sm: 0px 1px 1px #01040480, 0px 0px 1px #01040480;
   --preset-shadow-md: 0px 1px 1px #01040480, 0px 0px 1px #01040480;
   --preset-shadow-lg: 0px 0px 0px 1px #BDBDBD1F, 0px 8px 12px #0104045C, 0px 0px 1px 1px #01040480;
@@ -913,6 +923,7 @@ body[data-arco-preset='violet'] {
   --preset-radius-card: 14px;
   --preset-radius-popup: 12px;
   --preset-radius-button: 8px;
+  --preset-radius-control: 8px;
   --preset-shadow-sm: 0 1px 3px rgba(60,30,120,.07);
   --preset-shadow-md: 0 10px 30px -10px rgba(60,30,120,.18), 0 2px 6px -2px rgba(60,30,120,.06);
   --preset-shadow-lg: 0 24px 60px -16px rgba(60,30,120,.3), 0 6px 14px -6px rgba(60,30,120,.1);
@@ -993,6 +1004,7 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --preset-radius-card: 14px;
   --preset-radius-popup: 12px;
   --preset-radius-button: 8px;
+  --preset-radius-control: 8px;
   --preset-shadow-sm: 0 1px 3px rgba(0,0,0,.45);
   --preset-shadow-md: 0 10px 30px -10px rgba(0,0,0,.6);
   --preset-shadow-lg: 0 24px 60px -14px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06);
@@ -1056,6 +1068,31 @@ body[data-arco-preset] .arco-statistic-value {
 
 /* ---------- Fields: outlined, the page's surface, a ring on focus ---------- */
 
+/* Every field takes the control radius, the same as the buttons beside it. */
+body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-group .arco-input),
+body[data-arco-preset] .arco-input-inner-wrapper:not(.arco-input-group .arco-input-inner-wrapper),
+body[data-arco-preset] .arco-textarea,
+body[data-arco-preset] .arco-input-tag,
+body[data-arco-preset] .arco-picker,
+body[data-arco-preset] .arco-select-view,
+body[data-arco-preset] .arco-tree-select-view,
+body[data-arco-preset] .arco-cascader-view,
+body[data-arco-preset] .arco-input-number,
+body[data-arco-preset] .arco-mentions .arco-textarea,
+body[data-arco-preset] .arco-verification-code .arco-input {
+  border-radius: var(--preset-radius-control);
+}
+/* In a group, only the outer ends are rounded, with the same radius. */
+body[data-arco-preset] .arco-input-group > :first-child {
+  border-top-left-radius: var(--preset-radius-control);
+  border-bottom-left-radius: var(--preset-radius-control);
+}
+body[data-arco-preset] .arco-input-group > :last-child,
+body[data-arco-preset] .arco-input-group > :last-child .arco-btn {
+  border-top-right-radius: var(--preset-radius-control);
+  border-bottom-right-radius: var(--preset-radius-control);
+}
+
 body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-error):not(.arco-input-warning):not(.arco-input-disabled),
 body[data-arco-preset] .arco-input-inner-wrapper:not(.arco-input-inner-wrapper-error):not(.arco-input-inner-wrapper-warning):not(.arco-input-inner-wrapper-disabled),
 body[data-arco-preset] .arco-textarea:not(.arco-textarea-error):not(.arco-textarea-warning):not(.arco-textarea-disabled),
@@ -1102,7 +1139,7 @@ body[data-arco-preset] .arco-select.arco-select-focused:not(.arco-select-error):
    whose addon is a button, like Input.Search, are left as they are). */
 body[data-arco-preset] .arco-input-group.preset-joined {
   border: 1px solid var(--preset-field-border);
-  border-radius: var(--border-radius-small);
+  border-radius: var(--preset-radius-control);
   background-color: var(--preset-field-bg);
   box-shadow: var(--preset-field-shadow);
 }
@@ -1154,7 +1191,7 @@ body[data-arco-preset] .arco-input-group > .arco-input {
 /* ---------- Buttons ---------- */
 
 body[data-arco-preset] .arco-btn:not(.arco-btn-shape-circle):not(.arco-btn-shape-round):not(.arco-btn-group .arco-btn):not(.arco-input-group .arco-btn) {
-  border-radius: var(--preset-radius-button);
+  border-radius: var(--preset-radius-control);
 }
 body[data-arco-preset] .arco-btn-group .arco-btn:first-child {
   border-top-left-radius: var(--preset-radius-button);
