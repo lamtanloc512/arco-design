@@ -63,7 +63,7 @@ body[data-arco-preset='atlassian'] {
   --border-radius-small: 4px;
   --border-radius-medium: 6px;
   --border-radius-large: 8px;
-  --preset-font: 'Atlassian Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
+  --preset-font: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 6px;
@@ -93,6 +93,12 @@ body[data-arco-preset='atlassian'] {
   --preset-secondary-text: #505258;
   --preset-secondary-border: #0b120e24;
   --preset-primary-weight: 500;
+  --preset-heading-weight: 700;
+  --preset-heading-tracking: -0.02em;
+  --preset-selected-bg: #e9f2fe;
+  --preset-selected-text: #1868db;
+  --preset-selected-bar: inset 2px 0 0 #1868db;
+  --preset-radius-alert: 8px;
 }
 
 body[data-arco-preset='atlassian'][arco-theme='dark'] {
@@ -168,7 +174,7 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --border-radius-small: 4px;
   --border-radius-medium: 6px;
   --border-radius-large: 8px;
-  --preset-font: 'Atlassian Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
+  --preset-font: 'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif;
   --preset-radius-card: 8px;
   --preset-radius-popup: 6px;
   --preset-radius-button: 6px;
@@ -198,4 +204,10 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --preset-secondary-text: #a9abaf;
   --preset-secondary-border: #e3e4f21f;
   --preset-primary-weight: 500;
+  --preset-heading-weight: 700;
+  --preset-heading-tracking: -0.02em;
+  --preset-selected-bg: #1c2b42;
+  --preset-selected-text: #669df1;
+  --preset-selected-bar: inset 2px 0 0 #669df1;
+  --preset-radius-alert: 8px;
 }

@@ -86,6 +86,12 @@ body[data-arco-preset='lumo'] {
   --preset-secondary-text: #005fdb;
   --preset-secondary-border: transparent;
   --preset-primary-weight: 600;
+  --preset-heading-weight: 600;
+  --preset-heading-tracking: -0.015em;
+  --preset-selected-bg: var(--color-fill-2);
+  --preset-selected-text: inherit;
+  --preset-selected-bar: none;
+  --preset-radius-alert: var(--border-radius-medium);
 }
 
 body[data-arco-preset='lumo'][arco-theme='dark'] {
@@ -184,4 +190,10 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-secondary-text: #90bdf9;
   --preset-secondary-border: transparent;
   --preset-primary-weight: 600;
+  --preset-heading-weight: 600;
+  --preset-heading-tracking: -0.015em;
+  --preset-selected-bg: var(--color-fill-2);
+  --preset-selected-text: inherit;
+  --preset-selected-bar: none;
+  --preset-radius-alert: var(--border-radius-medium);
 }

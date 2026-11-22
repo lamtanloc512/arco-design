@@ -10,7 +10,7 @@ of those variables plus a small polish layer.
 | `indigo` | `#5e6ad2` | slate | 4 / 6 / 8, card 8 | 0.6 | calm product tool |
 | `ember` | `#ea580c` | stone, cream page | 6 / 8 / 12, card 12 | 0.8 | warm, friendly |
 | `lumo` | `#006af5` (Vaadin Lumo) | Lumo's contrast ramp | 4 / 4 / 8, card 8 | 0.6 | Vaadin's Lumo: filled fields, primary-text default buttons |
-| `atlassian` | `#1868db` (ADS) | ADS neutral scale | 4 / 6 / 8, card 8 | 0.6 | Atlassian Design System: outlined default buttons, strong field borders |
+| `atlassian` | `#1868db` (ADS) | ADS neutral scale | 4 / 6 / 8, card 8 | 0.6 | after atlassian.design: Inter, bold tight headings, outlined buttons, pale-blue selection |
 | `violet` | `#7c3aed` | mauve | 8 / 10 / 14, card 14 | 1 | soft, playful |
 
 Radius stays small: no pills, nothing past 14px. Surfaces with a larger radius (cards, dialogs,
@@ -21,8 +21,11 @@ would cut their focus ring.
 `atlassian` follows @atlaskit/tokens 20.14 (the brand-refresh palette), @atlaskit/button 25.8 and
 @atlaskit/textfield 11.0: brand blue, the neutral scale, surfaces and elevations; default buttons
 transparent with a 1px border and subtle text; white fields with the strong `border.input` and a
-2px `border.focused` on focus; in dark mode a light-blue primary with dark text. Atlassian Sans is
-not a public web font, so text falls through to the system UI font, as ADS's own stack does.
+2px `border.focused` on focus; in dark mode a light-blue primary with dark text. The rest takes
+its cue from atlassian.design: bold, tight headings (700, -0.02em); the selected item in a vertical
+menu or anchor on `background.selected` with blue text and a 2px blue bar at its edge; section
+messages on 8px corners. Atlassian Sans is not a public web font, so it uses Inter, the closest
+public face. Other presets can use the same knobs: `type`, `selected`, `shape.alert`.
 
 `lumo` follows vaadin-lumo-styles 25.3 (`src/props/*.css`): its colours, its contrast ramp
 composited over the base colour, radius, shadows and font stack. Its fields are filled

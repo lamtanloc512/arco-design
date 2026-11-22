@@ -104,15 +104,23 @@ export const presets = {
     shape: { card: '8px', popup: '4px', button: '4px', shadow: 'lumo', ring: 0.6, ringWidth: 2, smoothing: 0.6 },
   },
 
-  // Atlassian Design System, from @atlaskit/tokens 20.14 (the brand-refresh palette),
+  // Atlassian Design System. Tokens from @atlaskit/tokens 20.14 (the brand-refresh palette),
   // @atlaskit/button 25.8 and @atlaskit/textfield 11.0: blue #1868DB on its neutral scale,
   // outlined default buttons, white fields with a strong input border and a 2px focus border,
-  // 4 / 6 / 8px radius, raised and overlay shadows. Atlassian Sans is not a public web font, so
-  // the stack falls through to the system UI font, as ADS's own stack does without it.
+  // 4 / 6 / 8px radius, raised and overlay shadows. The rest after atlassian.design itself: bold,
+  // tight headings; the selected item on a pale blue with blue text and a blue bar at its edge;
+  // section messages on 8px corners. Atlassian Sans is not a public web font; Inter is the
+  // closest public face.
   atlassian: {
     label: 'Atlassian',
-    note: 'Atlassian Design System: Atlassian blue, outlined default buttons, strong field borders.',
-    font: "'Atlassian Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif",
+    note: 'After atlassian.design: Atlassian blue, bold tight headings, outlined buttons, pale-blue selection.',
+    font: "'Inter', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif",
+    type: { headingWeight: 700, headingTracking: '-0.02em' },
+    selected: {
+      bg: { light: '#e9f2fe', dark: '#1c2b42' }, // color.background.selected
+      text: { light: '#1868db', dark: '#669df1' }, // color.text.selected
+      bar: { light: '#1868db', dark: '#669df1' },
+    },
     primary: '#1868db', // color.background.brand.bold
     primaryDark: '#669df1',
     onPrimary: { light: '#ffffff', dark: '#1f1f21' }, // color.text.inverse
@@ -155,6 +163,7 @@ export const presets = {
       card: '8px',
       popup: '6px',
       button: '6px',
+      alert: '8px',
       shadow: 'ads',
       // the focused field's 1px border plus a 1px inset ring: 2px of color.border.focused
       ring: { light: 'inset 0 0 0 1px #4688ec', dark: 'inset 0 0 0 1px #8fb8f6' },

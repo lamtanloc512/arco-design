@@ -149,6 +149,16 @@ function block(name, p, mode) {
   v('preset-secondary-border', sec?.border ? sec.border[mode] : 'transparent');
   v('preset-primary-weight', String(p.primaryWeight ?? 500));
 
+  // Headings, the selected item in menus and anchors, alert corners.
+  const t = p.type ?? {};
+  v('preset-heading-weight', String(t.headingWeight ?? 600));
+  v('preset-heading-tracking', t.headingTracking ?? '-0.015em');
+  const picked = p.selected;
+  v('preset-selected-bg', picked ? picked.bg[mode] : 'var(--color-fill-2)');
+  v('preset-selected-text', picked ? picked.text[mode] : 'inherit');
+  v('preset-selected-bar', picked?.bar ? `inset 2px 0 0 ${picked.bar[mode]}` : 'none');
+  v('preset-radius-alert', p.shape.alert ?? 'var(--border-radius-medium)');
+
   // Light mode comes first and dark second; the dark selector is more specific, so it wins
   // over this preset's light block and over Arco's own body[arco-theme='dark'].
   const sel = dark

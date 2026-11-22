@@ -32,8 +32,8 @@ body[data-arco-preset] h6.arco-typography,
 body[data-arco-preset] .arco-card-header-title,
 body[data-arco-preset] .arco-modal-title,
 body[data-arco-preset] .arco-statistic-value {
-  font-weight: 600;
-  letter-spacing: -0.015em;
+  font-weight: var(--preset-heading-weight);
+  letter-spacing: var(--preset-heading-tracking);
 }
 
 /* ---------- Fields: outlined, the page's surface, a ring on focus ---------- */
@@ -245,8 +245,11 @@ body[data-arco-preset] .arco-tag {
 body[data-arco-preset] .arco-tabs-header-title {
   font-weight: 500;
 }
-body[data-arco-preset] .arco-menu-light .arco-menu-item.arco-menu-selected {
-  background-color: var(--color-fill-2);
+body[data-arco-preset] .arco-menu-light:not(.arco-menu-horizontal) .arco-menu-item.arco-menu-selected,
+body[data-arco-preset] .arco-anchor-link-active > .arco-anchor-link-title {
+  background-color: var(--preset-selected-bg);
+  color: var(--preset-selected-text);
+  box-shadow: var(--preset-selected-bar);
   font-weight: 500;
 }
 body[data-arco-preset] .arco-menu-item,
@@ -258,7 +261,7 @@ body[data-arco-preset] .arco-collapse {
   border-color: var(--color-border-2);
 }
 body[data-arco-preset] .arco-alert {
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--preset-radius-alert);
 }
 body[data-arco-preset] .arco-progress-line-inner,
 body[data-arco-preset] .arco-progress-line-outer {
