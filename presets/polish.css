@@ -190,14 +190,14 @@ body[data-arco-preset] .arco-btn-primary:not(.arco-btn-disabled):not(.arco-btn-s
 }
 body[data-arco-preset] .arco-btn-outline:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success) {
   background-color: var(--color-bg-2);
-  border-color: var(--color-border-2);
-  color: var(--color-text-1);
+  border-color: var(--preset-outline-border);
+  color: var(--preset-outline-text);
   box-shadow: var(--preset-shadow-sm);
 }
 body[data-arco-preset] .arco-btn-outline:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success):hover {
   background-color: var(--color-fill-1);
-  border-color: var(--color-border-3);
-  color: var(--color-text-1);
+  border-color: var(--preset-outline-hover-border);
+  color: var(--preset-outline-text);
 }
 body[data-arco-preset] .arco-btn:focus-visible {
   box-shadow: var(--preset-ring);

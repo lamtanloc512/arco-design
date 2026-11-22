@@ -86,6 +86,9 @@ body[data-arco-preset='lumo'] {
   --color-secondary-active: #dbdfe5;
   --preset-secondary-text: #005fdb;
   --preset-secondary-border: transparent;
+  --preset-outline-border: var(--color-border-2);
+  --preset-outline-text: var(--color-text-1);
+  --preset-outline-hover-border: var(--color-border-3);
   --preset-primary-weight: 600;
   --preset-heading-weight: 600;
   --preset-heading-tracking: -0.015em;
@@ -190,6 +193,9 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --color-secondary-active: #44576f;
   --preset-secondary-text: #90bdf9;
   --preset-secondary-border: transparent;
+  --preset-outline-border: var(--color-border-2);
+  --preset-outline-text: var(--color-text-1);
+  --preset-outline-hover-border: var(--color-border-3);
   --preset-primary-weight: 600;
   --preset-heading-weight: 600;
   --preset-heading-tracking: -0.015em;

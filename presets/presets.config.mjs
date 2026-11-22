@@ -170,6 +170,72 @@ export const presets = {
     },
   },
 
+  // Material 3, from @material/web 2.5 (tokens v0.192: md-sys-color, md-ref-palette,
+  // md-sys-shape, md-ref-typeface; elevation): the baseline scheme (primary #6750A4 on a tinted
+  // surface), Roboto, regular-weight headlines, tonal default buttons (secondary-container),
+  // outlined buttons and fields on the outline colour with a 2px primary focus, the navigation
+  // indicator (secondary-container) for selection, and M3 elevation. Two choices depart from M3
+  // on purpose: buttons use corner-small (8px) instead of corner-full pills, and dialogs and popups
+  // stop at corner-medium / corner-small instead of 28px, drawn as squircles.
+  material: {
+    label: 'Material 3',
+    note: 'Material 3 baseline: #6750A4, tonal buttons, Roboto, tinted surfaces; corners kept small.',
+    font: "'Roboto', system-ui, sans-serif", // md-ref-typeface brand / plain
+    type: { headingWeight: 400, headingTracking: '0' }, // headline styles are regular weight
+    primary: '#6750a4', // primary40
+    primaryDark: '#d0bcff', // primary80
+    onPrimary: { light: '#ffffff', dark: '#381e72' }, // on-primary: primary100 / primary20
+    link: { light: '#6750a4', dark: '#d0bcff' },
+    palettes: { red: { light: '#b3261e', dark: '#e46962' } }, // error40; error60 in dark, readable on the dark surface
+    gray: {
+      // surface-container-low, -high, outline-variant, nv70, outline (light and dark), nv40,
+      // on-surface-variant, neutral20, on-surface
+      light: ['#f7f2fa', '#ece6f0', '#cac4d0', '#aea9b4', '#938f99', '#79747e', '#605d66', '#49454f', '#322f35', '#1d1b20'],
+      dark: ['#211f26', '#36343b', '#49454f', '#605d66', '#79747e', '#86828c', '#938f99', '#cac4d0', '#e7e0ec', '#e6e0e9'],
+    },
+    bg: {
+      // surface, surface-container-low (cards), surface-container, -high, menus (surface-container)
+      light: ['#fef7ff', '#f7f2fa', '#f3edf7', '#ece6f0', '#f3edf7'],
+      dark: ['#141218', '#1d1b20', '#211f26', '#2b2930', '#211f26'],
+    },
+    fieldTokens: {
+      // outlined text field
+      bg: 'transparent',
+      border: { light: '#79747e', dark: '#938f99' }, // outline
+      shadow: 'none',
+      hoverBg: 'transparent',
+      hoverBorder: { light: '#1d1b20', dark: '#e6e0e9' }, // on-surface
+      focusBg: 'transparent',
+      focusBorder: { light: '#6750a4', dark: '#d0bcff' }, // primary
+    },
+    secondaryButton: {
+      // filled tonal button: secondary-container / on-secondary-container
+      bg: { light: '#e8def8', dark: '#4a4458' },
+      hover: { light: '#ddd2ee', dark: '#554f63' },
+      active: { light: '#d2c7e3', dark: '#605a6e' },
+      text: { light: '#1d192b', dark: '#e8def8' },
+    },
+    outlineButton: {
+      border: { light: '#79747e', dark: '#938f99' }, // outline
+      text: { light: '#6750a4', dark: '#d0bcff' }, // primary
+    },
+    selected: {
+      bg: { light: '#e8def8', dark: '#4a4458' }, // secondary-container (navigation indicator)
+      text: { light: '#1d192b', dark: '#e8def8' },
+    },
+    primaryWeight: 500,
+    radius: ['4px', '8px', '12px'], // corner-extra-small / small / medium
+    shape: {
+      card: '12px', // corner-medium
+      popup: '8px',
+      button: '8px', // corner-small, in place of corner-full
+      alert: '12px',
+      shadow: 'm3',
+      ring: { light: 'inset 0 0 0 1px #6750a4', dark: 'inset 0 0 0 1px #d0bcff' }, // 2px focused outline
+      smoothing: 0.8,
+    },
+  },
+
   violet: {
     label: 'Violet',
     note: 'Soft and playful: violet on a mauve grey, the smoothest squircles.',

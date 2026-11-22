@@ -55,6 +55,11 @@ const shadows = {
     light: ['0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F', '0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F', '0px 8px 12px #1E1F2126, 0px 0px 1px #1E1F214F'],
     dark: ['0px 1px 1px #01040480, 0px 0px 1px #01040480', '0px 1px 1px #01040480, 0px 0px 1px #01040480', '0px 0px 0px 1px #BDBDBD1F, 0px 8px 12px #0104045C, 0px 0px 1px 1px #01040480'],
   },
+  // Material 3 (@material/web 2.5, elevation): key shadow at 30% plus ambient at 15%, levels 0 / 1 / 2.
+  m3: {
+    light: ['none', '0px 1px 2px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15)', '0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15)'],
+    dark: ['none', '0px 1px 2px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15)', '0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15)'],
+  },
   lifted: {
     light: ['0 1px 3px rgba(60,30,120,.07)', '0 10px 30px -10px rgba(60,30,120,.18), 0 2px 6px -2px rgba(60,30,120,.06)', '0 24px 60px -16px rgba(60,30,120,.3), 0 6px 14px -6px rgba(60,30,120,.1)'],
     dark: ['0 1px 3px rgba(0,0,0,.45)', '0 10px 30px -10px rgba(0,0,0,.6)', '0 24px 60px -14px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06)'],
@@ -150,6 +155,10 @@ function block(name, p, mode) {
   }
   v('preset-secondary-text', sec ? sec.text[mode] : 'var(--color-text-2)');
   v('preset-secondary-border', sec?.border ? sec.border[mode] : 'transparent');
+  const outline = p.outlineButton;
+  v('preset-outline-border', outline ? outline.border[mode] : 'var(--color-border-2)');
+  v('preset-outline-text', outline ? outline.text[mode] : 'var(--color-text-1)');
+  v('preset-outline-hover-border', outline ? outline.border[mode] : 'var(--color-border-3)');
   v('preset-primary-weight', String(p.primaryWeight ?? 500));
 
   // Headings, the selected item in menus and anchors, alert corners.

@@ -1,6 +1,6 @@
 # Arco presets
 
-Six looks for Arco, applied at runtime on top of the stock stylesheet. No rebuild of the library:
+Seven looks for Arco, applied at runtime on top of the stock stylesheet. No rebuild of the library:
 Arco already reads its colours, greys, backgrounds and radius from CSS variables, so a preset is a set
 of those variables plus a small polish layer.
 
@@ -11,6 +11,7 @@ of those variables plus a small polish layer.
 | `ember` | `#ea580c` | stone, cream page | 6 / 8 / 12, card 12 | 0.8 | warm, friendly |
 | `lumo` | `#006af5` (Vaadin Lumo) | Lumo's contrast ramp | 4 / 4 / 8, card 8 | 0.6 | Vaadin's Lumo: filled fields, primary-text default buttons |
 | `atlassian` | `#1868db` (ADS) | ADS neutral scale | 4 / 6 / 8, card 8 | 0.6 | after atlassian.design: Inter, bold tight headings, outlined buttons, pale-blue selection |
+| `material` | `#6750a4` (M3 baseline) | M3 neutral / neutral-variant tones | 4 / 8 / 12, card 12 | 0.8 | Material 3: tonal buttons, Roboto, tinted surfaces, corners kept small |
 | `violet` | `#7c3aed` | mauve | 8 / 10 / 14, card 14 | 1 | soft, playful |
 
 Radius stays small: no pills, nothing past 14px. Every control (button, field, select, picker,
@@ -30,6 +31,14 @@ its cue from atlassian.design: bold, tight headings (700, -0.02em); the selected
 menu or anchor on `background.selected` with blue text, its corners a squircle; section
 messages on 8px corners. Atlassian Sans is not a public web font, so it uses Inter, the closest
 public face. Other presets can use the same knobs: `type`, `selected`, `shape.alert`.
+
+`material` follows @material/web 2.5 (tokens v0.192: md-sys-color, md-ref-palette, md-sys-shape,
+md-ref-typeface, and the elevation recipe): the baseline scheme on tinted surfaces, Roboto with
+regular-weight headlines, tonal default buttons (`secondary-container`), outlined buttons and fields
+on the `outline` colour with a 2px primary focus, the navigation indicator for selection, and M3's
+key + ambient shadows. Two departures, on purpose: buttons use corner-small (8px), not corner-full
+pills, and dialogs and popups stop at 12px / 8px (squircles) instead of 28px. In dark mode, error
+uses error60 so it stays readable on the dark surface.
 
 `lumo` follows vaadin-lumo-styles 25.3 (`src/props/*.css`): its colours, its contrast ramp
 composited over the base colour, radius, shadows and font stack. Its fields are filled

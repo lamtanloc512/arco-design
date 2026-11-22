@@ -19,6 +19,10 @@
     "label": "Atlassian",
     "note": "After atlassian.design: Atlassian blue, bold tight headings, outlined buttons, pale-blue selection."
   },
+  "material": {
+    "label": "Material 3",
+    "note": "Material 3 baseline: #6750A4, tonal buttons, Roboto, tinted surfaces; corners kept small."
+  },
   "violet": {
     "label": "Violet",
     "note": "Soft and playful: violet on a mauve grey, the smoothest squircles."

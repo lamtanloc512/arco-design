@@ -93,6 +93,9 @@ body[data-arco-preset='atlassian'] {
   --color-secondary-active: #0b120e24;
   --preset-secondary-text: #505258;
   --preset-secondary-border: #0b120e24;
+  --preset-outline-border: var(--color-border-2);
+  --preset-outline-text: var(--color-text-1);
+  --preset-outline-hover-border: var(--color-border-3);
   --preset-primary-weight: 500;
   --preset-heading-weight: 700;
   --preset-heading-tracking: -0.02em;
@@ -204,6 +207,9 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --color-secondary-active: #e3e4f21f;
   --preset-secondary-text: #a9abaf;
   --preset-secondary-border: #e3e4f21f;
+  --preset-outline-border: var(--color-border-2);
+  --preset-outline-text: var(--color-text-1);
+  --preset-outline-hover-border: var(--color-border-3);
   --preset-primary-weight: 500;
   --preset-heading-weight: 700;
   --preset-heading-tracking: -0.02em;
