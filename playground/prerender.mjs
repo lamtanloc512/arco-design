@@ -15,7 +15,7 @@ const file = path.join(here, 'dist/client/index.html');
 const { render } = await import(pathToFileURL(path.join(here, 'dist/server/entry-server.js')).href);
 
 const { html, state, bodyAttributes } = render({
-  preset: arg('preset', 'modern'),
+  preset: arg('preset', 'arco'),
   dark: arg('mode', 'light') === 'dark',
   view: arg('view', 'components'),
 });

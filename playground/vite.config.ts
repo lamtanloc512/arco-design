@@ -1,4 +1,5 @@
 import path from 'node:path';
+import Module from 'node:module';
 import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { viteSingleFile } from 'vite-plugin-singlefile';
@@ -27,6 +28,11 @@ function forkSource(): Plugin {
   };
 }
 
+// The fork's Less loads Less plugins (theme/color/palette.js) that require @arco-design/color,
+// which lives in this folder's node_modules, not next to components/. Let Node find it from here.
+process.env.NODE_PATH = [path.resolve(__dirname, 'node_modules'), process.env.NODE_PATH].filter(Boolean).join(path.delimiter);
+(Module as unknown as { _initPaths(): void })._initPaths();
+
 // SINGLE=1 inlines everything into one dist/client/index.html, for sharing the page as one file.
 export default defineConfig({
   plugins: [forkSource(), react(), ...(process.env.SINGLE ? [viteSingleFile()] : [])],
@@ -37,6 +43,7 @@ export default defineConfig({
       { find: /^@arco-design\/web-react\/icon$/, replacement: path.join(npmArco, 'icon/index.es.js') },
     ],
   },
+  css: { preprocessorOptions: { less: { javascriptEnabled: true } } },
   // Bundle everything into the server build, so the SSR check runs the same code as the browser.
   ssr: { noExternal: true },
   build: { outDir: process.env.SSR_BUILD ? 'dist/server' : 'dist/client' },

@@ -11,8 +11,8 @@
 // it from an effect (which runs after hydration), never at import time: Monoco writes inline
 // styles on server-rendered elements, and React would report them as a hydration mismatch.
 //
-// It acts only while <body> has data-arco-preset and the preset sets --preset-corner-smoothing
-// above 0. Controls (buttons, inputs, switches, radios) are left alone: clip-path would cut their
+// It acts while --preset-corner-smoothing on <body> is above 0: set by a preset, or by the fork's
+// Modern default. Controls (buttons, inputs, switches, radios) are left alone: clip-path would cut their
 // focus ring, and their radius is small enough not to need it.
 //
 // Monoco cannot follow a CSS border or box-shadow, so on each surface the border is redrawn as an
@@ -90,7 +90,7 @@ function shadows(value) {
 function apply() {
   clear();
   const body = document.body;
-  if (!body?.hasAttribute('data-arco-preset')) return;
+  if (!body) return;
   const smoothing = parseFloat(getComputedStyle(body).getPropertyValue('--preset-corner-smoothing'));
   if (!(smoothing > 0)) return;
   // The browser draws this preset's corners itself (CSS corner-shape, see polish.css).

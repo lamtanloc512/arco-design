@@ -18,11 +18,11 @@ state into the built page.
 
 ## How it uses the fork
 
-`vite.config.ts` points `@arco-design/web-react` at `../components/index.tsx`. Two things come from
-the published package of the same version (2.66.18) instead:
+`vite.config.ts` points `@arco-design/web-react` at `../components/index.tsx`, and `src/arco.less`
+compiles the fork's own Less (Modern is its default look), in the order of Arco's
+`dist/css/index.less`. Icons come from the published package of the same version (2.66.18): the
+fork's `icon/react-icon` only exists after its icon generation step.
 
-- icons: the fork's `icon/react-icon` only exists after its icon generation step;
-- `arco.css`: the fork's Less is not compiled here.
 
 ## Server rendering
 

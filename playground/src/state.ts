@@ -9,11 +9,14 @@ export interface PageState {
 }
 
 export const presetOptions: { value: PresetName; label: string; note: string }[] = [
-  { value: 'arco', label: 'Arco', note: 'Arco as it ships: no preset, for comparison.' },
-  ...Object.entries(presetInfo).map(([value, p]) => ({ value: value as PresetName, ...p })),
+  { value: 'arco', label: 'Arco', note: "The fork's own stylesheet, no preset: Modern is its default look." },
+  // Modern is the fork's default now, so it is the "Arco" entry above, not a preset of its own here.
+  ...Object.entries(presetInfo)
+    .filter(([value]) => value !== 'modern')
+    .map(([value, p]) => ({ value: value as PresetName, ...p })),
 ];
 
-export const defaultState: PageState = { preset: 'modern', dark: false, view: 'components' };
+export const defaultState: PageState = { preset: 'arco', dark: false, view: 'components' };
 
 export function normalize(s: Partial<Record<keyof PageState, unknown>>): PageState {
   const preset = presetOptions.some((o) => o.value === s.preset) ? (s.preset as PresetName) : defaultState.preset;

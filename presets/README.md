@@ -65,6 +65,13 @@ composited over the base colour, radius, shadows and font stack. Its fields are 
 primary-coloured text. What it cannot change: Arco's controls stay 32px high with 14px text,
 where Lumo's are 36px and 16px.
 
+## Modern is the fork's default
+
+Modern is baked into the fork's Less (see GUIDE.md, "The default look"). `npm run build` here also
+writes `components/style/theme/modern.less` from the Modern preset and `polish.css`, so the fork's
+default and the runtime preset can't drift apart. The Modern preset itself stays for apps on
+stock Arco from npm.
+
 ## Use
 
 ```ts

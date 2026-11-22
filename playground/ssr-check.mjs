@@ -23,8 +23,8 @@ const { chromium } = createRequire(import.meta.url)('playwright');
 const here = path.dirname(new URL(import.meta.url).pathname);
 const client = path.join(here, 'dist/client');
 const cases = [
-  ['components', 'modern', 'light'],
-  ['blocks', 'modern', 'dark'],
+  ['components', 'arco', 'dark'],
+  ['blocks', 'arco', 'light'],
   ['components', 'zinc', 'light'],
   ['components', 'ember', 'dark'],
   ['components', 'arco', 'light'],

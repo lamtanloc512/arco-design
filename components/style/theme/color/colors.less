@@ -6,7 +6,7 @@
 @red-3: color-palette(@red-6, 3);
 @red-4: color-palette(@red-6, 4);
 @red-5: color-palette(@red-6, 5);
-@red-6: #f53f3f;
+@red-6: #e5484d;
 @red-7: color-palette(@red-6, 7);
 @red-8: color-palette(@red-6, 8);
 @red-9: color-palette(@red-6, 9);
@@ -28,7 +28,7 @@
 @orange-3: color-palette(@orange-6, 3);
 @orange-4: color-palette(@orange-6, 4);
 @orange-5: color-palette(@orange-6, 5);
-@orange-6: #ff7d00;
+@orange-6: #d97706;
 @orange-7: color-palette(@orange-6, 7);
 @orange-8: color-palette(@orange-6, 8);
 @orange-9: color-palette(@orange-6, 9);
@@ -72,7 +72,7 @@
 @green-3: color-palette(@green-6, 3);
 @green-4: color-palette(@green-6, 4);
 @green-5: color-palette(@green-6, 5);
-@green-6: #00b42a;
+@green-6: #45a557;
 @green-7: color-palette(@green-6, 7);
 @green-8: color-palette(@green-6, 8);
 @green-9: color-palette(@green-6, 9);
@@ -105,7 +105,7 @@
 @arcoblue-3: color-palette(@arcoblue-6, 3);
 @arcoblue-4: color-palette(@arcoblue-6, 4);
 @arcoblue-5: color-palette(@arcoblue-6, 5);
-@arcoblue-6: #165dff;
+@arcoblue-6: #0072f5;
 @arcoblue-7: color-palette(@arcoblue-6, 7);
 @arcoblue-8: color-palette(@arcoblue-6, 8);
 @arcoblue-9: color-palette(@arcoblue-6, 9);
@@ -144,16 +144,16 @@
 @magenta-9: color-palette(@magenta-6, 9);
 @magenta-10: color-palette(@magenta-6, 10);
 
-@gray-1: #f7f8fa;
-@gray-2: #f2f3f5;
-@gray-3: #e5e6eb;
-@gray-4: #c9cdd4;
-@gray-5: #a9aeb8;
-@gray-6: #86909c;
-@gray-7: #6b7785;
-@gray-8: #4e5969;
-@gray-9: #272e3b;
-@gray-10: #1d2129;
+@gray-1: #fafafa;
+@gray-2: #f2f2f2;
+@gray-3: #ebebeb;
+@gray-4: #c9c9c9;
+@gray-5: #a8a8a8;
+@gray-6: #8f8f8f;
+@gray-7: #7d7d7d;
+@gray-8: #4c4c4c;
+@gray-9: #2e2e2e;
+@gray-10: #171717;
 
 // dark
 
@@ -300,39 +300,63 @@
 @dark-magenta-9: color-palette-dark(@magenta-6, 9);
 @dark-magenta-10: color-palette-dark(@magenta-6, 10);
 
-@dark-gray-1: #17171a;
-@dark-gray-2: #2e2e30;
-@dark-gray-3: #484849;
-@dark-gray-4: #5f5f60;
-@dark-gray-5: #78787a;
-@dark-gray-6: #929293;
-@dark-gray-7: #ababac;
-@dark-gray-8: #c5c5c5;
-@dark-gray-9: #dfdfdf;
-@dark-gray-10: #f6f6f6;
+@dark-gray-1: #1a1a1a;
+@dark-gray-2: #1f1f1f;
+@dark-gray-3: #2d2d2d;
+@dark-gray-4: #383838;
+@dark-gray-5: #454545;
+@dark-gray-6: #7c7c7c;
+@dark-gray-7: #878787;
+@dark-gray-8: #a1a1a1;
+@dark-gray-9: #c9c9c9;
+@dark-gray-10: #ededed;
 
 // 命名具有具体含义，从预置色板取值
-@primary-1: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-1'));
-@primary-2: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-2'));
-@primary-3: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-3'));
-@primary-4: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-4'));
-@primary-5: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-5'));
-@primary-6: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-6'));
-@primary-7: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-7'));
-@primary-8: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-8'));
-@primary-9: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-9'));
-@primary-10: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-10'));
 
-@dark-primary-1: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-1'));
-@dark-primary-2: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-2'));
-@dark-primary-3: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-3'));
-@dark-primary-4: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-4'));
-@dark-primary-5: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-5'));
-@dark-primary-6: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-6'));
-@dark-primary-7: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-7'));
-@dark-primary-8: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-8'));
-@dark-primary-9: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-9'));
-@dark-primary-10: rgb(var(~'@{arco-cssvars-prefix}-arcoblue-10'));
+// Ink: the primary colour of the Modern default. Near-black on light (gray-1000 on step 6, a
+// lighter hover on 5, a darker press on 7), near-white on dark. Blue (arcoblue) stays for links.
+@ink-1: #f2f2f2;
+@ink-2: #ebebeb;
+@ink-3: #c9c9c9;
+@ink-4: #a8a8a8;
+@ink-5: #383838;
+@ink-6: #171717;
+@ink-7: #0a0a0a;
+@ink-8: #000000;
+@ink-9: #000000;
+@ink-10: #000000;
+@dark-ink-1: #1a1a1a;
+@dark-ink-2: #292929;
+@dark-ink-3: #454545;
+@dark-ink-4: #7c7c7c;
+@dark-ink-5: #c9c9c9;
+@dark-ink-6: #ededed;
+@dark-ink-7: #ffffff;
+@dark-ink-8: #ffffff;
+@dark-ink-9: #ffffff;
+@dark-ink-10: #ffffff;
+
+@primary-1: rgb(var(~'@{arco-cssvars-prefix}-ink-1'));
+@primary-2: rgb(var(~'@{arco-cssvars-prefix}-ink-2'));
+@primary-3: rgb(var(~'@{arco-cssvars-prefix}-ink-3'));
+@primary-4: rgb(var(~'@{arco-cssvars-prefix}-ink-4'));
+@primary-5: rgb(var(~'@{arco-cssvars-prefix}-ink-5'));
+@primary-6: rgb(var(~'@{arco-cssvars-prefix}-ink-6'));
+@primary-7: rgb(var(~'@{arco-cssvars-prefix}-ink-7'));
+@primary-8: rgb(var(~'@{arco-cssvars-prefix}-ink-8'));
+@primary-9: rgb(var(~'@{arco-cssvars-prefix}-ink-9'));
+@primary-10: rgb(var(~'@{arco-cssvars-prefix}-ink-10'));
+
+@dark-primary-1: rgb(var(~'@{arco-cssvars-prefix}-ink-1'));
+@dark-primary-2: rgb(var(~'@{arco-cssvars-prefix}-ink-2'));
+@dark-primary-3: rgb(var(~'@{arco-cssvars-prefix}-ink-3'));
+@dark-primary-4: rgb(var(~'@{arco-cssvars-prefix}-ink-4'));
+@dark-primary-5: rgb(var(~'@{arco-cssvars-prefix}-ink-5'));
+@dark-primary-6: rgb(var(~'@{arco-cssvars-prefix}-ink-6'));
+@dark-primary-7: rgb(var(~'@{arco-cssvars-prefix}-ink-7'));
+@dark-primary-8: rgb(var(~'@{arco-cssvars-prefix}-ink-8'));
+@dark-primary-9: rgb(var(~'@{arco-cssvars-prefix}-ink-9'));
+@dark-primary-10: rgb(var(~'@{arco-cssvars-prefix}-ink-10'));
 
 // 成功色
 @success-1: rgb(var(~'@{arco-cssvars-prefix}-green-1'));

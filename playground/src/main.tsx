@@ -2,8 +2,8 @@
 // `npm run dev`, it renders from scratch.
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
-// Arco's stylesheet comes from the published package of the same version; presets load after it.
-import '@arco-design/web-react/dist/css/arco.css';
+// The fork's own stylesheet, compiled from its Less (Modern is its default look); presets load after it.
+import './arco.less';
 import '../../presets/css/all.css';
 import './app.css';
 import { Root } from './Root';
