@@ -104,6 +104,64 @@ export const presets = {
     shape: { card: '8px', popup: '4px', button: '4px', shadow: 'lumo', ring: 0.6, ringWidth: 2, smoothing: 0.6 },
   },
 
+  // Atlassian Design System, from @atlaskit/tokens 20.14 (the brand-refresh palette),
+  // @atlaskit/button 25.8 and @atlaskit/textfield 11.0: blue #1868DB on its neutral scale,
+  // outlined default buttons, white fields with a strong input border and a 2px focus border,
+  // 4 / 6 / 8px radius, raised and overlay shadows. Atlassian Sans is not a public web font, so
+  // the stack falls through to the system UI font, as ADS's own stack does without it.
+  atlassian: {
+    label: 'Atlassian',
+    note: 'Atlassian Design System: Atlassian blue, outlined default buttons, strong field borders.',
+    font: "'Atlassian Sans', ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', Ubuntu, 'Helvetica Neue', sans-serif",
+    primary: '#1868db', // color.background.brand.bold
+    primaryDark: '#669df1',
+    onPrimary: { light: '#ffffff', dark: '#1f1f21' }, // color.text.inverse
+    link: { light: '#1868db', dark: '#669df1' }, // color.link
+    palettes: {
+      red: '#c9372c', // color.background.danger.bold
+      green: '#5b7f24', // color.background.success.bold
+    },
+    gray: {
+      // Neutral100 ... Neutral1000
+      light: ['#f8f8f8', '#f0f1f2', '#dddee1', '#b7b9be', '#8c8f97', '#7d818a', '#6b6e76', '#505258', '#3b3d42', '#292a2e'],
+      // DarkNeutral100 ... 1000, with color.border (12% white) composited at step 3
+      dark: ['#1f1f21', '#2b2c2f', '#38393c', '#4b4d51', '#5a5c61', '#63666b', '#7e8188', '#a9abaf', '#bfc1c4', '#cecfd2'],
+    },
+    bg: {
+      // surface, surface.raised, surface.sunken, accent.gray.subtlest, surface.overlay
+      light: ['#ffffff', '#ffffff', '#f8f8f8', '#f0f1f2', '#ffffff'],
+      dark: ['#1f1f21', '#242528', '#18191a', '#303134', '#2b2c2f'],
+    },
+    fieldTokens: {
+      bg: { light: '#ffffff', dark: '#242528' }, // color.background.input
+      border: { light: '#8c8f97', dark: '#7e8188' }, // color.border.input
+      shadow: 'none',
+      hoverBg: { light: '#f8f8f8', dark: '#2b2c2f' }, // color.background.input.hovered
+      hoverBorder: { light: '#8c8f97', dark: '#7e8188' },
+      focusBg: { light: '#ffffff', dark: '#242528' },
+      focusBorder: { light: '#4688ec', dark: '#8fb8f6' }, // color.border.focused
+    },
+    secondaryButton: {
+      // ADS default button: neutral.subtle, a 1px color.border, text.subtle
+      bg: { light: 'transparent', dark: 'transparent' },
+      hover: { light: '#0515240f', dark: '#ceced912' },
+      active: { light: '#0b120e24', dark: '#e3e4f21f' },
+      border: { light: '#0b120e24', dark: '#e3e4f21f' },
+      text: { light: '#505258', dark: '#a9abaf' },
+    },
+    primaryWeight: 500,
+    radius: ['4px', '6px', '8px'], // radius.small / medium / large
+    shape: {
+      card: '8px',
+      popup: '6px',
+      button: '6px',
+      shadow: 'ads',
+      // the focused field's 1px border plus a 1px inset ring: 2px of color.border.focused
+      ring: { light: 'inset 0 0 0 1px #4688ec', dark: 'inset 0 0 0 1px #8fb8f6' },
+      smoothing: 0.6,
+    },
+  },
+
   violet: {
     label: 'Violet',
     note: 'Soft and playful: violet on a mauve grey, the smoothest squircles.',

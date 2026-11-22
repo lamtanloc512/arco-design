@@ -61,6 +61,7 @@ body[data-arco-preset='indigo'] {
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
   --preset-secondary-text: var(--color-text-2);
+  --preset-secondary-border: transparent;
   --preset-primary-weight: 500;
 }
 
@@ -135,5 +136,6 @@ body[data-arco-preset='indigo'][arco-theme='dark'] {
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
   --preset-secondary-text: var(--color-text-2);
+  --preset-secondary-border: transparent;
   --preset-primary-weight: 500;
 }

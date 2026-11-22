@@ -9,6 +9,7 @@ import ImagePreview from './image-preview';
 import ImagePreviewGroup from './image-preview-group';
 import useShowFooter from './utils/hooks/useShowFooter';
 import useImageStatus from './utils/hooks/useImageStatus';
+import useServerRendered from '../_util/hooks/useServerRendered';
 import useMergeValue from '../_util/hooks/useMergeValue';
 import omit from '../_util/omit';
 import { isObject, isNumber, isUndefined } from '../_util/is';
@@ -84,6 +85,10 @@ function Image(baseProps: ImagePropsType, ref: LegacyRef<HTMLDivElement>) {
   const previewSrc = previewProps.src || src;
   const [showFooter] = useShowFooter({ title, description, actions });
   const { isLoading, isError, isLoaded, isBeforeLoad, setStatus } = useImageStatus('beforeLoad');
+  // Server HTML must show its image without JavaScript, and must keep showing it once hydrated
+  // while it finishes loading, so a server-rendered Image never hides its <img> before load.
+  // Images first rendered on the client keep hiding until they load.
+  const serverRendered = useServerRendered();
   const loaded = useRef(false);
   const [previewVisible, setPreviewVisible] = useMergeValue(false, {
     defaultValue: previewProps.defaultVisible,
@@ -102,8 +107,8 @@ function Image(baseProps: ImagePropsType, ref: LegacyRef<HTMLDivElement>) {
     {
       [`${prefixCls}-rtl`]: rtl,
       [`${prefixCls}-simple`]: simple,
-      [`${prefixCls}-before-load`]: isBeforeLoad,
-      [`${prefixCls}-loading`]: isLoading,
+      [`${prefixCls}-before-load`]: isBeforeLoad && !serverRendered,
+      [`${prefixCls}-loading`]: isLoading && !serverRendered,
       [`${prefixCls}-loading-error`]: isError,
       [`${prefixCls}-with-footer-inner`]: isLoaded && showFooter && footerPosition === 'inner',
       [`${prefixCls}-with-footer-outer`]: isLoaded && showFooter && footerPosition === 'outer',

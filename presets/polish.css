@@ -124,6 +124,7 @@ body[data-arco-preset] .arco-btn-text:not(.arco-btn-disabled):not(.arco-btn-stat
 }
 body[data-arco-preset] .arco-btn-secondary:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success) {
   color: var(--preset-secondary-text);
+  border-color: var(--preset-secondary-border);
 }
 body[data-arco-preset] .arco-btn-primary:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success) {
   color: var(--preset-on-primary);

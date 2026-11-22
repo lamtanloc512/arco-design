@@ -84,6 +84,7 @@ body[data-arco-preset='lumo'] {
   --color-secondary-hover: #e8ebef;
   --color-secondary-active: #dbdfe5;
   --preset-secondary-text: #005fdb;
+  --preset-secondary-border: transparent;
   --preset-primary-weight: 600;
 }
 
@@ -181,5 +182,6 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --color-secondary-hover: #36485f;
   --color-secondary-active: #44576f;
   --preset-secondary-text: #90bdf9;
+  --preset-secondary-border: transparent;
   --preset-primary-weight: 600;
 }

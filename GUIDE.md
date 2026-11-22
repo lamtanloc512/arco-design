@@ -133,6 +133,9 @@ changed for SSR and modern bundlers, and why:
   `tr`, `bl`, `br`, `lb`, `rt` or `rb` once the code was not compiled to ES5.
 - `Image` reads `img.complete` when the image finished before React attached `onLoad`, as with
   server HTML. It used to stay hidden in `before-load`.
+- `Image` rendered on the server never hides its `<img>` while loading (`useServerRendered`,
+  from `useSyncExternalStore`), so server HTML shows images without JavaScript and keeps them
+  through hydration. Images first rendered on the client still hide until they load.
 - `Table` and `VerificationCode` pass `key` directly, never inside spread props.
 - `ColorPicker` passes `undefined`, not `false`, as a class name.
 

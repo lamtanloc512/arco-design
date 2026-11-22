@@ -15,6 +15,10 @@
     "label": "Lumo",
     "note": "Vaadin's Lumo: blue on a blue-grey contrast ramp, filled fields, small corners."
   },
+  "atlassian": {
+    "label": "Atlassian",
+    "note": "Atlassian Design System: Atlassian blue, outlined default buttons, strong field borders."
+  },
   "violet": {
     "label": "Violet",
     "note": "Soft and playful: violet on a mauve grey, the smoothest squircles."

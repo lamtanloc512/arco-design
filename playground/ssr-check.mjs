@@ -27,6 +27,8 @@ const cases = [
   ['components', 'ember', 'dark'],
   ['components', 'arco', 'light'],
   ['components', 'lumo', 'dark'],
+  ['components', 'atlassian', 'light'],
+  ['blocks', 'atlassian', 'dark'],
   ['blocks', 'zinc', 'light'],
   ['blocks', 'violet', 'dark'],
 ];

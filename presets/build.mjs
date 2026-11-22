@@ -50,6 +50,11 @@ const shadows = {
     light: ['none', '0 1px 4px -1px hsla(214, 45%, 20%, 0.52)', '0 2px 6px -1px hsla(214, 53%, 23%, 0.16), 0 8px 24px -4px hsla(214, 47%, 21%, 0.38)'],
     dark: ['none', '0 1px 4px -1px hsla(214, 20%, 10%, 0.5)', '0 2px 6px -1px hsla(214, 8%, 4%, 0.23), 0 8px 24px -4px hsla(214, 16%, 8%, 0.41)'],
   },
+  // Atlassian (@atlaskit/tokens 20.14): elevation.shadow.raised for cards, .overlay for popups.
+  ads: {
+    light: ['0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F', '0px 1px 1px #1E1F2140, 0px 0px 1px #1E1F214F', '0px 8px 12px #1E1F2126, 0px 0px 1px #1E1F214F'],
+    dark: ['0px 1px 1px #01040480, 0px 0px 1px #01040480', '0px 1px 1px #01040480, 0px 0px 1px #01040480', '0px 0px 0px 1px #BDBDBD1F, 0px 8px 12px #0104045C, 0px 0px 1px 1px #01040480'],
+  },
   lifted: {
     light: ['0 1px 3px rgba(60,30,120,.07)', '0 10px 30px -10px rgba(60,30,120,.18), 0 2px 6px -2px rgba(60,30,120,.06)', '0 24px 60px -16px rgba(60,30,120,.3), 0 6px 14px -6px rgba(60,30,120,.1)'],
     dark: ['0 1px 3px rgba(0,0,0,.45)', '0 10px 30px -10px rgba(0,0,0,.6)', '0 24px 60px -14px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06)'],
@@ -110,7 +115,12 @@ function block(name, p, mode) {
   v('preset-shadow-sm', sh[0]);
   v('preset-shadow-md', sh[1]);
   v('preset-shadow-lg', sh[2]);
-  v('preset-ring', `0 0 0 ${p.shape.ringWidth ?? 3}px rgba(var(--primary-6), ${dark ? p.shape.ring + 0.1 : p.shape.ring})`);
+  v(
+    'preset-ring',
+    typeof p.shape.ring === 'object'
+      ? p.shape.ring[mode]
+      : `0 0 0 ${p.shape.ringWidth ?? 3}px rgba(var(--primary-6), ${dark ? p.shape.ring + 0.1 : p.shape.ring})`
+  );
   v('preset-corner-smoothing', String(p.shape.smoothing ?? 0));
   v('preset-on-primary', p.onPrimary ? p.onPrimary[mode] : '#ffffff');
 
@@ -123,6 +133,10 @@ function block(name, p, mode) {
   v('preset-field-hover-border', filled ? 'transparent' : 'var(--color-border-3)');
   v('preset-field-focus-bg', filled ? 'var(--color-fill-2)' : 'var(--color-bg-2)');
   v('preset-field-focus-border', filled ? 'transparent' : 'rgb(var(--primary-6))');
+  // A preset can set any of these itself: { bg, border, shadow, hoverBg, hoverBorder, focusBg, focusBorder }.
+  for (const [k, val] of Object.entries(p.fieldTokens ?? {})) {
+    v(`preset-field-${k.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase())}`, typeof val === 'object' ? val[mode] : val);
+  }
 
   // Default (secondary) buttons and weights.
   const sec = p.secondaryButton;
@@ -132,6 +146,7 @@ function block(name, p, mode) {
     v('color-secondary-active', sec.active[mode]);
   }
   v('preset-secondary-text', sec ? sec.text[mode] : 'var(--color-text-2)');
+  v('preset-secondary-border', sec?.border ? sec.border[mode] : 'transparent');
   v('preset-primary-weight', String(p.primaryWeight ?? 500));
 
   // Light mode comes first and dark second; the dark selector is more specific, so it wins
