@@ -87,17 +87,19 @@ body[data-arco-preset] .arco-select:not(.arco-select-error):not(.arco-select-war
   background-color: var(--preset-field-hover-bg);
   border-color: var(--preset-field-hover-border);
 }
+/* Focus outranks the outline and hover rules above (:not(#_) adds an id's weight and always
+   matches), so a focused field keeps its focus border and ring while the pointer is over it. */
 
-body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-error):not(.arco-input-warning):focus,
-body[data-arco-preset] .arco-input.arco-input-focus:not(.arco-input-inner-wrapper .arco-input),
-body[data-arco-preset] .arco-input-inner-wrapper.arco-input-inner-wrapper-focus:not(.arco-input-inner-wrapper-error),
-body[data-arco-preset] .arco-textarea:not(.arco-textarea-error):focus,
-body[data-arco-preset] .arco-textarea.arco-textarea-focus,
-body[data-arco-preset] .arco-input-tag.arco-input-tag-focus:not(.arco-input-tag-error),
-body[data-arco-preset] .arco-picker.arco-picker-focused:not(.arco-picker-error),
-body[data-arco-preset] .arco-cascader.arco-cascader-focused:not(.arco-cascader-error) .arco-cascader-view,
-body[data-arco-preset] .arco-tree-select.arco-tree-select-focused:not(.arco-tree-select-error) .arco-tree-select-view,
-body[data-arco-preset] .arco-select.arco-select-focused:not(.arco-select-error):not(.arco-select-no-border) .arco-select-view {
+body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-error):not(.arco-input-warning):focus:not(#_),
+body[data-arco-preset] .arco-input.arco-input-focus:not(.arco-input-inner-wrapper .arco-input):not(#_),
+body[data-arco-preset] .arco-input-inner-wrapper.arco-input-inner-wrapper-focus:not(.arco-input-inner-wrapper-error):not(#_),
+body[data-arco-preset] .arco-textarea:not(.arco-textarea-error):focus:not(#_),
+body[data-arco-preset] .arco-textarea.arco-textarea-focus:not(#_),
+body[data-arco-preset] .arco-input-tag.arco-input-tag-focus:not(.arco-input-tag-error):not(#_),
+body[data-arco-preset] .arco-picker.arco-picker-focused:not(.arco-picker-error):not(#_),
+body[data-arco-preset] .arco-cascader.arco-cascader-focused:not(.arco-cascader-error) .arco-cascader-view:not(#_),
+body[data-arco-preset] .arco-tree-select.arco-tree-select-focused:not(.arco-tree-select-error) .arco-tree-select-view:not(#_),
+body[data-arco-preset] .arco-select.arco-select-focused:not(.arco-select-error):not(.arco-select-no-border) .arco-select-view:not(#_) {
   background-color: var(--preset-field-focus-bg);
   border-color: var(--preset-field-focus-border);
   box-shadow: var(--preset-ring);

@@ -12,6 +12,83 @@
 //           0 leaves plain CSS radius
 
 export const presets = {
+  // Modern: the fork's proposed default look. Tokens from Vercel's Geist design system as served
+  // on vercel.com/geist (read from its CSS custom properties, light and dark): a true-neutral
+  // grey scale, near-black primary (near-white in dark), borders that are a 1px 8% black line,
+  // barely-there shadows, a two-layer focus ring (2px of the page, 2px of blue), blue for links,
+  // Geist's red / green / amber. The rest is the shared vocabulary of Vercel, ChatGPT and Payload
+  // admin: Geist type with tight semibold headings, white fields with no shadow, 6px controls,
+  // 12px cards and menus (squircles), quiet hover fills, selection as a light grey pill.
+  modern: {
+    label: 'Modern',
+    note: 'Proposed default: Geist greys and shadows, near-black primary, blue focus ring, quiet borders.',
+    font: "'Geist', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif",
+    type: { headingWeight: 600, headingTracking: '-0.02em' },
+    primary: {
+      // gray-1000 on step 6, a lighter hover (5) and a darker press (7), Geist greys for tints
+      light: ['#f2f2f2', '#ebebeb', '#c9c9c9', '#a8a8a8', '#383838', '#171717', '#0a0a0a', '#000000', '#000000', '#000000'],
+      dark: ['#1a1a1a', '#292929', '#454545', '#7c7c7c', '#c9c9c9', '#ededed', '#ffffff', '#ffffff', '#ffffff', '#ffffff'],
+    },
+    onPrimary: { light: '#ffffff', dark: '#0a0a0a' },
+    link: { light: '#0068d6', dark: '#52a8ff' }, // blue-900
+    palettes: {
+      red: { light: '#e5484d', dark: '#ff6166' }, // red-700 / red-900 (dark)
+      green: '#45a557', // green-700
+      orange: '#d97706', // a deeper amber than Geist's amber-700 (#ffb224), so white text on it stays readable
+    },
+    gray: {
+      // background-200, gray-100, border (8% black), gray-500, -600, -700, -800, -900, gray-alpha mix, gray-1000
+      light: ['#fafafa', '#f2f2f2', '#ebebeb', '#c9c9c9', '#a8a8a8', '#8f8f8f', '#7d7d7d', '#4c4c4c', '#2e2e2e', '#171717'],
+      // gray-100, -200, border (14% white on background-100), -400, -500, -800, -600, -900, -500 (light), gray-1000
+      dark: ['#1a1a1a', '#1f1f1f', '#2d2d2d', '#383838', '#454545', '#7c7c7c', '#878787', '#a1a1a1', '#c9c9c9', '#ededed'],
+    },
+    bg: {
+      // background-100 for page and cards, background-200 for sunken areas
+      light: ['#ffffff', '#ffffff', '#fafafa', '#f2f2f2', '#ffffff'],
+      dark: ['#0a0a0a', '#0a0a0a', '#000000', '#1a1a1a', '#0a0a0a'],
+    },
+    fieldTokens: {
+      bg: { light: '#ffffff', dark: '#0a0a0a' },
+      border: { light: '#ebebeb', dark: '#2d2d2d' },
+      shadow: 'none',
+      hoverBg: { light: '#ffffff', dark: '#0a0a0a' },
+      hoverBorder: { light: '#c9c9c9', dark: '#454545' },
+      focusBg: { light: '#ffffff', dark: '#0a0a0a' },
+      focusBorder: { light: '#a8a8a8', dark: '#7c7c7c' },
+    },
+    secondaryButton: {
+      // Geist's secondary button: the page colour, a 1px border, gray-1000 text, gray-alpha-100 on hover
+      bg: { light: '#ffffff', dark: '#0a0a0a' },
+      hover: { light: '#f2f2f2', dark: '#181818' },
+      active: { light: '#ebebeb', dark: '#1f1f1f' },
+      border: { light: '#ebebeb', dark: '#2d2d2d' },
+      text: { light: '#171717', dark: '#ededed' },
+    },
+    outlineButton: {
+      border: { light: '#ebebeb', dark: '#2d2d2d' },
+      text: { light: '#171717', dark: '#ededed' },
+    },
+    selected: {
+      bg: { light: '#f2f2f2', dark: '#1f1f1f' }, // gray-alpha-100
+      text: { light: '#171717', dark: '#ededed' },
+    },
+    primaryWeight: 500,
+    radius: ['6px', '8px', '12px'],
+    shape: {
+      card: '12px',
+      popup: '12px',
+      button: '6px',
+      tooltip: '6px',
+      tag: '6px',
+      checkbox: '4px',
+      alert: '8px',
+      shadow: 'geist',
+      // --ds-focus-ring: 2px of the page colour, then 2px of blue-700 (blue-900 in dark)
+      ring: { light: '0 0 0 2px #ffffff, 0 0 0 4px #0072f5', dark: '0 0 0 2px #0a0a0a, 0 0 0 4px #52a8ff' },
+      smoothing: 0.6,
+    },
+  },
+
   zinc: {
     label: 'Zinc',
     note: 'Neutral and crisp: a near-black primary, zinc greys, outlined fields, thin shadows.',

@@ -1,4 +1,8 @@
 {
+  "modern": {
+    "label": "Modern",
+    "note": "Proposed default: Geist greys and shadows, near-black primary, blue focus ring, quiet borders."
+  },
   "zinc": {
     "label": "Zinc",
     "note": "Neutral and crisp: a near-black primary, zinc greys, outlined fields, thin shadows."

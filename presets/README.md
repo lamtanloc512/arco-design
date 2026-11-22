@@ -1,11 +1,12 @@
 # Arco presets
 
-Seven looks for Arco, applied at runtime on top of the stock stylesheet. No rebuild of the library:
+Eight looks for Arco, applied at runtime on top of the stock stylesheet. No rebuild of the library:
 Arco already reads its colours, greys, backgrounds and radius from CSS variables, so a preset is a set
 of those variables plus a small polish layer.
 
 | Preset | Primary | Greys | Radius (small / medium / large), card | Squircle smoothing | Feel |
 | --- | --- | --- | --- | --- | --- |
+| `modern` (the proposed default) | `#171717` (white in dark), blue focus | Geist's neutral greys | 6 / 8 / 12, card 12 | 0.6 | Vercel / ChatGPT / Payload: quiet 8% borders, white fields, two-layer focus ring |
 | `zinc` | near-black (near-white in dark) | zinc | 6 / 8 / 10, card 10 | 0.6 | neutral, crisp, shadcn-like |
 | `indigo` | `#5e6ad2` | slate | 4 / 6 / 8, card 8 | 0.6 | calm product tool |
 | `ember` | `#ea580c` | stone, cream page | 6 / 8 / 12, card 12 | 0.8 | warm, friendly |
@@ -44,6 +45,15 @@ colour that grows to 8px and settles; no colour change on hover or press; body a
 letter-spacing from the typescale. Two departures, on purpose: buttons use corner-small (8px), not corner-full
 pills, and dialogs and popups stop at 12px / 8px (squircles) instead of 28px. In dark mode, error
 uses error60 so it stays readable on the dark surface.
+
+`modern` is the look proposed as the fork's default. Its tokens come from Vercel's Geist as
+served on vercel.com/geist (CSS custom properties, light and dark): the neutral grey scale,
+gray-1000 text, borders that are a 1px 8% black line (14% white in dark), barely-there shadows
+(`--ds-shadow-xs`, `-medium`, `-xl`), the two-layer focus ring (2px of the page, 2px of
+blue-700), blue-900 links, red and green. Warning is a deeper amber than Geist's so white text on
+a warning button stays readable. The rest is what Vercel, ChatGPT and Payload's admin share: Geist
+type with tight semibold headings, white fields with no shadow, a white default button with a
+1px border, 6px controls, 12px cards and menus (squircles), selection as a light grey fill.
 
 `lumo` follows vaadin-lumo-styles 25.3 (`src/props/*.css`): its colours, its contrast ramp
 composited over the base colour, radius, shadows and font stack. Its fields are filled

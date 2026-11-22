@@ -13,7 +13,7 @@ export const presetOptions: { value: PresetName; label: string; note: string }[]
   ...Object.entries(presetInfo).map(([value, p]) => ({ value: value as PresetName, ...p })),
 ];
 
-export const defaultState: PageState = { preset: 'zinc', dark: false, view: 'components' };
+export const defaultState: PageState = { preset: 'modern', dark: false, view: 'components' };
 
 export function normalize(s: Partial<Record<keyof PageState, unknown>>): PageState {
   const preset = presetOptions.some((o) => o.value === s.preset) ? (s.preset as PresetName) : defaultState.preset;

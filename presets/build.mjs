@@ -60,6 +60,12 @@ const shadows = {
     light: ['none', '0px 1px 2px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15)', '0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15)'],
     dark: ['none', '0px 1px 2px rgba(0,0,0,.3), 0px 1px 3px 1px rgba(0,0,0,.15)', '0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15)'],
   },
+  // Geist (vercel.com/geist): --ds-shadow-xs for raised controls and cards, -medium on hover,
+  // -xl for menus and dialogs (their 1px border comes from the element's own border).
+  geist: {
+    light: ['0px 1px 2px #0000000a', '0px 2px 2px #0000000a, 0px 8px 8px -8px #0000000a', '0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f'],
+    dark: ['0px 1px 2px #00000029', '0px 2px 2px #00000052, 0px 8px 8px -8px #00000029', '0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f'],
+  },
   lifted: {
     light: ['0 1px 3px rgba(60,30,120,.07)', '0 10px 30px -10px rgba(60,30,120,.18), 0 2px 6px -2px rgba(60,30,120,.06)', '0 24px 60px -16px rgba(60,30,120,.3), 0 6px 14px -6px rgba(60,30,120,.1)'],
     dark: ['0 1px 3px rgba(0,0,0,.45)', '0 10px 30px -10px rgba(0,0,0,.6)', '0 24px 60px -14px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06)'],
