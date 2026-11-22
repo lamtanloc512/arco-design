@@ -17,7 +17,12 @@ function readUrl() {
   const q = new URLSearchParams(location.search);
   const preset = (q.get('preset') as PresetName) || 'zinc';
   const mode = q.get('mode');
-  const dark = mode ? mode === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+  const forced = document.documentElement.getAttribute('data-theme');
+  const dark = mode
+    ? mode === 'dark'
+    : forced
+      ? forced === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
   return { preset: options.some((o) => o.value === preset) ? preset : 'zinc', dark };
 }
 
