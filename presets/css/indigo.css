@@ -39,17 +39,18 @@ body[data-arco-preset='indigo'] {
   --color-border: rgb(var(--gray-3));
   --color-menu-light-bg: #ffffff;
   --color-tooltip-bg: rgb(var(--gray-10));
-  --border-radius-small: 6px;
-  --border-radius-medium: 8px;
-  --border-radius-large: 10px;
+  --border-radius-small: 4px;
+  --border-radius-medium: 6px;
+  --border-radius-large: 8px;
   --preset-font: 'Inter', system-ui, sans-serif;
-  --preset-radius-card: 10px;
-  --preset-radius-popup: 8px;
-  --preset-radius-button: 6px;
+  --preset-radius-card: 8px;
+  --preset-radius-popup: 6px;
+  --preset-radius-button: 4px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.05);
   --preset-shadow-md: 0 4px 12px -2px rgba(0,0,0,.08), 0 2px 4px -2px rgba(0,0,0,.05);
   --preset-shadow-lg: 0 16px 40px -12px rgba(0,0,0,.18), 0 4px 10px -4px rgba(0,0,0,.08);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.22);
+  --preset-corner-smoothing: 0.6;
   --preset-on-primary: #ffffff;
 }
 
@@ -102,16 +103,17 @@ body[data-arco-preset='indigo'][arco-theme='dark'] {
   --color-menu-dark-bg: #111317;
   --color-menu-light-bg: #111317;
   --color-tooltip-bg: #23262d;
-  --border-radius-small: 6px;
-  --border-radius-medium: 8px;
-  --border-radius-large: 10px;
+  --border-radius-small: 4px;
+  --border-radius-medium: 6px;
+  --border-radius-large: 8px;
   --preset-font: 'Inter', system-ui, sans-serif;
-  --preset-radius-card: 10px;
-  --preset-radius-popup: 8px;
-  --preset-radius-button: 6px;
+  --preset-radius-card: 8px;
+  --preset-radius-popup: 6px;
+  --preset-radius-button: 4px;
   --preset-shadow-sm: 0 1px 2px rgba(0,0,0,.4);
   --preset-shadow-md: 0 4px 14px -2px rgba(0,0,0,.5);
   --preset-shadow-lg: 0 16px 40px -8px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.32);
+  --preset-corner-smoothing: 0.6;
   --preset-on-primary: #ffffff;
 }

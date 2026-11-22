@@ -96,6 +96,7 @@ function block(name, p, mode) {
   v('preset-shadow-md', sh[1]);
   v('preset-shadow-lg', sh[2]);
   v('preset-ring', `0 0 0 3px rgba(var(--primary-6), ${dark ? p.shape.ring + 0.1 : p.shape.ring})`);
+  v('preset-corner-smoothing', String(p.shape.smoothing ?? 0));
   v('preset-on-primary', p.onPrimary ? p.onPrimary[mode] : '#ffffff');
 
   // Light mode comes first and dark second; the dark selector is more specific, so it wins

@@ -7,7 +7,9 @@
 // gray      10 steps, light (1 = lightest) and dark (1 = darkest), as Arco's gray-1..10
 // bg        Arco's bg-1..5: page, container, nested container, deeper, popup
 // radius    Arco's border-radius-small / medium / large (buttons, inputs and tags use small)
-// shape     the finish the polish layer reads: card and popup radius, button radius, shadows, ring
+// shape     the finish the polish layer reads: card and popup radius, button radius, shadows, ring,
+//           and smoothing (0-1): how far corners.js (Monoco) turns surface corners into squircles;
+//           0 leaves plain CSS radius
 
 export const presets = {
   zinc: {
@@ -27,8 +29,8 @@ export const presets = {
       light: ['#ffffff', '#ffffff', '#fafafa', '#f4f4f5', '#ffffff'],
       dark: ['#09090b', '#0c0c0e', '#18181b', '#1f1f23', '#111113'],
     },
-    radius: ['6px', '8px', '12px'],
-    shape: { card: '12px', popup: '8px', button: '6px', shadow: 'soft', ring: 0.18 },
+    radius: ['6px', '8px', '10px'],
+    shape: { card: '10px', popup: '8px', button: '6px', shadow: 'soft', ring: 0.18, smoothing: 0.6 },
   },
 
   indigo: {
@@ -44,13 +46,13 @@ export const presets = {
       light: ['#ffffff', '#ffffff', '#f8fafc', '#f1f5f9', '#ffffff'],
       dark: ['#0b0c0f', '#111317', '#16181d', '#1c1f25', '#16181d'],
     },
-    radius: ['6px', '8px', '10px'],
-    shape: { card: '10px', popup: '8px', button: '6px', shadow: 'soft', ring: 0.22 },
+    radius: ['4px', '6px', '8px'],
+    shape: { card: '8px', popup: '6px', button: '4px', shadow: 'soft', ring: 0.22, smoothing: 0.6 },
   },
 
   ember: {
     label: 'Ember',
-    note: 'Warm and friendly: orange on stone, cream page, generous corners.',
+    note: 'Warm and friendly: orange on stone, a cream page, squircle cards.',
     font: "'DM Sans', system-ui, sans-serif",
     primary: '#ea580c',
     gray: {
@@ -61,13 +63,13 @@ export const presets = {
       light: ['#fffbf7', '#ffffff', '#faf7f4', '#f5f1ed', '#ffffff'],
       dark: ['#0f0d0c', '#171412', '#1f1b18', '#29241f', '#1f1b18'],
     },
-    radius: ['10px', '12px', '16px'],
-    shape: { card: '18px', popup: '12px', button: '10px', shadow: 'warm', ring: 0.2 },
+    radius: ['6px', '8px', '12px'],
+    shape: { card: '12px', popup: '10px', button: '6px', shadow: 'warm', ring: 0.2, smoothing: 0.8 },
   },
 
   violet: {
     label: 'Violet',
-    note: 'Soft and playful: violet on a mauve grey, pill buttons, round cards.',
+    note: 'Soft and playful: violet on a mauve grey, the smoothest squircles.',
     font: "'Plus Jakarta Sans', system-ui, sans-serif",
     primary: '#7c3aed',
     gray: {
@@ -78,7 +80,7 @@ export const presets = {
       light: ['#fcfbfe', '#ffffff', '#f8f6fb', '#f3f0f7', '#ffffff'],
       dark: ['#121016', '#18161d', '#201d26', '#29252f', '#201d26'],
     },
-    radius: ['12px', '16px', '20px'],
-    shape: { card: '20px', popup: '14px', button: '999px', shadow: 'lifted', ring: 0.22 },
+    radius: ['8px', '10px', '14px'],
+    shape: { card: '14px', popup: '12px', button: '8px', shadow: 'lifted', ring: 0.22, smoothing: 1 },
   },
 };

@@ -4,6 +4,7 @@ import { ConfigProvider } from '@arco-design/web-react';
 import enUS from '@arco-design/web-react/es/locale/en-US';
 import '@arco-design/web-react/dist/css/arco.css';
 import '../../presets/css/all.css';
+import '../../presets/corners.js';
 import './app.css';
 import { App } from './App';
 

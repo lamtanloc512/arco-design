@@ -4,18 +4,24 @@ Four looks for Arco, applied at runtime on top of the stock stylesheet. No rebui
 Arco already reads its colours, greys, backgrounds and radius from CSS variables, so a preset is a set
 of those variables plus a small polish layer.
 
-| Preset | Primary | Greys | Radius (small / medium / large) | Feel |
-| --- | --- | --- | --- | --- |
-| `zinc` | near-black (near-white in dark) | zinc | 6 / 8 / 12 | neutral, crisp, shadcn-like |
-| `indigo` | `#5e6ad2` | slate | 6 / 8 / 10 | calm product tool |
-| `ember` | `#ea580c` | stone, cream page | 10 / 12 / 16 | warm, friendly |
-| `violet` | `#7c3aed` | mauve | 12 / 16 / 20, pill buttons | soft, playful |
+| Preset | Primary | Greys | Radius (small / medium / large), card | Squircle smoothing | Feel |
+| --- | --- | --- | --- | --- | --- |
+| `zinc` | near-black (near-white in dark) | zinc | 6 / 8 / 10, card 10 | 0.6 | neutral, crisp, shadcn-like |
+| `indigo` | `#5e6ad2` | slate | 4 / 6 / 8, card 8 | 0.6 | calm product tool |
+| `ember` | `#ea580c` | stone, cream page | 6 / 8 / 12, card 12 | 0.8 | warm, friendly |
+| `violet` | `#7c3aed` | mauve | 8 / 10 / 14, card 14 | 1 | soft, playful |
+
+Radius stays small: no pills, nothing past 14px. Surfaces with a larger radius (cards, dialogs,
+popups, alerts, the FAQ) are drawn as squircles with [Monoco](https://somonoco.com) by `corners.js`,
+so a 12px corner reads as smooth rather than round. Controls keep a plain small radius: a clip-path
+would cut their focus ring.
 
 ## Use
 
 ```ts
 import '@arco-design/web-react/dist/css/arco.css';
 import 'path/to/presets/css/all.css'; // every preset + the polish layer
+import 'path/to/presets/corners.js';   // squircle surfaces with Monoco (@monokai/monoco)
 ```
 
 ```js
@@ -24,7 +30,9 @@ document.body.setAttribute('arco-theme', 'dark'); // Arco's own dark switch; rem
 ```
 
 For one preset only, load `css/<name>.css` and `polish.css` instead of `all.css`.
-Without `data-arco-preset` on `body`, the page is plain Arco.
+Without `data-arco-preset` on `body`, the page is plain Arco. Add `data-corners` to an element of
+your own to give it squircle corners too. Monoco paints the border as the element's background
+image, so put any background gradient on a pseudo-element; the playground's CTA shows how.
 
 ## What a preset changes
 

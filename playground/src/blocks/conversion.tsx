@@ -133,7 +133,7 @@ export function Cta() {
   return (
     <section className="pg-section pg-section-tight">
       <div className="pg-container">
-        <div className="pg-cta">
+        <div className="pg-cta" data-corners>
           <div>
             <Title heading={3} className="pg-tight">
               Send your next invoice with Halden
