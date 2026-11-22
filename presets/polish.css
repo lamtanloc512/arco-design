@@ -205,6 +205,9 @@ body[data-arco-preset] .arco-btn:focus-visible {
 
 /* ---------- Controls that draw on the primary colour ---------- */
 
+body[data-arco-preset] .arco-checkbox-mask {
+  border-radius: var(--preset-radius-checkbox);
+}
 body[data-arco-preset] .arco-checkbox-mask-icon {
   color: var(--preset-on-primary);
 }
@@ -262,7 +265,7 @@ body[data-arco-preset] .arco-dropdown-menu-item {
   width: auto;
 }
 body[data-arco-preset] .arco-tooltip-content {
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--preset-radius-tooltip);
   box-shadow: var(--preset-shadow-md);
 }
 
@@ -297,7 +300,7 @@ body[data-arco-preset] .arco-table-tr:not(.arco-table-empty-row):hover .arco-tab
 }
 
 body[data-arco-preset] .arco-tag {
-  border-radius: calc(var(--border-radius-small) * 0.75 + 2px);
+  border-radius: var(--preset-radius-tag);
   font-weight: 500;
 }
 body[data-arco-preset] .arco-tabs-header-title {

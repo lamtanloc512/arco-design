@@ -72,6 +72,9 @@ body[data-arco-preset='violet'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -157,5 +160,8 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }

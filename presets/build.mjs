@@ -169,6 +169,11 @@ function block(name, p, mode) {
   v('preset-selected-bg', picked ? picked.bg[mode] : 'var(--color-fill-2)');
   v('preset-selected-text', picked ? picked.text[mode] : 'inherit');
   v('preset-radius-alert', p.shape.alert ?? 'var(--border-radius-medium)');
+  // Smaller pieces, where a design system names its own shape (Material: checkbox 2px, chips 8px,
+  // tooltips 4px). Without one they keep what they had.
+  v('preset-radius-tag', p.shape.tag ?? 'calc(var(--border-radius-small) * 0.75 + 2px)');
+  v('preset-radius-tooltip', p.shape.tooltip ?? 'var(--border-radius-medium)');
+  v('preset-radius-checkbox', p.shape.checkbox ?? 'var(--border-radius-small)');
 
   // Interaction model: Material's state layers, ripple and focus ring (interaction-material.css,
   // ripple.js), or none (the polish layer's own hover colours and ring).

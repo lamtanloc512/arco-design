@@ -72,6 +72,9 @@ body[data-arco-preset='zinc'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -157,6 +160,9 @@ body[data-arco-preset='zinc'][arco-theme='dark'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -234,6 +240,9 @@ body[data-arco-preset='indigo'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -319,6 +328,9 @@ body[data-arco-preset='indigo'][arco-theme='dark'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -396,6 +408,9 @@ body[data-arco-preset='ember'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -481,6 +496,9 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -581,6 +599,9 @@ body[data-arco-preset='lumo'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -689,6 +710,9 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -796,6 +820,9 @@ body[data-arco-preset='atlassian'] {
   --preset-selected-bg: #e9f2fe;
   --preset-selected-text: #1868db;
   --preset-radius-alert: 8px;
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -911,6 +938,9 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --preset-selected-bg: #1c2b42;
   --preset-selected-text: #669df1;
   --preset-radius-alert: 8px;
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -971,7 +1001,7 @@ body[data-arco-preset='material'] {
   --border-radius-large: 12px;
   --preset-font: 'Roboto', system-ui, sans-serif;
   --preset-radius-card: 12px;
-  --preset-radius-popup: 8px;
+  --preset-radius-popup: 4px;
   --preset-radius-button: 8px;
   --preset-radius-control: 8px;
   --preset-shadow-sm: none;
@@ -1008,6 +1038,9 @@ body[data-arco-preset='material'] {
   --preset-selected-bg: #e8def8;
   --preset-selected-text: #1d192b;
   --preset-radius-alert: 12px;
+  --preset-radius-tag: 8px;
+  --preset-radius-tooltip: 4px;
+  --preset-radius-checkbox: 2px;
   --preset-ripple: 1;
   --preset-focus-color: #625b71;
 }
@@ -1077,7 +1110,7 @@ body[data-arco-preset='material'][arco-theme='dark'] {
   --border-radius-large: 12px;
   --preset-font: 'Roboto', system-ui, sans-serif;
   --preset-radius-card: 12px;
-  --preset-radius-popup: 8px;
+  --preset-radius-popup: 4px;
   --preset-radius-button: 8px;
   --preset-radius-control: 8px;
   --preset-shadow-sm: none;
@@ -1114,6 +1147,9 @@ body[data-arco-preset='material'][arco-theme='dark'] {
   --preset-selected-bg: #4a4458;
   --preset-selected-text: #e8def8;
   --preset-radius-alert: 12px;
+  --preset-radius-tag: 8px;
+  --preset-radius-tooltip: 4px;
+  --preset-radius-checkbox: 2px;
   --preset-ripple: 1;
   --preset-focus-color: #ccc2dc;
 }
@@ -1409,6 +1445,9 @@ body[data-arco-preset='violet'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -1494,6 +1533,9 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-radius-tag: calc(var(--border-radius-small) * 0.75 + 2px);
+  --preset-radius-tooltip: var(--border-radius-medium);
+  --preset-radius-checkbox: var(--border-radius-small);
   --preset-ripple: 0;
 }
 
@@ -1704,6 +1746,9 @@ body[data-arco-preset] .arco-btn:focus-visible {
 
 /* ---------- Controls that draw on the primary colour ---------- */
 
+body[data-arco-preset] .arco-checkbox-mask {
+  border-radius: var(--preset-radius-checkbox);
+}
 body[data-arco-preset] .arco-checkbox-mask-icon {
   color: var(--preset-on-primary);
 }
@@ -1761,7 +1806,7 @@ body[data-arco-preset] .arco-dropdown-menu-item {
   width: auto;
 }
 body[data-arco-preset] .arco-tooltip-content {
-  border-radius: var(--border-radius-medium);
+  border-radius: var(--preset-radius-tooltip);
   box-shadow: var(--preset-shadow-md);
 }
 
@@ -1796,7 +1841,7 @@ body[data-arco-preset] .arco-table-tr:not(.arco-table-empty-row):hover .arco-tab
 }
 
 body[data-arco-preset] .arco-tag {
-  border-radius: calc(var(--border-radius-small) * 0.75 + 2px);
+  border-radius: var(--preset-radius-tag);
   font-weight: 500;
 }
 body[data-arco-preset] .arco-tabs-header-title {

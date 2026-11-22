@@ -231,8 +231,11 @@ export const presets = {
     primaryWeight: 500,
     radius: ['4px', '8px', '12px'], // corner-extra-small / small / medium
     shape: {
-      card: '12px', // corner-medium
-      popup: '8px',
+      card: '12px', // corner-medium (cards)
+      popup: '4px', // corner-extra-small (menus)
+      tooltip: '4px', // corner-extra-small (plain tooltip)
+      tag: '8px', // corner-small (chips)
+      checkbox: '2px', // checkbox container
       button: '8px', // corner-small, in place of corner-full
       alert: '12px',
       shadow: 'm3',
