@@ -73,19 +73,23 @@ export const presets = {
       text: { light: '#171717', dark: '#ededed' },
     },
     primaryWeight: 500,
-    radius: ['6px', '8px', '12px'],
+    // Every corner is a squircle: native corner-shape where the browser has it (controls and
+    // surfaces alike), Monoco on surfaces elsewhere. A squircle reads smaller than a round corner
+    // of the same radius, so the radii are a step larger than Geist's round ones.
+    radius: ['8px', '10px', '16px'],
     shape: {
-      card: '12px',
-      popup: '12px',
-      button: '6px',
-      tooltip: '6px',
-      tag: '6px',
-      checkbox: '4px',
-      alert: '8px',
+      cornerShape: 'squircle',
+      card: '16px',
+      popup: '14px',
+      button: '8px',
+      tooltip: '8px',
+      tag: '8px',
+      checkbox: '5px',
+      alert: '12px',
       shadow: 'geist',
       // --ds-focus-ring: 2px of the page colour, then 2px of blue-700 (blue-900 in dark)
       ring: { light: '0 0 0 2px #ffffff, 0 0 0 4px #0072f5', dark: '0 0 0 2px #0a0a0a, 0 0 0 4px #52a8ff' },
-      smoothing: 0.6,
+      smoothing: 1,
     },
   },
 

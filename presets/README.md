@@ -6,7 +6,7 @@ of those variables plus a small polish layer.
 
 | Preset | Primary | Greys | Radius (small / medium / large), card | Squircle smoothing | Feel |
 | --- | --- | --- | --- | --- | --- |
-| `modern` (the proposed default) | `#171717` (white in dark), blue focus | Geist's neutral greys | 6 / 8 / 12, card 12 | 0.6 | Vercel / ChatGPT / Payload: quiet 8% borders, white fields, two-layer focus ring |
+| `modern` (the proposed default) | `#171717` (white in dark), blue focus | Geist's neutral greys | 8 / 10 / 16, card 16, all squircle | native, else 1 | Vercel / ChatGPT / Payload: quiet 8% borders, white fields, two-layer focus ring |
 | `zinc` | near-black (near-white in dark) | zinc | 6 / 8 / 10, card 10 | 0.6 | neutral, crisp, shadcn-like |
 | `indigo` | `#5e6ad2` | slate | 4 / 6 / 8, card 8 | 0.6 | calm product tool |
 | `ember` | `#ea580c` | stone, cream page | 6 / 8 / 12, card 12 | 0.8 | warm, friendly |
@@ -53,7 +53,10 @@ gray-1000 text, borders that are a 1px 8% black line (14% white in dark), barely
 blue-700), blue-900 links, red and green. Warning is a deeper amber than Geist's so white text on
 a warning button stays readable. The rest is what Vercel, ChatGPT and Payload's admin share: Geist
 type with tight semibold headings, white fields with no shadow, a white default button with a
-1px border, 6px controls, 12px cards and menus (squircles), selection as a light grey fill.
+1px border, selection as a light grey fill. Every corner is a squircle: with CSS `corner-shape`
+(Chrome and Edge 139+) on controls and surfaces alike, borders, shadows and focus rings intact;
+elsewhere corners.js draws the surfaces with Monoco and controls stay round. Radii are a step
+larger (8px controls, 16px cards) because a squircle reads smaller than a round corner.
 
 `lumo` follows vaadin-lumo-styles 25.3 (`src/props/*.css`): its colours, its contrast ramp
 composited over the base colour, radius, shadows and font stack. Its fields are filled

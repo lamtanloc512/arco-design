@@ -169,3 +169,11 @@ body .pg-plan-popular.arco-card.arco-card-bordered { border: 2px solid rgb(var(-
 @media (max-width: 900px) {
   .gl-grid, .gl-results { grid-template-columns: 1fr; }
 }
+
+/* The playground's own frames take the preset's corner shape too (Modern: squircle). */
+@supports (corner-shape: squircle) {
+  .gl-demo, .gl-cell, .gl-layout, .gl-split, .gl-menu-side, .gl-carousel, .gl-trigger, .gl-watermark,
+  .pg-cta, .pg-feature-icon, .pg-brand-mark, .pg-pill.arco-tag {
+    corner-shape: var(--preset-corner-shape, round);
+  }
+}

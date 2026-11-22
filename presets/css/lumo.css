@@ -73,6 +73,7 @@ body[data-arco-preset='lumo'] {
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 53%, 23%, 0.16), 0 8px 24px -4px hsla(214, 47%, 21%, 0.38);
   --preset-ring: 0 0 0 2px rgba(var(--primary-6), 0.6);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-fill-2);
   --preset-field-border: transparent;
@@ -184,6 +185,7 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 8%, 4%, 0.23), 0 8px 24px -4px hsla(214, 16%, 8%, 0.41);
   --preset-ring: 0 0 0 2px rgba(var(--primary-6), 0.7);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-fill-2);
   --preset-field-border: transparent;

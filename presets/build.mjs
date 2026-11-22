@@ -136,6 +136,9 @@ function block(name, p, mode) {
       : `0 0 0 ${p.shape.ringWidth ?? 3}px rgba(var(--primary-6), ${dark ? p.shape.ring + 0.1 : p.shape.ring})`
   );
   v('preset-corner-smoothing', String(p.shape.smoothing ?? 0));
+  // Native CSS corner-shape for every rounded control and surface (polish.css, behind
+  // @supports); 'round' leaves corners as they are. corners.js steps aside where it applies.
+  v('preset-corner-shape', p.shape.cornerShape ?? 'round');
   v('preset-on-primary', p.onPrimary ? p.onPrimary[mode] : '#ffffff');
 
   // Fields: outlined on the surface (the default), or filled with no border (fields: 'filled').

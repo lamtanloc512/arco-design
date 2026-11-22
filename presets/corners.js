@@ -93,6 +93,12 @@ function apply() {
   if (!body?.hasAttribute('data-arco-preset')) return;
   const smoothing = parseFloat(getComputedStyle(body).getPropertyValue('--preset-corner-smoothing'));
   if (!(smoothing > 0)) return;
+  // The browser draws this preset's corners itself (CSS corner-shape, see polish.css).
+  const native = getComputedStyle(body).getPropertyValue('--preset-corner-shape').trim();
+  if (native && native !== 'round' && window.CSS?.supports?.('corner-shape', native)) {
+    markJoinedGroups();
+    return;
+  }
 
   markJoinedGroups();
   // Measure every surface first, then write, so no change is measured.

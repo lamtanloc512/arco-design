@@ -70,19 +70,20 @@ body[data-arco-preset='modern'] {
   --color-border: rgb(var(--gray-3));
   --color-menu-light-bg: #ffffff;
   --color-tooltip-bg: rgb(var(--gray-10));
-  --border-radius-small: 6px;
-  --border-radius-medium: 8px;
-  --border-radius-large: 12px;
+  --border-radius-small: 8px;
+  --border-radius-medium: 10px;
+  --border-radius-large: 16px;
   --preset-font: 'Geist', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --preset-radius-card: 12px;
-  --preset-radius-popup: 12px;
-  --preset-radius-button: 6px;
-  --preset-radius-control: 6px;
+  --preset-radius-card: 16px;
+  --preset-radius-popup: 14px;
+  --preset-radius-button: 8px;
+  --preset-radius-control: 8px;
   --preset-shadow-sm: 0px 1px 2px #0000000a;
   --preset-shadow-md: 0px 2px 2px #0000000a, 0px 8px 8px -8px #0000000a;
   --preset-shadow-lg: 0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f;
   --preset-ring: 0 0 0 2px #ffffff, 0 0 0 4px #0072f5;
-  --preset-corner-smoothing: 0.6;
+  --preset-corner-smoothing: 1;
+  --preset-corner-shape: squircle;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -111,10 +112,10 @@ body[data-arco-preset='modern'] {
   --preset-heading-tracking: -0.02em;
   --preset-selected-bg: #f2f2f2;
   --preset-selected-text: #171717;
-  --preset-radius-alert: 8px;
-  --preset-radius-tag: 6px;
-  --preset-radius-tooltip: 6px;
-  --preset-radius-checkbox: 4px;
+  --preset-radius-alert: 12px;
+  --preset-radius-tag: 8px;
+  --preset-radius-tooltip: 8px;
+  --preset-radius-checkbox: 5px;
   --preset-ripple: 0;
 }
 
@@ -198,19 +199,20 @@ body[data-arco-preset='modern'][arco-theme='dark'] {
   --color-menu-dark-bg: #0a0a0a;
   --color-menu-light-bg: #0a0a0a;
   --color-tooltip-bg: #2d2d2d;
-  --border-radius-small: 6px;
-  --border-radius-medium: 8px;
-  --border-radius-large: 12px;
+  --border-radius-small: 8px;
+  --border-radius-medium: 10px;
+  --border-radius-large: 16px;
   --preset-font: 'Geist', 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
-  --preset-radius-card: 12px;
-  --preset-radius-popup: 12px;
-  --preset-radius-button: 6px;
-  --preset-radius-control: 6px;
+  --preset-radius-card: 16px;
+  --preset-radius-popup: 14px;
+  --preset-radius-button: 8px;
+  --preset-radius-control: 8px;
   --preset-shadow-sm: 0px 1px 2px #00000029;
   --preset-shadow-md: 0px 2px 2px #00000052, 0px 8px 8px -8px #00000029;
   --preset-shadow-lg: 0px 1px 1px #00000005, 0px 4px 8px -4px #0000000a, 0px 16px 24px -8px #0000000f;
   --preset-ring: 0 0 0 2px #0a0a0a, 0 0 0 4px #52a8ff;
-  --preset-corner-smoothing: 0.6;
+  --preset-corner-smoothing: 1;
+  --preset-corner-shape: squircle;
   --preset-on-primary: #0a0a0a;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -239,10 +241,10 @@ body[data-arco-preset='modern'][arco-theme='dark'] {
   --preset-heading-tracking: -0.02em;
   --preset-selected-bg: #1f1f1f;
   --preset-selected-text: #ededed;
-  --preset-radius-alert: 8px;
-  --preset-radius-tag: 6px;
-  --preset-radius-tooltip: 6px;
-  --preset-radius-checkbox: 4px;
+  --preset-radius-alert: 12px;
+  --preset-radius-tag: 8px;
+  --preset-radius-tooltip: 8px;
+  --preset-radius-checkbox: 5px;
   --preset-ripple: 0;
 }
 
@@ -301,6 +303,7 @@ body[data-arco-preset='zinc'] {
   --preset-shadow-lg: 0 16px 40px -12px rgba(0,0,0,.18), 0 4px 10px -4px rgba(0,0,0,.08);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.18);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #fafafa;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -389,6 +392,7 @@ body[data-arco-preset='zinc'][arco-theme='dark'] {
   --preset-shadow-lg: 0 16px 40px -8px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.28);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #18181b;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -469,6 +473,7 @@ body[data-arco-preset='indigo'] {
   --preset-shadow-lg: 0 16px 40px -12px rgba(0,0,0,.18), 0 4px 10px -4px rgba(0,0,0,.08);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.22);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -557,6 +562,7 @@ body[data-arco-preset='indigo'][arco-theme='dark'] {
   --preset-shadow-lg: 0 16px 40px -8px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.32);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -637,6 +643,7 @@ body[data-arco-preset='ember'] {
   --preset-shadow-lg: 0 20px 48px -12px rgba(68,40,20,.24), 0 4px 10px -4px rgba(68,40,20,.08);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.2);
   --preset-corner-smoothing: 0.8;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -725,6 +732,7 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --preset-shadow-lg: 0 20px 48px -10px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.06);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.30000000000000004);
   --preset-corner-smoothing: 0.8;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -825,6 +833,7 @@ body[data-arco-preset='lumo'] {
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 53%, 23%, 0.16), 0 8px 24px -4px hsla(214, 47%, 21%, 0.38);
   --preset-ring: 0 0 0 2px rgba(var(--primary-6), 0.6);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-fill-2);
   --preset-field-border: transparent;
@@ -936,6 +945,7 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-shadow-lg: 0 2px 6px -1px hsla(214, 8%, 4%, 0.23), 0 8px 24px -4px hsla(214, 16%, 8%, 0.41);
   --preset-ring: 0 0 0 2px rgba(var(--primary-6), 0.7);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-fill-2);
   --preset-field-border: transparent;
@@ -1039,6 +1049,7 @@ body[data-arco-preset='atlassian'] {
   --preset-shadow-lg: 0px 8px 12px #1E1F2126, 0px 0px 1px #1E1F214F;
   --preset-ring: inset 0 0 0 1px #4688ec;
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -1157,6 +1168,7 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --preset-shadow-lg: 0px 0px 0px 1px #BDBDBD1F, 0px 8px 12px #0104045C, 0px 0px 1px 1px #01040480;
   --preset-ring: inset 0 0 0 1px #8fb8f6;
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #1f1f21;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -1257,6 +1269,7 @@ body[data-arco-preset='material'] {
   --preset-shadow-lg: 0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15);
   --preset-ring: inset 0 0 0 1px #6750a4;
   --preset-corner-smoothing: 0.8;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -1366,6 +1379,7 @@ body[data-arco-preset='material'][arco-theme='dark'] {
   --preset-shadow-lg: 0px 1px 2px rgba(0,0,0,.3), 0px 2px 6px 2px rgba(0,0,0,.15);
   --preset-ring: inset 0 0 0 1px #d0bcff;
   --preset-corner-smoothing: 0.8;
+  --preset-corner-shape: round;
   --preset-on-primary: #381e72;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -1674,6 +1688,7 @@ body[data-arco-preset='violet'] {
   --preset-shadow-lg: 0 24px 60px -16px rgba(60,30,120,.3), 0 6px 14px -6px rgba(60,30,120,.1);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.22);
   --preset-corner-smoothing: 1;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -1762,6 +1777,7 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --preset-shadow-lg: 0 24px 60px -14px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.32);
   --preset-corner-smoothing: 1;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -2118,4 +2134,66 @@ body[data-arco-preset] .arco-alert {
 body[data-arco-preset] .arco-progress-line-inner,
 body[data-arco-preset] .arco-progress-line-outer {
   border-radius: 999px;
+}
+
+/* ---------- Squircle corners, natively ----------
+   Where the browser has CSS corner-shape (Chrome and Edge 139+), a preset that sets
+   --preset-corner-shape (Modern: squircle) gets it on every rounded control and surface, with
+   borders, shadows and focus rings intact. Shapes that must stay circles (avatars, radios,
+   switches, round buttons, badges) are not listed. Elsewhere corners.js draws the surfaces with
+   Monoco and controls stay round. */
+@supports (corner-shape: squircle) {
+  body[data-arco-preset] :is(
+      .arco-btn:not(.arco-btn-shape-circle):not(.arco-btn-shape-round),
+      .arco-input,
+      .arco-input-inner-wrapper,
+      .arco-input-group > *,
+      .arco-input-group.preset-joined,
+      .arco-input-number,
+      .arco-textarea,
+      .arco-input-tag,
+      .arco-picker,
+      .arco-select-view,
+      .arco-cascader-view,
+      .arco-tree-select-view,
+      .arco-verification-code .arco-input,
+      .arco-tag,
+      .arco-checkbox-mask,
+      .arco-radio-group-button,
+      .arco-radio-button,
+      .arco-menu-item,
+      .arco-menu-inline-header,
+      .arco-dropdown-menu-item,
+      .arco-select-option,
+      .arco-cascader-list-item,
+      .arco-tabs-header-title,
+      .arco-pagination-item,
+      .arco-anchor-link-title,
+      .arco-upload-list-item,
+      .arco-image,
+      .arco-avatar-square,
+      .arco-tooltip-content,
+      .arco-card,
+      .arco-modal,
+      .arco-drawer,
+      .arco-collapse,
+      .arco-alert,
+      .arco-select-popup,
+      .arco-dropdown-menu,
+      .arco-picker-container,
+      .arco-cascader-popup,
+      .arco-tree-select-popup,
+      .arco-popover-content,
+      .arco-popconfirm-content,
+      .arco-message,
+      .arco-notification,
+      .arco-table-container,
+      .arco-descriptions-border .arco-descriptions-body,
+      .arco-transfer-view,
+      .arco-upload-drag,
+      .arco-progress-steps-item,
+      [data-corners]
+    ) {
+    corner-shape: var(--preset-corner-shape);
+  }
 }

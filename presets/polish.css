@@ -330,3 +330,65 @@ body[data-arco-preset] .arco-progress-line-inner,
 body[data-arco-preset] .arco-progress-line-outer {
   border-radius: 999px;
 }
+
+/* ---------- Squircle corners, natively ----------
+   Where the browser has CSS corner-shape (Chrome and Edge 139+), a preset that sets
+   --preset-corner-shape (Modern: squircle) gets it on every rounded control and surface, with
+   borders, shadows and focus rings intact. Shapes that must stay circles (avatars, radios,
+   switches, round buttons, badges) are not listed. Elsewhere corners.js draws the surfaces with
+   Monoco and controls stay round. */
+@supports (corner-shape: squircle) {
+  body[data-arco-preset] :is(
+      .arco-btn:not(.arco-btn-shape-circle):not(.arco-btn-shape-round),
+      .arco-input,
+      .arco-input-inner-wrapper,
+      .arco-input-group > *,
+      .arco-input-group.preset-joined,
+      .arco-input-number,
+      .arco-textarea,
+      .arco-input-tag,
+      .arco-picker,
+      .arco-select-view,
+      .arco-cascader-view,
+      .arco-tree-select-view,
+      .arco-verification-code .arco-input,
+      .arco-tag,
+      .arco-checkbox-mask,
+      .arco-radio-group-button,
+      .arco-radio-button,
+      .arco-menu-item,
+      .arco-menu-inline-header,
+      .arco-dropdown-menu-item,
+      .arco-select-option,
+      .arco-cascader-list-item,
+      .arco-tabs-header-title,
+      .arco-pagination-item,
+      .arco-anchor-link-title,
+      .arco-upload-list-item,
+      .arco-image,
+      .arco-avatar-square,
+      .arco-tooltip-content,
+      .arco-card,
+      .arco-modal,
+      .arco-drawer,
+      .arco-collapse,
+      .arco-alert,
+      .arco-select-popup,
+      .arco-dropdown-menu,
+      .arco-picker-container,
+      .arco-cascader-popup,
+      .arco-tree-select-popup,
+      .arco-popover-content,
+      .arco-popconfirm-content,
+      .arco-message,
+      .arco-notification,
+      .arco-table-container,
+      .arco-descriptions-border .arco-descriptions-body,
+      .arco-transfer-view,
+      .arco-upload-drag,
+      .arco-progress-steps-item,
+      [data-corners]
+    ) {
+    corner-shape: var(--preset-corner-shape);
+  }
+}

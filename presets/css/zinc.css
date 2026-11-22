@@ -53,6 +53,7 @@ body[data-arco-preset='zinc'] {
   --preset-shadow-lg: 0 16px 40px -12px rgba(0,0,0,.18), 0 4px 10px -4px rgba(0,0,0,.08);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.18);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #fafafa;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -141,6 +142,7 @@ body[data-arco-preset='zinc'][arco-theme='dark'] {
   --preset-shadow-lg: 0 16px 40px -8px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.06);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.28);
   --preset-corner-smoothing: 0.6;
+  --preset-corner-shape: round;
   --preset-on-primary: #18181b;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);

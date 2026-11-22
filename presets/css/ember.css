@@ -53,6 +53,7 @@ body[data-arco-preset='ember'] {
   --preset-shadow-lg: 0 20px 48px -12px rgba(68,40,20,.24), 0 4px 10px -4px rgba(68,40,20,.08);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.2);
   --preset-corner-smoothing: 0.8;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
@@ -141,6 +142,7 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --preset-shadow-lg: 0 20px 48px -10px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.06);
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.30000000000000004);
   --preset-corner-smoothing: 0.8;
+  --preset-corner-shape: round;
   --preset-on-primary: #ffffff;
   --preset-field-bg: var(--color-bg-2);
   --preset-field-border: var(--color-border-2);
