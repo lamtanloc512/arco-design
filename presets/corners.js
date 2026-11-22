@@ -4,7 +4,12 @@
 // small radius, and surfaces with a larger one (cards, dialogs, popups, alerts, the FAQ) are drawn
 // as squircles: the curve starts earlier and flattens out, so a 12px corner looks calm, not round.
 //
-//   import 'path/to/presets/corners.js';   // after arco.css and the preset CSS
+//   import { startCorners } from 'path/to/presets/corners.js';
+//   useEffect(() => startCorners(), []);   // once, in the app's root, after hydration
+//
+// Safe to import on the server: nothing touches the DOM until startCorners() runs. With SSR, call
+// it from an effect (which runs after hydration), never at import time: Monoco writes inline
+// styles on server-rendered elements, and React would report them as a hydration mismatch.
 //
 // It acts only while <body> has data-arco-preset and the preset sets --preset-corner-smoothing
 // above 0. Controls (buttons, inputs, switches, radios) are left alone: clip-path would cut their
@@ -113,24 +118,40 @@ function schedule() {
   queued = true;
   requestAnimationFrame(() => {
     queued = false;
-    apply();
+    if (started) apply();
   });
 }
 
-function start() {
+let started = false;
+
+// Starts drawing and keeping corners in step. Idempotent; a no-op without a DOM. Returns a stop
+// function that disconnects the observers and clears what was drawn.
+export function startCorners() {
+  if (started || typeof document === 'undefined') return stopCorners;
+  started = true;
   schedule();
   // Preset or theme switched: colours and radius change, so redraw.
-  new MutationObserver(schedule).observe(document.body, {
+  const attrs = new MutationObserver(schedule);
+  attrs.observe(document.body, {
     attributes: true,
     attributeFilter: ['data-arco-preset', 'arco-theme', 'class', 'style'],
   });
+  observers.push(attrs);
   // Popups, dialogs and messages mount into <body> when they open.
-  new MutationObserver((records) => {
+  const added = new MutationObserver((records) => {
     if (records.some((r) => [...r.addedNodes].some((n) => n.nodeType === 1))) schedule();
-  }).observe(document.body, { childList: true, subtree: true });
+  });
+  added.observe(document.body, { childList: true, subtree: true });
+  observers.push(added);
+  return stopCorners;
 }
 
-if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
-else start();
+const observers = [];
+
+export function stopCorners() {
+  for (const o of observers.splice(0)) o.disconnect();
+  if (typeof document !== 'undefined') clear();
+  started = false;
+}
 
 export const arcoCorners = { apply, clear };

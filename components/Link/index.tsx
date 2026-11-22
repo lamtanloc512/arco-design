@@ -65,4 +65,4 @@ LinkRef.displayName = 'Link';
 
 export default LinkRef;
 
-export { LinkProps };
+export type { LinkProps };

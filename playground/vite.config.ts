@@ -1,8 +1,43 @@
-import { defineConfig } from 'vite';
+import path from 'node:path';
+import { defineConfig, type Plugin } from 'vite';
 import react from '@vitejs/plugin-react';
 import { viteSingleFile } from 'vite-plugin-singlefile';
 
-// SINGLE=1 inlines everything into one dist/index.html, for sharing the page as one file.
+// The playground runs the fork's own source (../components), not the npm build, so a fix made
+// in components/ shows up here and in the SSR check at once.
+const fork = path.resolve(__dirname, '../components');
+const npmArco = path.resolve(__dirname, 'node_modules/@arco-design/web-react');
+
+// The fork's components import their dependencies (dayjs, lodash, ...) by bare name and their
+// icons from ../../icon/react-icon, which the fork only has after its icon generation step.
+// Resolve both from here: deps from the playground's node_modules, icons from the published
+// package of the same version (same icons, same IconContext).
+function forkSource(): Plugin {
+  const here = path.resolve(__dirname, 'src/main.tsx');
+  return {
+    name: 'arco-fork-source',
+    enforce: 'pre',
+    async resolveId(source, importer, options) {
+      if (!importer || !importer.startsWith(fork)) return null;
+      const icon = source.match(/(?:\.\.\/)+icon\/react-icon(\/.*)?$/);
+      if (icon) return this.resolve(`${npmArco}/icon/react-icon${icon[1] ?? ''}`, here, { ...options, skipSelf: true });
+      if (source.startsWith('.') || source.startsWith('/') || source.startsWith('\0')) return null;
+      return this.resolve(source, here, { ...options, skipSelf: true });
+    },
+  };
+}
+
+// SINGLE=1 inlines everything into one dist/client/index.html, for sharing the page as one file.
 export default defineConfig({
-  plugins: [react(), ...(process.env.SINGLE ? [viteSingleFile()] : [])],
+  plugins: [forkSource(), react(), ...(process.env.SINGLE ? [viteSingleFile()] : [])],
+  resolve: {
+    alias: [
+      { find: /^@arco-design\/web-react$/, replacement: path.join(fork, 'index.tsx') },
+      { find: /^@arco-design\/web-react\/es\/locale\/(.*)$/, replacement: path.join(fork, 'locale/$1') },
+      { find: /^@arco-design\/web-react\/icon$/, replacement: path.join(npmArco, 'icon/index.es.js') },
+    ],
+  },
+  // Bundle everything into the server build, so the SSR check runs the same code as the browser.
+  ssr: { noExternal: true },
+  build: { outDir: process.env.SSR_BUILD ? 'dist/server' : 'dist/client' },
 });

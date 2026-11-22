@@ -196,4 +196,4 @@ PopconfirmComponent.displayName = 'Popconfirm';
 
 export default PopconfirmComponent;
 
-export { PopconfirmProps };
+export type { PopconfirmProps };

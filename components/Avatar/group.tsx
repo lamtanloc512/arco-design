@@ -76,7 +76,7 @@ function Group(baseProps: PropsWithChildren<AvatarGroupProps>, ref) {
         const isFirst = rtl ? index === avatarsToRender.length - 1 : index === 0;
         const stackedStyle = {
           zIndex: zIndexAscend ? index + 1 : avatarCount - index,
-          marginLeft: size ? (!isFirst ? -size / 4 : 0) : '',
+          marginLeft: size ? (!isFirst ? -size / 4 : 0) : undefined,
         };
         return (
           <AvatarContext.Provider

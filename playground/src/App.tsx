@@ -1,60 +1,60 @@
 import { useEffect, useState } from 'react';
 import { Radio, Switch, Typography } from '@arco-design/web-react';
 import { IconMoonFill, IconSunFill } from '@arco-design/web-react/icon';
-import presetInfo from '../../presets/css/presets.json';
 import { Navbar, Hero, Logos, Features, Stats } from './blocks/marketing';
 import { Pricing, Testimonials, Faq, Cta, Footer } from './blocks/conversion';
 import { Dashboard, FormShowcase, Login, Overlays } from './blocks/app';
+import { Gallery } from './gallery';
+import { startCorners } from '../../presets/corners.js';
+import { bodyAttributes, presetOptions, readClientState, type PageState } from './state';
 
-type PresetName = 'arco' | keyof typeof presetInfo;
+export function App({ initial }: { initial: PageState }) {
+  // The first render uses the server's state, so hydration matches; the URL and the viewer's
+  // theme are read once the page is live.
+  const [state, setState] = useState(initial);
+  const { preset, dark, view } = state;
 
-const options: { value: PresetName; label: string; note: string }[] = [
-  { value: 'arco', label: 'Arco', note: 'Arco as it ships: no preset, for comparison.' },
-  ...Object.entries(presetInfo).map(([value, p]) => ({ value: value as PresetName, ...p })),
-];
-
-function readUrl() {
-  const q = new URLSearchParams(location.search);
-  const preset = (q.get('preset') as PresetName) || 'zinc';
-  const mode = q.get('mode');
-  const forced = document.documentElement.getAttribute('data-theme');
-  const dark = mode
-    ? mode === 'dark'
-    : forced
-      ? forced === 'dark'
-      : matchMedia('(prefers-color-scheme: dark)').matches;
-  return { preset: options.some((o) => o.value === preset) ? preset : 'zinc', dark };
-}
-
-export function App() {
-  const [{ preset, dark }, setState] = useState(readUrl);
+  useEffect(() => {
+    setState(readClientState(initial));
+    // Effects run after hydration, so Monoco never touches server HTML before React has it.
+    return startCorners();
+  }, []);
 
   useEffect(() => {
     const b = document.body;
-    if (preset === 'arco') b.removeAttribute('data-arco-preset');
-    else b.setAttribute('data-arco-preset', preset);
-    if (dark) b.setAttribute('arco-theme', 'dark');
-    else b.removeAttribute('arco-theme');
+    b.removeAttribute('data-arco-preset');
+    b.removeAttribute('arco-theme');
+    for (const [k, v] of Object.entries(bodyAttributes(state))) b.setAttribute(k, v);
     const q = new URLSearchParams(location.search);
+    q.set('view', view);
     q.set('preset', preset);
     q.set('mode', dark ? 'dark' : 'light');
     history.replaceState(null, '', `?${q}`);
-  }, [preset, dark]);
+  }, [preset, dark, view]);
 
-  const note = options.find((o) => o.value === preset)?.note;
+  const note = presetOptions.find((o) => o.value === preset)?.note;
 
   return (
     <>
       <div className="pg-switcher">
         <div className="pg-switcher-inner">
-          <Typography.Text bold className="pg-switcher-title">
-            Arco presets
-          </Typography.Text>
+          <Radio.Group
+            type="button"
+            value={view}
+            onChange={(v) => setState((s) => ({ ...s, view: v }))}
+            options={[
+              { label: 'Components', value: 'components' },
+              { label: 'Blocks', value: 'blocks' },
+            ]}
+            aria-label="View"
+          />
+          <span className="pg-switcher-sep" />
           <Radio.Group
             type="button"
             value={preset}
             onChange={(v) => setState((s) => ({ ...s, preset: v }))}
-            options={options.map((o) => ({ label: o.label, value: o.value }))}
+            options={presetOptions.map((o) => ({ label: o.label, value: o.value }))}
+            aria-label="Preset"
           />
           <Switch
             checked={dark}
@@ -69,6 +69,14 @@ export function App() {
         </div>
       </div>
 
+      {view === 'components' ? <Gallery /> : <Blocks />}
+    </>
+  );
+}
+
+function Blocks() {
+  return (
+    <>
       <Navbar />
       <main>
         <Hero />

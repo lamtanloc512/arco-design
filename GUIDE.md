@@ -116,6 +116,26 @@ modifyVars: {
 squircles drawn with Monoco (`presets/corners.js`), never plain big round corners. Switch them with `<body data-arco-preset="zinc">`.
 `playground/` shows them on marketing and app sections. See `presets/README.md`.
 
+### Server rendering (SSR)
+
+The fork's components render with `renderToString` and hydrate without warnings. `playground/`
+does this with every component; run `npm run ssr:check` there after changing a component. What
+changed for SSR and modern bundlers, and why:
+
+- Type re-exports are written `export type { ... }`. A plain `export { SomeProps }` names a type
+  that does not exist at runtime: Vite, esbuild and native ESM reject it, and only a full tsc build
+  hides it.
+- Style values a component leaves unset are `undefined`, not `''`. React renders an empty style
+  value differently on the server and in the browser, which is a hydration mismatch (Avatar,
+  Avatar.Group, Progress steps, Spin dots, Modal).
+- `Trigger/getPopupStyle.ts` declares `arrowLeft` and `arrowTop` before its `switch`. Declared with
+  `let` inside one case and assigned in another, they threw a ReferenceError for every popup placed
+  `tr`, `bl`, `br`, `lb`, `rt` or `rb` once the code was not compiled to ES5.
+- `Image` reads `img.complete` when the image finished before React attached `onLoad`, as with
+  server HTML. It used to stay hidden in `before-load`.
+- `Table` and `VerificationCode` pass `key` directly, never inside spread props.
+- `ColorPicker` passes `undefined`, not `false`, as a class name.
+
 ## 5. Component Customization
 
 Adjust component token files before writing extra styles:

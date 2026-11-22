@@ -163,4 +163,4 @@ TooltipComponent.displayName = 'Tooltip';
 
 export default TooltipComponent;
 
-export { TooltipProps };
+export type { TooltipProps };

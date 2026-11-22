@@ -152,4 +152,4 @@ CheckboxComponent.useCheckbox = useCheckbox;
 
 export default CheckboxComponent;
 
-export { CheckboxProps };
+export type { CheckboxProps };

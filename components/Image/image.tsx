@@ -158,8 +158,16 @@ function Image(baseProps: ImagePropsType, ref: LegacyRef<HTMLDivElement>) {
         if ((refImg.current.src || src) && refImg.current.src !== src) {
           refImg.current.src = src;
         }
-        if (!loaded.current && !refImg.current.complete) {
-          setStatus('loading');
+        if (!loaded.current) {
+          if (!refImg.current.complete) {
+            setStatus('loading');
+          } else if (refImg.current.getAttribute('src')) {
+            // The image finished before React attached onLoad, as with server-rendered markup
+            // that the browser loads before hydration: no load event will come, so read the
+            // result from the element. naturalWidth is 0 when the image failed.
+            loaded.current = true;
+            setStatus(refImg.current.naturalWidth > 0 ? 'loaded' : 'error');
+          }
         }
       } else {
         setStatus('lazyload');

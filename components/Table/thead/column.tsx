@@ -228,9 +228,10 @@ function Column<T>({
   if (align && align !== 'left') {
     styleTh.textAlign = align;
   }
+  // No key here: a key inside spread props is an error under the automatic JSX runtime, and the
+  // th is the only element this component returns, so it needs none.
   const thProps: Record<string, any> = {
     style: styleTh,
-    key: _key || innerDataIndex,
   };
   if (colSpan && colSpan > 1) {
     thProps.colSpan = colSpan;

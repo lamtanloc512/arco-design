@@ -134,4 +134,4 @@ GridItemComponent.__ARCO_GRID_ITEM__ = true;
 
 export default GridItemComponent;
 
-export { GridItemProps };
+export type { GridItemProps };

@@ -97,4 +97,4 @@ Search.displayName = 'Search';
 
 export default Search;
 
-export { InputSearchProps };
+export type { InputSearchProps };

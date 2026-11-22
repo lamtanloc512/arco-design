@@ -95,4 +95,4 @@ ProgressRef.displayName = 'Progress';
 
 export default ProgressRef;
 
-export { ProgressProps };
+export type { ProgressProps };

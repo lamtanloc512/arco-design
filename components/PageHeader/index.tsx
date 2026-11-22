@@ -98,4 +98,4 @@ PageHeader.displayName = 'PageHeader';
 
 export default PageHeader;
 
-export { PageHeaderProps };
+export type { PageHeaderProps };

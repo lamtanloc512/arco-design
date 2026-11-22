@@ -135,4 +135,4 @@ BreadcrumbComponent.Item = Item;
 
 export default BreadcrumbComponent;
 
-export { BreadcrumbProps };
+export type { BreadcrumbProps };

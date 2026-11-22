@@ -78,7 +78,7 @@ export default Object.assign(DatePicker, {
   RangePicker,
 }) as DatePickerDecorator;
 
-export {
+export type {
   DatePickerProps,
   MonthPickerProps,
   YearPickerProps,

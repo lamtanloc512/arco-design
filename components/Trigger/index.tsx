@@ -23,7 +23,7 @@ import { TriggerProps, MouseLocationType } from './interface';
 import { raf, caf } from '../_util/raf';
 import mergeProps from '../_util/mergeProps';
 
-export { TriggerProps };
+export type { TriggerProps };
 
 function getDOMPos(
   dom: HTMLElement,

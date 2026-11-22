@@ -915,6 +915,6 @@ SelectComponent.Option = Option;
 
 SelectComponent.OptGroup = OptGroup;
 
-export { SelectHandle };
+export type { SelectHandle };
 
 export default SelectComponent;

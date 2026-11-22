@@ -211,4 +211,4 @@ TabsComponent.TabPane = TabPane;
 
 export default TabsComponent;
 
-export { TabsProps };
+export type { TabsProps };

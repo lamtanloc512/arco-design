@@ -247,4 +247,4 @@ Message.useMessage = useMessage;
 
 export default Message;
 
-export { MessageProps };
+export type { MessageProps };

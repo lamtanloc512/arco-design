@@ -188,11 +188,12 @@ export function Dashboard() {
               ['Lena Park', 'Accountant', '#10b981'],
             ].map(([n, r, c]) => (
               <div key={n} className="pg-person">
-                <Badge dot status="success" offset={[-3, 26]}>
+                <span className="pg-presence">
                   <Avatar size={32} style={{ backgroundColor: c }}>
                     {n[0]}
                   </Avatar>
-                </Badge>
+                  <span className="pg-presence-dot" role="img" aria-label="Online" />
+                </span>
                 <div className="pg-grow">
                   <Text bold>{n}</Text>
                   <br />

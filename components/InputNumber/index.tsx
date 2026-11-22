@@ -340,4 +340,4 @@ InputNumberComponent.displayName = 'InputNumber';
 
 export default InputNumberComponent;
 
-export { InputNumberProps };
+export type { InputNumberProps };

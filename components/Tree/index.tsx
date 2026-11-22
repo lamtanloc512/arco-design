@@ -883,4 +883,4 @@ class Tree extends Component<TreeProps, TreeState> {
 
 export default Tree;
 
-export { TreeProps, NodeProps as TreeNodeProps };
+export type { TreeProps, NodeProps as TreeNodeProps };

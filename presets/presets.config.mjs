@@ -67,6 +67,43 @@ export const presets = {
     shape: { card: '12px', popup: '10px', button: '6px', shadow: 'warm', ring: 0.2, smoothing: 0.8 },
   },
 
+  // Vaadin's Lumo theme, from vaadin-lumo-styles 25.3 (src/props/color.css, style.css,
+  // typography.css): its blue, its contrast ramp (hsla shades composited over the base colour),
+  // filled fields with a 2px focus ring, primary-coloured text on default buttons, 4px / 8px
+  // radius and its own shadows. Arco's controls keep their 32px height and 14px text; Lumo's are
+  // 36px and 16px.
+  lumo: {
+    label: 'Lumo',
+    note: "Vaadin's Lumo: blue on a blue-grey contrast ramp, filled fields, small corners.",
+    font: "-apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', Helvetica, Arial, sans-serif",
+    primary: '#006af5', // hsl(214, 100%, 48%)
+    primaryDark: '#0c6ce9', // hsl(214, 90%, 48%)
+    link: { light: '#005fdb', dark: '#90bdf9' }, // --lumo-primary-text-color
+    palettes: {
+      red: { light: '#e21d12', dark: '#e0241a' }, // --lumo-error-color
+      green: '#158443', // --lumo-success-color
+    },
+    // --lumo-contrast-5pct ... 90pct over the base colour, as solid colours.
+    gray: {
+      light: ['#f3f5f7', '#e8ebef', '#dbdfe5', '#c4cad3', '#a9b1bc', '#8993a1', '#778190', '#616d7c', '#414d5e', '#263445'],
+      dark: ['#2c3d52', '#36485f', '#44576f', '#53667f', '#64778f', '#7688a0', '#8899b0', '#a0b0c5', '#bcc8d9', '#d7e0ec'],
+    },
+    bg: {
+      light: ['#ffffff', '#ffffff', '#f3f5f7', '#e8ebef', '#ffffff'],
+      dark: ['#233348', '#233348', '#2c3d52', '#36485f', '#2c3d52'], // --lumo-base-color hsl(214, 35%, 21%)
+    },
+    fields: 'filled',
+    secondaryButton: {
+      bg: { light: '#f3f5f7', dark: '#2c3d52' }, // --lumo-contrast-5pct
+      hover: { light: '#e8ebef', dark: '#36485f' },
+      active: { light: '#dbdfe5', dark: '#44576f' },
+      text: { light: '#005fdb', dark: '#90bdf9' }, // --lumo-primary-text-color
+    },
+    primaryWeight: 600,
+    radius: ['4px', '4px', '8px'], // --lumo-border-radius-s / -m (0.25em) / -l (0.5em)
+    shape: { card: '8px', popup: '4px', button: '4px', shadow: 'lumo', ring: 0.6, ringWidth: 2, smoothing: 0.6 },
+  },
+
   violet: {
     label: 'Violet',
     note: 'Soft and playful: violet on a mauve grey, the smoothest squircles.',

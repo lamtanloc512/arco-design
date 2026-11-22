@@ -44,6 +44,12 @@ const shadows = {
     light: ['0 1px 2px rgba(68,40,20,.06)', '0 6px 18px -4px rgba(68,40,20,.12), 0 2px 4px -2px rgba(68,40,20,.06)', '0 20px 48px -12px rgba(68,40,20,.24), 0 4px 10px -4px rgba(68,40,20,.08)'],
     dark: ['0 1px 2px rgba(0,0,0,.45)', '0 6px 18px -4px rgba(0,0,0,.55)', '0 20px 48px -10px rgba(0,0,0,.75), 0 0 0 1px rgba(255,255,255,.06)'],
   },
+  // Lumo (vaadin-lumo-styles 25.3): bordered surfaces have no shadow, like its outlined card;
+  // a raised one gets --lumo-box-shadow-xs, a popup --lumo-box-shadow-m.
+  lumo: {
+    light: ['none', '0 1px 4px -1px hsla(214, 45%, 20%, 0.52)', '0 2px 6px -1px hsla(214, 53%, 23%, 0.16), 0 8px 24px -4px hsla(214, 47%, 21%, 0.38)'],
+    dark: ['none', '0 1px 4px -1px hsla(214, 20%, 10%, 0.5)', '0 2px 6px -1px hsla(214, 8%, 4%, 0.23), 0 8px 24px -4px hsla(214, 16%, 8%, 0.41)'],
+  },
   lifted: {
     light: ['0 1px 3px rgba(60,30,120,.07)', '0 10px 30px -10px rgba(60,30,120,.18), 0 2px 6px -2px rgba(60,30,120,.06)', '0 24px 60px -16px rgba(60,30,120,.3), 0 6px 14px -6px rgba(60,30,120,.1)'],
     dark: ['0 1px 3px rgba(0,0,0,.45)', '0 10px 30px -10px rgba(0,0,0,.6)', '0 24px 60px -14px rgba(0,0,0,.8), 0 0 0 1px rgba(255,255,255,.06)'],
@@ -55,10 +61,19 @@ function block(name, p, mode) {
   const lines = [];
   const v = (k, val) => lines.push(`  --${k}: ${val};`);
 
-  palette(p.primary, dark).forEach((hex, i) => {
+  palette(dark && p.primaryDark ? p.primaryDark : p.primary, dark).forEach((hex, i) => {
     v(`primary-${i + 1}`, rgb(hex));
-    v(`arcoblue-${i + 1}`, rgb(hex)); // components that read arcoblue directly (link, some icons)
+    if (!p.link) v(`arcoblue-${i + 1}`, rgb(hex)); // components that read arcoblue directly (link, some icons)
   });
+  // A preset with its own text colour for links (Lumo's --lumo-primary-text-color) puts it on
+  // arcoblue, which Arco's Link reads, and on text buttons.
+  if (p.link) palette(p.link[mode], dark).forEach((hex, i) => v(`arcoblue-${i + 1}`, rgb(hex)));
+  v('preset-text-button', p.link ? 'rgb(var(--arcoblue-6))' : 'rgb(var(--primary-6))');
+  // Status palettes (red = danger, green = success, ...), when a preset brings its own.
+  for (const [hue, def] of Object.entries(p.palettes ?? {})) {
+    const base = typeof def === 'string' ? def : def[mode];
+    palette(base, dark).forEach((hex, i) => v(`${hue}-${i + 1}`, rgb(hex)));
+  }
   p.gray[mode].forEach((hex, i) => v(`gray-${i + 1}`, rgb(hex)));
   p.bg[mode].forEach((hex, i) => v(`color-bg-${i + 1}`, hex));
   v('color-bg-popup', 'var(--color-bg-5)');
@@ -95,9 +110,29 @@ function block(name, p, mode) {
   v('preset-shadow-sm', sh[0]);
   v('preset-shadow-md', sh[1]);
   v('preset-shadow-lg', sh[2]);
-  v('preset-ring', `0 0 0 3px rgba(var(--primary-6), ${dark ? p.shape.ring + 0.1 : p.shape.ring})`);
+  v('preset-ring', `0 0 0 ${p.shape.ringWidth ?? 3}px rgba(var(--primary-6), ${dark ? p.shape.ring + 0.1 : p.shape.ring})`);
   v('preset-corner-smoothing', String(p.shape.smoothing ?? 0));
   v('preset-on-primary', p.onPrimary ? p.onPrimary[mode] : '#ffffff');
+
+  // Fields: outlined on the surface (the default), or filled with no border (fields: 'filled').
+  const filled = p.fields === 'filled';
+  v('preset-field-bg', filled ? 'var(--color-fill-2)' : 'var(--color-bg-2)');
+  v('preset-field-border', filled ? 'transparent' : 'var(--color-border-2)');
+  v('preset-field-shadow', filled ? 'none' : 'var(--preset-shadow-sm)');
+  v('preset-field-hover-bg', filled ? 'var(--color-fill-3)' : 'var(--color-bg-2)');
+  v('preset-field-hover-border', filled ? 'transparent' : 'var(--color-border-3)');
+  v('preset-field-focus-bg', filled ? 'var(--color-fill-2)' : 'var(--color-bg-2)');
+  v('preset-field-focus-border', filled ? 'transparent' : 'rgb(var(--primary-6))');
+
+  // Default (secondary) buttons and weights.
+  const sec = p.secondaryButton;
+  if (sec) {
+    v('color-secondary', sec.bg[mode]);
+    v('color-secondary-hover', sec.hover[mode]);
+    v('color-secondary-active', sec.active[mode]);
+  }
+  v('preset-secondary-text', sec ? sec.text[mode] : 'var(--color-text-2)');
+  v('preset-primary-weight', String(p.primaryWeight ?? 500));
 
   // Light mode comes first and dark second; the dark selector is more specific, so it wins
   // over this preset's light block and over Arco's own body[arco-theme='dark'].

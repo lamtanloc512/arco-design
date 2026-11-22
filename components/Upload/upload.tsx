@@ -292,4 +292,4 @@ UploadRef.displayName = 'Upload';
 
 export default UploadRef;
 
-export { UploadItem, UploadProps };
+export type { UploadItem, UploadProps };

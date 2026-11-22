@@ -246,4 +246,4 @@ Notification.useNotification = useNotification;
 
 export default Notification;
 
-export { NotificationProps };
+export type { NotificationProps };

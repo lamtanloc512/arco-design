@@ -4,4 +4,4 @@ import TreeSelect from './tree-select';
 
 export default TreeSelect;
 
-export { TreeSelectProps, RefTreeSelectType };
+export type { TreeSelectProps, RefTreeSelectType };

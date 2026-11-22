@@ -18,7 +18,7 @@ Typography.Ellipsis = Ellipsis;
 
 export default Typography;
 
-export {
+export type {
   TypographyProps,
   TypographyTitleProps,
   TypographyParagraphProps,

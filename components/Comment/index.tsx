@@ -75,4 +75,4 @@ CommentRef.displayName = 'Comment';
 
 export default CommentRef;
 
-export { CommentProps };
+export type { CommentProps };

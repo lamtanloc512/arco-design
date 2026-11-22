@@ -11,6 +11,10 @@
     "label": "Ember",
     "note": "Warm and friendly: orange on stone, a cream page, squircle cards."
   },
+  "lumo": {
+    "label": "Lumo",
+    "note": "Vaadin's Lumo: blue on a blue-grey contrast ramp, filled fields, small corners."
+  },
   "violet": {
     "label": "Violet",
     "note": "Soft and playful: violet on a mauve grey, the smoothest squircles."

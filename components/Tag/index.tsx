@@ -156,4 +156,4 @@ TagComponent.displayName = 'Tag';
 
 export default TagComponent;
 
-export { TagProps };
+export type { TagProps };

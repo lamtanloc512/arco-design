@@ -277,4 +277,4 @@ ResizeBoxComponent.displayName = 'ResizeBox';
 
 export default ResizeBoxComponent;
 
-export { ResizeBoxProps };
+export type { ResizeBoxProps };

@@ -98,4 +98,4 @@ BackTopRef.displayName = 'BackTop';
 
 export default memo(BackTopRef);
 
-export { BackTopProps };
+export type { BackTopProps };

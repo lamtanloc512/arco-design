@@ -26,4 +26,4 @@ Object.assign(TimePicker, { RangePicker });
 
 export default TimePicker as TimePickerDecorator;
 
-export { TimePickerProps, RangePickerProps as TimeRangePickerProps };
+export type { TimePickerProps, RangePickerProps as TimeRangePickerProps };

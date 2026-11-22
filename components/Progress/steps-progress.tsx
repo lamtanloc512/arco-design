@@ -55,7 +55,7 @@ export const StepsProgress = (props) => {
                 [`${cls}-item-active`]: isActive,
               })}
               style={{
-                backgroundColor: isActive ? color : trailColor || '',
+                backgroundColor: isActive ? color : trailColor || undefined,
               }}
             />
           );

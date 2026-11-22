@@ -136,4 +136,4 @@ CollapseComponent.Item = CollapseItem;
 
 export default CollapseComponent;
 
-export { CollapseProps };
+export type { CollapseProps };

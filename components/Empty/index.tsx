@@ -33,4 +33,4 @@ EmptyComponent.displayName = 'Empty';
 
 export default memo(EmptyComponent);
 
-export { EmptyProps };
+export type { EmptyProps };

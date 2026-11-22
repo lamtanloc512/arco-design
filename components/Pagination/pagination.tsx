@@ -358,4 +358,4 @@ PaginationComponent.displayName = 'Pagination';
 
 export default PaginationComponent;
 
-export { PaginationProps };
+export type { PaginationProps };

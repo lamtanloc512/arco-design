@@ -87,4 +87,4 @@ Password.displayName = 'Password';
 
 export default Password;
 
-export { InputPasswordProps };
+export type { InputPasswordProps };

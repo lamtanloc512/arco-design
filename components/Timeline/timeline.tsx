@@ -123,4 +123,4 @@ TimelineComponent.Item = Item;
 
 export default TimelineComponent;
 
-export { TimelineProps };
+export type { TimelineProps };

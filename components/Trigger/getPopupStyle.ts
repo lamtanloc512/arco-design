@@ -397,6 +397,12 @@ export default (
   const horizontalOffset = popupAlign.horizontalOffset || 0;
   const verticalOffset = popupAlign.verticalOffset || 0;
 
+  // Declared here, not inside a case: cases like 'bl' assign them without passing the case that
+  // would declare them, which with `let` is a ReferenceError (TDZ) once the code is not
+  // compiled down to ES5 `var`, as in Vite or Next.js builds.
+  let arrowLeft: number;
+  let arrowTop: number;
+
   switch (props.position) {
     case 'top': {
       style.top = top - contentSize.height - alignTop;
@@ -413,7 +419,7 @@ export default (
       style.left = left;
       autoPosition('top') && (realPosition = 'bl');
       style.left += horizontalOffset;
-      let arrowLeft = left - Number(style.left) + Math.min(width / 2, 50);
+      arrowLeft = left - Number(style.left) + Math.min(width / 2, 50);
       arrowStyle.left = getInsideValue(12, contentSize.width - 12, arrowLeft);
       break;
     case 'tr':
@@ -465,7 +471,7 @@ export default (
       style.left = left - contentSize.width - alignLeft;
       autoPosition('left') && (realPosition = 'rt');
       style.top += verticalOffset;
-      let arrowTop = top - Number(style.top) + Math.min(height / 2, 50);
+      arrowTop = top - Number(style.top) + Math.min(height / 2, 50);
       arrowStyle.top = getInsideValue(12, contentSize.height - 12, arrowTop);
       break;
     case 'lb':

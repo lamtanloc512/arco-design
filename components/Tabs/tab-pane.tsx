@@ -40,4 +40,4 @@ TabPaneRef.isTabPane = true;
 
 export default TabPaneRef;
 
-export { TabPaneProps };
+export type { TabPaneProps };

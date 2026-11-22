@@ -23,7 +23,7 @@ export default function DotLoading(props: DotProps) {
       className={`${prefixCls}-list`}
       style={{
         height: props.size,
-        width: isNumber(sizeNumber) && sizeNumber > 0 ? sizeNumber * 7 : '',
+        width: isNumber(sizeNumber) && sizeNumber > 0 ? sizeNumber * 7 : undefined,
       }}
     >
       {[...new Array(5)].map((_, index) => {

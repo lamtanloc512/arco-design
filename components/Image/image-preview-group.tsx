@@ -14,7 +14,7 @@ import ImagePreview, { ImagePreviewHandle } from './image-preview';
 import { ImagePreviewGroupProps, ImagePreviewProps } from './interface';
 import { PreviewGroupContext, PreviewUrlMap } from './previewGroupContext';
 
-export { ImagePreviewGroupProps };
+export type { ImagePreviewGroupProps };
 
 export interface ImagePreviewGroupHandle {
   reset: () => void;

@@ -79,4 +79,4 @@ SkeletonComponent.displayName = 'Skeleton';
 
 export default SkeletonComponent;
 
-export { SkeletonProps };
+export type { SkeletonProps };

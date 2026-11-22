@@ -116,4 +116,4 @@ GridComponent.displayName = 'Grid';
 
 export default GridComponent;
 
-export { GridProps };
+export type { GridProps };

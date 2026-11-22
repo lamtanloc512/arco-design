@@ -109,4 +109,4 @@ Group.displayName = 'RadioGroup';
 
 export default Group;
 
-export { RadioGroupProps, RadioGroupContextProps };
+export type { RadioGroupProps, RadioGroupContextProps };

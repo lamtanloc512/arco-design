@@ -80,4 +80,4 @@ PopoverComponent.displayName = 'Popover';
 
 export default PopoverComponent;
 
-export { PopoverProps };
+export type { PopoverProps };

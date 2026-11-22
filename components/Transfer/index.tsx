@@ -277,4 +277,4 @@ TransferComponent.displayName = 'Transfer';
 
 export default TransferComponent;
 
-export { TransferProps };
+export type { TransferProps };

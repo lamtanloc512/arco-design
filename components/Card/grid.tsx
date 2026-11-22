@@ -24,4 +24,4 @@ CardComponent.displayName = 'CardGrid';
 
 export default CardComponent;
 
-export { CardGridProps };
+export type { CardGridProps };

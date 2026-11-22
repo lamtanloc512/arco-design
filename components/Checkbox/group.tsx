@@ -122,4 +122,4 @@ Group.displayName = 'CheckboxGroup';
 
 export default Group;
 
-export { CheckboxGroupProps };
+export type { CheckboxGroupProps };

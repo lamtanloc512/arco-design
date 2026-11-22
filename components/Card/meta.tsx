@@ -35,4 +35,4 @@ MetaComponent.displayName = 'CardMeta';
 
 export default MetaComponent;
 
-export { CardMetaProps };
+export type { CardMetaProps };

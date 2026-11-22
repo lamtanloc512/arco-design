@@ -20,6 +20,7 @@ body[data-arco-preset='violet'] {
   --arcoblue-9: 36,7,117;
   --primary-10: 18,0,77;
   --arcoblue-10: 18,0,77;
+  --preset-text-button: rgb(var(--primary-6));
   --gray-1: 250,249,251;
   --gray-2: 243,241,245;
   --gray-3: 232,229,236;
@@ -52,6 +53,15 @@ body[data-arco-preset='violet'] {
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.22);
   --preset-corner-smoothing: 1;
   --preset-on-primary: #ffffff;
+  --preset-field-bg: var(--color-bg-2);
+  --preset-field-border: var(--color-border-2);
+  --preset-field-shadow: var(--preset-shadow-sm);
+  --preset-field-hover-bg: var(--color-bg-2);
+  --preset-field-hover-border: var(--color-border-3);
+  --preset-field-focus-bg: var(--color-bg-2);
+  --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-secondary-text: var(--color-text-2);
+  --preset-primary-weight: 500;
 }
 
 body[data-arco-preset='violet'][arco-theme='dark'] {
@@ -75,6 +85,7 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --arcoblue-9: 224,197,251;
   --primary-10: 245,233,255;
   --arcoblue-10: 245,233,255;
+  --preset-text-button: rgb(var(--primary-6));
   --gray-1: 18,16,22;
   --gray-2: 28,26,33;
   --gray-3: 42,39,48;
@@ -116,4 +127,13 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.32);
   --preset-corner-smoothing: 1;
   --preset-on-primary: #ffffff;
+  --preset-field-bg: var(--color-bg-2);
+  --preset-field-border: var(--color-border-2);
+  --preset-field-shadow: var(--preset-shadow-sm);
+  --preset-field-hover-bg: var(--color-bg-2);
+  --preset-field-hover-border: var(--color-border-3);
+  --preset-field-focus-bg: var(--color-bg-2);
+  --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-secondary-text: var(--color-text-2);
+  --preset-primary-weight: 500;
 }

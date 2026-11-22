@@ -154,4 +154,4 @@ ColorPickerComponent.displayName = 'ColorPicker';
 
 export default ColorPickerComponent;
 
-export { ColorPickerProps };
+export type { ColorPickerProps };

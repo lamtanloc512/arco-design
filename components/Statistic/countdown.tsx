@@ -83,4 +83,4 @@ CountdownComponent.displayName = 'StatisticCountdown';
 
 export default CountdownComponent;
 
-export { CountdownProps };
+export type { CountdownProps };

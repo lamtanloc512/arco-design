@@ -153,4 +153,4 @@ BadgeComponent.displayName = 'Badge';
 
 export default BadgeComponent;
 
-export { BadgeProps };
+export type { BadgeProps };

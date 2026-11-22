@@ -1,17 +1,34 @@
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { ConfigProvider } from '@arco-design/web-react';
-import enUS from '@arco-design/web-react/es/locale/en-US';
+// Client entry. With server HTML in #root it hydrates (the SSR path); with an empty #root, as in
+// `npm run dev`, it renders from scratch.
+import { StrictMode } from 'react';
+import { createRoot, hydrateRoot } from 'react-dom/client';
+// Arco's stylesheet comes from the published package of the same version; presets load after it.
 import '@arco-design/web-react/dist/css/arco.css';
 import '../../presets/css/all.css';
-import '../../presets/corners.js';
 import './app.css';
-import { App } from './App';
+import { Root } from './Root';
+import { defaultState, normalize, type PageState } from './state';
 
-createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <ConfigProvider locale={enUS}>
-      <App />
-    </ConfigProvider>
-  </React.StrictMode>
+declare global {
+  interface Window {
+    __PAGE_STATE__?: Partial<PageState>;
+  }
+}
+
+const container = document.getElementById('root')!;
+const initial = normalize(window.__PAGE_STATE__ ?? defaultState);
+const app = (
+  <StrictMode>
+    <Root initial={initial} />
+  </StrictMode>
 );
+
+if (container.hasChildNodes()) {
+  hydrateRoot(container, app, {
+    onRecoverableError(error) {
+      console.error('[hydration]', error);
+    },
+  });
+} else {
+  createRoot(container).render(app);
+}

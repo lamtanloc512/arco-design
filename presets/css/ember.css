@@ -20,6 +20,7 @@ body[data-arco-preset='ember'] {
   --arcoblue-9: 116,30,1;
   --primary-10: 77,17,0;
   --arcoblue-10: 77,17,0;
+  --preset-text-button: rgb(var(--primary-6));
   --gray-1: 250,250,249;
   --gray-2: 245,245,244;
   --gray-3: 231,229,228;
@@ -52,6 +53,15 @@ body[data-arco-preset='ember'] {
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.2);
   --preset-corner-smoothing: 0.8;
   --preset-on-primary: #ffffff;
+  --preset-field-bg: var(--color-bg-2);
+  --preset-field-border: var(--color-border-2);
+  --preset-field-shadow: var(--preset-shadow-sm);
+  --preset-field-hover-bg: var(--color-bg-2);
+  --preset-field-hover-border: var(--color-border-3);
+  --preset-field-focus-bg: var(--color-bg-2);
+  --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-secondary-text: var(--color-text-2);
+  --preset-primary-weight: 500;
 }
 
 body[data-arco-preset='ember'][arco-theme='dark'] {
@@ -75,6 +85,7 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --arcoblue-9: 251,218,186;
   --primary-10: 255,245,235;
   --arcoblue-10: 255,245,235;
+  --preset-text-button: rgb(var(--primary-6));
   --gray-1: 15,13,12;
   --gray-2: 28,25,23;
   --gray-3: 41,37,36;
@@ -116,4 +127,13 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --preset-ring: 0 0 0 3px rgba(var(--primary-6), 0.30000000000000004);
   --preset-corner-smoothing: 0.8;
   --preset-on-primary: #ffffff;
+  --preset-field-bg: var(--color-bg-2);
+  --preset-field-border: var(--color-border-2);
+  --preset-field-shadow: var(--preset-shadow-sm);
+  --preset-field-hover-bg: var(--color-bg-2);
+  --preset-field-hover-border: var(--color-border-3);
+  --preset-field-focus-bg: var(--color-bg-2);
+  --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-secondary-text: var(--color-text-2);
+  --preset-primary-weight: 500;
 }

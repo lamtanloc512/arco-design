@@ -182,4 +182,4 @@ StatisticComponent.Countdown = Countdown;
 
 export default StatisticComponent;
 
-export { StatisticProps };
+export type { StatisticProps };

@@ -228,4 +228,4 @@ SplitComponent.displayName = 'ResizeBoxSplit';
 
 export default SplitComponent;
 
-export { SplitProps };
+export type { SplitProps };

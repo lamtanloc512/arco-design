@@ -224,4 +224,4 @@ AutoCompleteComponent.OptGroup = Select.OptGroup;
 
 export default AutoCompleteComponent;
 
-export { AutoCompleteProps };
+export type { AutoCompleteProps };

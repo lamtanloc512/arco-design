@@ -4,8 +4,11 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm --prefix ../presets run build && vite build",
-    "preview": "vite preview"
+    "build:client": "vite build",
+    "build:server": "SSR_BUILD=1 vite build --ssr src/entry-server.tsx",
+    "build": "npm --prefix ../presets run build && npm run build:client && npm run build:server && node prerender.mjs",
+    "preview": "vite preview --outDir dist/client",
+    "ssr:check": "node ssr-check.mjs"
   },
   "dependencies": {
     "@arco-design/web-react": "2.66.18",

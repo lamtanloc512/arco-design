@@ -442,4 +442,4 @@ SliderComponent.displayName = 'Slider';
 
 export default memo(SliderComponent);
 
-export { SliderProps };
+export type { SliderProps };

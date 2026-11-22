@@ -1,6 +1,6 @@
 # Arco presets
 
-Four looks for Arco, applied at runtime on top of the stock stylesheet. No rebuild of the library:
+Five looks for Arco, applied at runtime on top of the stock stylesheet. No rebuild of the library:
 Arco already reads its colours, greys, backgrounds and radius from CSS variables, so a preset is a set
 of those variables plus a small polish layer.
 
@@ -9,6 +9,7 @@ of those variables plus a small polish layer.
 | `zinc` | near-black (near-white in dark) | zinc | 6 / 8 / 10, card 10 | 0.6 | neutral, crisp, shadcn-like |
 | `indigo` | `#5e6ad2` | slate | 4 / 6 / 8, card 8 | 0.6 | calm product tool |
 | `ember` | `#ea580c` | stone, cream page | 6 / 8 / 12, card 12 | 0.8 | warm, friendly |
+| `lumo` | `#006af5` (Vaadin Lumo) | Lumo's contrast ramp | 4 / 4 / 8, card 8 | 0.6 | Vaadin's Lumo: filled fields, primary-text default buttons |
 | `violet` | `#7c3aed` | mauve | 8 / 10 / 14, card 14 | 1 | soft, playful |
 
 Radius stays small: no pills, nothing past 14px. Surfaces with a larger radius (cards, dialogs,
@@ -16,12 +17,19 @@ popups, alerts, the FAQ) are drawn as squircles with [Monoco](https://somonoco.c
 so a 12px corner reads as smooth rather than round. Controls keep a plain small radius: a clip-path
 would cut their focus ring.
 
+`lumo` follows vaadin-lumo-styles 25.3 (`src/props/*.css`): its colours, its contrast ramp
+composited over the base colour, radius, shadows and font stack. Its fields are filled
+(`fields: 'filled'`) with a 2px focus ring, and default buttons have Lumo's 5% fill and
+primary-coloured text. What it cannot change: Arco's controls stay 32px high with 14px text,
+where Lumo's are 36px and 16px.
+
 ## Use
 
 ```ts
 import '@arco-design/web-react/dist/css/arco.css';
 import 'path/to/presets/css/all.css'; // every preset + the polish layer
-import 'path/to/presets/corners.js';   // squircle surfaces with Monoco (@monokai/monoco)
+import { startCorners } from 'path/to/presets/corners.js'; // squircle surfaces with Monoco
+useEffect(() => startCorners(), []);   // in the app root; after hydration when server-rendered
 ```
 
 ```js
@@ -42,7 +50,7 @@ image, so put any background gradient on a pseudo-element; the playground's CTA 
   (`@arco-design/color`). In dark mode, step 6 stays the brand colour so white text on it stays
   readable.
 - **Polish** (`polish.css`): the things Arco compiles into its sheet instead of reading from a variable.
-  Fields are outlined with a focus ring instead of filled grey. Cards and popups get their own radius
+  Fields are outlined with a focus ring (or filled, per preset, through `--preset-field-*`). Cards and popups get their own radius
   and layered shadows. Buttons are weight 500 with a per-preset radius, and headings are weight 600.
   Words break between words instead of anywhere. Everything is scoped to `body[data-arco-preset]` and
   reads only `--preset-*` and Arco variables.

@@ -73,4 +73,4 @@ Item.displayName = 'BreadcrumbItem';
 
 export default Item;
 
-export { BreadCrumbItemProps };
+export type { BreadCrumbItemProps };

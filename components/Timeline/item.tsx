@@ -113,4 +113,4 @@ TimelineItem.isTimelineItem = true;
 
 export default TimelineItem;
 
-export { TimelineItemProps };
+export type { TimelineItemProps };
