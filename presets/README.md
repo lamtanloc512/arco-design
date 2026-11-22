@@ -52,8 +52,9 @@ gray-1000 text, borders that are a 1px 8% black line (14% white in dark), barely
 (`--ds-shadow-xs`, `-medium`, `-xl`), the two-layer focus ring (2px of the page, 2px of
 blue-700), blue-900 links, red and green. Warning is a deeper amber than Geist's so white text on
 a warning button stays readable. The rest is what Vercel, ChatGPT and Payload's admin share: Geist
-type with tight semibold headings, white fields with no shadow, a white default button with a
-1px border, selection as a light grey fill. Every corner is a squircle: with CSS `corner-shape`
+type with tight semibold headings, a white default button with a 1px border, selection as a light
+grey fill. Fields are filled the Lumo way (gray-100, no border, a lighter fill when disabled), since
+an 8% border on white was too faint to find a field by; focus keeps the blue ring. Every corner is a squircle: with CSS `corner-shape`
 (Chrome and Edge 139+) on controls and surfaces alike, borders, shadows and focus rings intact;
 elsewhere corners.js draws the surfaces with Monoco and controls stay round. Radii are a step
 larger (8px controls, 16px cards) because a squircle reads smaller than a round corner.

@@ -47,14 +47,18 @@ export const presets = {
       light: ['#ffffff', '#ffffff', '#fafafa', '#f2f2f2', '#ffffff'],
       dark: ['#0a0a0a', '#0a0a0a', '#000000', '#1a1a1a', '#0a0a0a'],
     },
+    // Fields filled, Lumo's way (a contrast fill, no border), on Modern's neutral greys: an 8%
+    // border on white was too faint to find a field by. Focus keeps Modern's blue ring.
+    fields: 'filled',
     fieldTokens: {
-      bg: { light: '#ffffff', dark: '#0a0a0a' },
-      border: { light: '#ebebeb', dark: '#2d2d2d' },
+      bg: { light: '#f2f2f2', dark: '#1a1a1a' }, // gray-100
+      border: 'transparent',
       shadow: 'none',
-      hoverBg: { light: '#ffffff', dark: '#0a0a0a' },
-      hoverBorder: { light: '#c9c9c9', dark: '#454545' },
-      focusBg: { light: '#ffffff', dark: '#0a0a0a' },
-      focusBorder: { light: '#a8a8a8', dark: '#7c7c7c' },
+      hoverBg: { light: '#ebebeb', dark: '#1f1f1f' }, // gray-200
+      hoverBorder: 'transparent',
+      focusBg: { light: '#f2f2f2', dark: '#1a1a1a' },
+      focusBorder: 'transparent',
+      disabledBg: { light: '#fafafa', dark: '#111111' }, // a step lighter than a live field
     },
     secondaryButton: {
       // Geist's secondary button: the page colour, a 1px border, gray-1000 text, gray-alpha-100 on hover

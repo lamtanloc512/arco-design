@@ -72,6 +72,7 @@ body[data-arco-preset='material'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-field-bg: transparent;
   --preset-field-border: #79747e;
   --preset-field-shadow: none;
@@ -182,6 +183,7 @@ body[data-arco-preset='material'][arco-theme='dark'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-field-bg: transparent;
   --preset-field-border: #938f99;
   --preset-field-shadow: none;

@@ -85,20 +85,22 @@ body[data-arco-preset='modern'] {
   --preset-corner-smoothing: 1;
   --preset-corner-shape: squircle;
   --preset-on-primary: #ffffff;
-  --preset-field-bg: var(--color-bg-2);
-  --preset-field-border: var(--color-border-2);
-  --preset-field-shadow: var(--preset-shadow-sm);
-  --preset-field-hover-bg: var(--color-bg-2);
-  --preset-field-hover-border: var(--color-border-3);
-  --preset-field-focus-bg: var(--color-bg-2);
-  --preset-field-focus-border: rgb(var(--primary-6));
-  --preset-field-bg: #ffffff;
-  --preset-field-border: #ebebeb;
+  --preset-field-bg: var(--color-fill-2);
+  --preset-field-border: transparent;
   --preset-field-shadow: none;
-  --preset-field-hover-bg: #ffffff;
-  --preset-field-hover-border: #c9c9c9;
-  --preset-field-focus-bg: #ffffff;
-  --preset-field-focus-border: #a8a8a8;
+  --preset-field-hover-bg: var(--color-fill-3);
+  --preset-field-hover-border: transparent;
+  --preset-field-focus-bg: var(--color-fill-2);
+  --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: var(--color-fill-2);
+  --preset-field-bg: #f2f2f2;
+  --preset-field-border: transparent;
+  --preset-field-shadow: none;
+  --preset-field-hover-bg: #ebebeb;
+  --preset-field-hover-border: transparent;
+  --preset-field-focus-bg: #f2f2f2;
+  --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: #fafafa;
   --color-secondary: #ffffff;
   --color-secondary-hover: #f2f2f2;
   --color-secondary-active: #ebebeb;
@@ -214,20 +216,22 @@ body[data-arco-preset='modern'][arco-theme='dark'] {
   --preset-corner-smoothing: 1;
   --preset-corner-shape: squircle;
   --preset-on-primary: #0a0a0a;
-  --preset-field-bg: var(--color-bg-2);
-  --preset-field-border: var(--color-border-2);
-  --preset-field-shadow: var(--preset-shadow-sm);
-  --preset-field-hover-bg: var(--color-bg-2);
-  --preset-field-hover-border: var(--color-border-3);
-  --preset-field-focus-bg: var(--color-bg-2);
-  --preset-field-focus-border: rgb(var(--primary-6));
-  --preset-field-bg: #0a0a0a;
-  --preset-field-border: #2d2d2d;
+  --preset-field-bg: var(--color-fill-2);
+  --preset-field-border: transparent;
   --preset-field-shadow: none;
-  --preset-field-hover-bg: #0a0a0a;
-  --preset-field-hover-border: #454545;
-  --preset-field-focus-bg: #0a0a0a;
-  --preset-field-focus-border: #7c7c7c;
+  --preset-field-hover-bg: var(--color-fill-3);
+  --preset-field-hover-border: transparent;
+  --preset-field-focus-bg: var(--color-fill-2);
+  --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: var(--color-fill-2);
+  --preset-field-bg: #1a1a1a;
+  --preset-field-border: transparent;
+  --preset-field-shadow: none;
+  --preset-field-hover-bg: #1f1f1f;
+  --preset-field-hover-border: transparent;
+  --preset-field-focus-bg: #1a1a1a;
+  --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: #111111;
   --color-secondary: #0a0a0a;
   --color-secondary-hover: #181818;
   --color-secondary-active: #1f1f1f;
@@ -312,6 +316,7 @@ body[data-arco-preset='zinc'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -401,6 +406,7 @@ body[data-arco-preset='zinc'][arco-theme='dark'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -482,6 +488,7 @@ body[data-arco-preset='indigo'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -571,6 +578,7 @@ body[data-arco-preset='indigo'][arco-theme='dark'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -652,6 +660,7 @@ body[data-arco-preset='ember'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -741,6 +750,7 @@ body[data-arco-preset='ember'][arco-theme='dark'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -842,6 +852,7 @@ body[data-arco-preset='lumo'] {
   --preset-field-hover-border: transparent;
   --preset-field-focus-bg: var(--color-fill-2);
   --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: var(--color-fill-2);
   --color-secondary: #f3f5f7;
   --color-secondary-hover: #e8ebef;
   --color-secondary-active: #dbdfe5;
@@ -954,6 +965,7 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-field-hover-border: transparent;
   --preset-field-focus-bg: var(--color-fill-2);
   --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: var(--color-fill-2);
   --color-secondary: #2c3d52;
   --color-secondary-hover: #36485f;
   --color-secondary-active: #44576f;
@@ -1058,6 +1070,7 @@ body[data-arco-preset='atlassian'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-field-bg: #ffffff;
   --preset-field-border: #8c8f97;
   --preset-field-shadow: none;
@@ -1177,6 +1190,7 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-field-bg: #242528;
   --preset-field-border: #7e8188;
   --preset-field-shadow: none;
@@ -1278,6 +1292,7 @@ body[data-arco-preset='material'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-field-bg: transparent;
   --preset-field-border: #79747e;
   --preset-field-shadow: none;
@@ -1388,6 +1403,7 @@ body[data-arco-preset='material'][arco-theme='dark'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-field-bg: transparent;
   --preset-field-border: #938f99;
   --preset-field-shadow: none;
@@ -1697,6 +1713,7 @@ body[data-arco-preset='violet'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -1786,6 +1803,7 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --preset-field-hover-border: var(--color-border-3);
   --preset-field-focus-bg: var(--color-bg-2);
   --preset-field-focus-border: rgb(var(--primary-6));
+  --preset-field-disabled-bg: var(--color-fill-2);
   --preset-secondary-text: var(--color-text-2);
   --preset-secondary-border: transparent;
   --preset-outline-border: var(--color-border-2);
@@ -1842,6 +1860,20 @@ body[data-arco-preset] .arco-statistic-value {
 }
 
 /* ---------- Fields: outlined, the page's surface, a ring on focus ---------- */
+
+/* A disabled field steps back from a live one (filled presets set a lighter fill). */
+body[data-arco-preset] :is(
+    .arco-input-disabled,
+    .arco-input-inner-wrapper-disabled,
+    .arco-textarea-disabled,
+    .arco-input-tag-disabled,
+    .arco-picker-disabled,
+    .arco-select-disabled .arco-select-view,
+    .arco-cascader-disabled .arco-cascader-view,
+    .arco-tree-select-disabled .arco-tree-select-view
+  ) {
+  background-color: var(--preset-field-disabled-bg);
+}
 
 /* Every field takes the control radius, the same as the buttons beside it. */
 body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-group .arco-input),

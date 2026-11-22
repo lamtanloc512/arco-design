@@ -150,7 +150,8 @@ function block(name, p, mode) {
   v('preset-field-hover-border', filled ? 'transparent' : 'var(--color-border-3)');
   v('preset-field-focus-bg', filled ? 'var(--color-fill-2)' : 'var(--color-bg-2)');
   v('preset-field-focus-border', filled ? 'transparent' : 'rgb(var(--primary-6))');
-  // A preset can set any of these itself: { bg, border, shadow, hoverBg, hoverBorder, focusBg, focusBorder }.
+  v('preset-field-disabled-bg', 'var(--color-fill-2)'); // Arco's own; filled presets go lighter
+  // A preset can set any of these itself: { bg, border, shadow, hoverBg, hoverBorder, focusBg, focusBorder, disabledBg }.
   for (const [k, val] of Object.entries(p.fieldTokens ?? {})) {
     v(`preset-field-${k.replace(/[A-Z]/g, (c) => '-' + c.toLowerCase())}`, typeof val === 'object' ? val[mode] : val);
   }

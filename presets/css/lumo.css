@@ -82,6 +82,7 @@ body[data-arco-preset='lumo'] {
   --preset-field-hover-border: transparent;
   --preset-field-focus-bg: var(--color-fill-2);
   --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: var(--color-fill-2);
   --color-secondary: #f3f5f7;
   --color-secondary-hover: #e8ebef;
   --color-secondary-active: #dbdfe5;
@@ -194,6 +195,7 @@ body[data-arco-preset='lumo'][arco-theme='dark'] {
   --preset-field-hover-border: transparent;
   --preset-field-focus-bg: var(--color-fill-2);
   --preset-field-focus-border: transparent;
+  --preset-field-disabled-bg: var(--color-fill-2);
   --color-secondary: #2c3d52;
   --color-secondary-hover: #36485f;
   --color-secondary-active: #44576f;

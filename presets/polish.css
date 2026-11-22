@@ -38,6 +38,20 @@ body[data-arco-preset] .arco-statistic-value {
 
 /* ---------- Fields: outlined, the page's surface, a ring on focus ---------- */
 
+/* A disabled field steps back from a live one (filled presets set a lighter fill). */
+body[data-arco-preset] :is(
+    .arco-input-disabled,
+    .arco-input-inner-wrapper-disabled,
+    .arco-textarea-disabled,
+    .arco-input-tag-disabled,
+    .arco-picker-disabled,
+    .arco-select-disabled .arco-select-view,
+    .arco-cascader-disabled .arco-cascader-view,
+    .arco-tree-select-disabled .arco-tree-select-view
+  ) {
+  background-color: var(--preset-field-disabled-bg);
+}
+
 /* Every field takes the control radius, the same as the buttons beside it. */
 body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-group .arco-input),
 body[data-arco-preset] .arco-input-inner-wrapper:not(.arco-input-group .arco-input-inner-wrapper),
