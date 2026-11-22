@@ -156,7 +156,6 @@ function block(name, p, mode) {
   const picked = p.selected;
   v('preset-selected-bg', picked ? picked.bg[mode] : 'var(--color-fill-2)');
   v('preset-selected-text', picked ? picked.text[mode] : 'inherit');
-  v('preset-selected-bar', picked?.bar ? `inset 2px 0 0 ${picked.bar[mode]}` : 'none');
   v('preset-radius-alert', p.shape.alert ?? 'var(--border-radius-medium)');
 
   // Light mode comes first and dark second; the dark selector is more specific, so it wins

@@ -108,7 +108,7 @@ export const presets = {
   // @atlaskit/button 25.8 and @atlaskit/textfield 11.0: blue #1868DB on its neutral scale,
   // outlined default buttons, white fields with a strong input border and a 2px focus border,
   // 4 / 6 / 8px radius, raised and overlay shadows. The rest after atlassian.design itself: bold,
-  // tight headings; the selected item on a pale blue with blue text and a blue bar at its edge;
+  // tight headings; the selected item on a pale blue with blue text, its corners a squircle;
   // section messages on 8px corners. Atlassian Sans is not a public web font; Inter is the
   // closest public face.
   atlassian: {
@@ -119,7 +119,6 @@ export const presets = {
     selected: {
       bg: { light: '#e9f2fe', dark: '#1c2b42' }, // color.background.selected
       text: { light: '#1868db', dark: '#669df1' }, // color.text.selected
-      bar: { light: '#1868db', dark: '#669df1' },
     },
     primary: '#1868db', // color.background.brand.bold
     primaryDark: '#669df1',

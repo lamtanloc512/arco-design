@@ -78,20 +78,53 @@ body[data-arco-preset] .arco-select.arco-select-focused:not(.arco-select-error):
   box-shadow: var(--preset-ring);
 }
 
-/* Addons (addBefore / addAfter) share the field's outline, so the group reads as one control:
-   the same border, a light fill, and no doubled line where they meet the field. An addon that
-   holds a button (Input.Search) is left to the button. */
-body[data-arco-preset] .arco-input-group-addbefore:not(:has(.arco-btn)),
-body[data-arco-preset] .arco-input-group-addafter:not(:has(.arco-btn)) {
-  background-color: var(--color-fill-1);
+/* An input with text addons (addBefore / addAfter) is one control. The group carries the outline,
+   fill and focus ring, and corners.js draws it as one squircle; inside, the joins are square and
+   an addon is set off by a single divider. corners.js marks such groups .preset-joined (groups
+   whose addon is a button, like Input.Search, are left as they are). */
+body[data-arco-preset] .arco-input-group.preset-joined {
   border: 1px solid var(--preset-field-border);
-  color: var(--color-text-2);
+  border-radius: var(--border-radius-small);
+  background-color: var(--preset-field-bg);
+  box-shadow: var(--preset-field-shadow);
 }
-body[data-arco-preset] .arco-input-group-addbefore:not(:has(.arco-btn)) {
-  border-right: 0;
+body[data-arco-preset] .arco-input-group.preset-joined:hover {
+  border-color: var(--preset-field-hover-border);
 }
-body[data-arco-preset] .arco-input-group-addafter:not(:has(.arco-btn)) {
-  border-left: 0;
+body[data-arco-preset] .arco-input-group.preset-joined:focus-within {
+  border-color: var(--preset-field-focus-border);
+  box-shadow: var(--preset-ring);
+}
+body[data-arco-preset] .arco-input-group.preset-joined > * {
+  border-radius: 0 !important;
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input,
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-inner-wrapper {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addbefore,
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addafter {
+  background-color: transparent;
+  border: 0;
+  color: var(--color-text-3);
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addbefore {
+  border-right: 1px solid var(--color-border-2);
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addafter {
+  border-left: 1px solid var(--color-border-2);
+}
+/* InputNumber's -/+ buttons live in the addons: no fill of their own, so nothing square shows
+   past the group's squircle; hover darkens the sign instead. */
+body[data-arco-preset] .arco-input-group.preset-joined .arco-input-number-step-button {
+  background-color: transparent;
+  border-color: transparent;
+}
+body[data-arco-preset] .arco-input-group.preset-joined .arco-input-number-step-button:not(.arco-input-number-step-button-disabled):hover {
+  background-color: transparent;
+  color: var(--color-text-1);
 }
 
 /* A field inside a group or a form item with feedback keeps the group's frame. */
@@ -249,7 +282,7 @@ body[data-arco-preset] .arco-menu-light:not(.arco-menu-horizontal) .arco-menu-it
 body[data-arco-preset] .arco-anchor-link-active > .arco-anchor-link-title {
   background-color: var(--preset-selected-bg);
   color: var(--preset-selected-text);
-  box-shadow: var(--preset-selected-bar);
+  border-radius: var(--border-radius-small);
   font-weight: 500;
 }
 body[data-arco-preset] .arco-menu-item,

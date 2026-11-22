@@ -13,7 +13,9 @@ of those variables plus a small polish layer.
 | `atlassian` | `#1868db` (ADS) | ADS neutral scale | 4 / 6 / 8, card 8 | 0.6 | after atlassian.design: Inter, bold tight headings, outlined buttons, pale-blue selection |
 | `violet` | `#7c3aed` | mauve | 8 / 10 / 14, card 14 | 1 | soft, playful |
 
-Radius stays small: no pills, nothing past 14px. Surfaces with a larger radius (cards, dialogs,
+Radius stays small: no pills, nothing past 14px. No edge bars on rounded shapes. An input with
+text addons (`addBefore` / `addAfter`, InputNumber's buttons) is one control: one squircle outline,
+square joins inside, a divider before each addon. Surfaces with a larger radius (cards, dialogs,
 popups, alerts, the FAQ) are drawn as squircles with [Monoco](https://somonoco.com) by `corners.js`,
 so a 12px corner reads as smooth rather than round. Controls keep a plain small radius: a clip-path
 would cut their focus ring.
@@ -23,7 +25,7 @@ would cut their focus ring.
 transparent with a 1px border and subtle text; white fields with the strong `border.input` and a
 2px `border.focused` on focus; in dark mode a light-blue primary with dark text. The rest takes
 its cue from atlassian.design: bold, tight headings (700, -0.02em); the selected item in a vertical
-menu or anchor on `background.selected` with blue text and a 2px blue bar at its edge; section
+menu or anchor on `background.selected` with blue text, its corners a squircle; section
 messages on 8px corners. Atlassian Sans is not a public web font, so it uses Inter, the closest
 public face. Other presets can use the same knobs: `type`, `selected`, `shape.alert`.
 

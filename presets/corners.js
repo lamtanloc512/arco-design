@@ -36,8 +36,27 @@ const SURFACES = [
   '.arco-popconfirm-content',
   '.arco-message',
   '.arco-notification',
+  // An input with text addons is one control: the group carries the outline (see polish.css).
+  '.arco-input-group.preset-joined',
+  // The selected item in a vertical menu or an anchor.
+  '.arco-menu-light:not(.arco-menu-horizontal) .arco-menu-item.arco-menu-selected',
+  '.arco-anchor-link-active > .arco-anchor-link-title',
   '[data-corners]',
 ].join(',');
+
+// Input groups whose addons are text, not buttons: marked so CSS and the selector above can
+// treat the group as one outlined control.
+function markJoinedGroups() {
+  for (const g of document.querySelectorAll('.arco-input-group')) {
+    const addons = g.querySelectorAll(':scope > .arco-input-group-addbefore, :scope > .arco-input-group-addafter');
+    const joined = addons.length > 0 && !g.querySelector(':scope > [class*="arco-input-group-add"] .arco-btn');
+    g.classList.toggle('preset-joined', joined);
+  }
+}
+
+// What a redraw depends on besides the preset: which item is selected, and the state of a
+// joined input group (focused, hovered).
+const STATEFUL = '.arco-menu, .arco-anchor, .arco-input-group';
 
 // Inline styles set on a surface, restored by clear().
 const SET = ['clipPath', 'borderColor', 'backgroundColor', 'backgroundImage', 'backgroundOrigin', 'backgroundRepeat', 'boxShadow', 'filter'];
@@ -75,6 +94,7 @@ function apply() {
   const smoothing = parseFloat(getComputedStyle(body).getPropertyValue('--preset-corner-smoothing'));
   if (!(smoothing > 0)) return;
 
+  markJoinedGroups();
   // Measure every surface first, then write, so no change is measured.
   const jobs = [];
   for (const el of document.querySelectorAll(SURFACES)) {
@@ -143,13 +163,33 @@ export function startCorners() {
   });
   added.observe(document.body, { childList: true, subtree: true });
   observers.push(added);
+  // Selection moved (menu item, anchor link): the class changes on the item.
+  const classes = new MutationObserver((records) => {
+    if (records.some((r) => r.target instanceof Element && r.target.closest(STATEFUL) && !r.target.matches('.preset-joined')))
+      schedule();
+  });
+  classes.observe(document.body, { attributes: true, attributeFilter: ['class'], subtree: true });
+  observers.push(classes);
+  // A joined input group's outline follows focus and hover, which no class records.
+  const onState = (e) => {
+    if (e.target instanceof Element && e.target.closest('.preset-joined')) schedule();
+  };
+  for (const type of ['focusin', 'focusout', 'pointerover', 'pointerout']) {
+    document.addEventListener(type, onState, true);
+  }
+  listeners.push(onState);
   return stopCorners;
 }
+
+const listeners = [];
 
 const observers = [];
 
 export function stopCorners() {
   for (const o of observers.splice(0)) o.disconnect();
+  for (const fn of listeners.splice(0)) {
+    for (const type of ['focusin', 'focusout', 'pointerover', 'pointerout']) document.removeEventListener(type, fn, true);
+  }
   if (typeof document !== 'undefined') clear();
   started = false;
 }

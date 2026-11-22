@@ -67,7 +67,6 @@ body[data-arco-preset='violet'] {
   --preset-heading-tracking: -0.015em;
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
-  --preset-selected-bar: none;
   --preset-radius-alert: var(--border-radius-medium);
 }
 
@@ -148,6 +147,5 @@ body[data-arco-preset='violet'][arco-theme='dark'] {
   --preset-heading-tracking: -0.015em;
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
-  --preset-selected-bar: none;
   --preset-radius-alert: var(--border-radius-medium);
 }

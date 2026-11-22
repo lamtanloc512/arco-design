@@ -97,7 +97,6 @@ body[data-arco-preset='atlassian'] {
   --preset-heading-tracking: -0.02em;
   --preset-selected-bg: #e9f2fe;
   --preset-selected-text: #1868db;
-  --preset-selected-bar: inset 2px 0 0 #1868db;
   --preset-radius-alert: 8px;
 }
 
@@ -208,6 +207,5 @@ body[data-arco-preset='atlassian'][arco-theme='dark'] {
   --preset-heading-tracking: -0.02em;
   --preset-selected-bg: #1c2b42;
   --preset-selected-text: #669df1;
-  --preset-selected-bar: inset 2px 0 0 #669df1;
   --preset-radius-alert: 8px;
 }
