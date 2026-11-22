@@ -29,7 +29,11 @@ export function App({ initial }: { initial: PageState }) {
     q.set('view', view);
     q.set('preset', preset);
     q.set('mode', dark ? 'dark' : 'light');
-    history.replaceState(null, '', `?${q}`);
+    try {
+      history.replaceState(null, '', `?${q}`);
+    } catch {
+      // Sandboxed frames (an embedded preview, about:blank) refuse it; the page works without.
+    }
   }, [preset, dark, view]);
 
   const note = presetOptions.find((o) => o.value === preset)?.note;
