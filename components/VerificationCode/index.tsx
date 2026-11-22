@@ -1,6 +1,6 @@
 import VerificationCode from './verification-code';
 import { VerificationCodeProps } from './interface';
 
-export { VerificationCodeProps };
+export type { VerificationCodeProps };
 
 export default VerificationCode;

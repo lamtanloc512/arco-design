@@ -29,4 +29,4 @@ Group.displayName = 'InputGroup';
 
 export default Group;
 
-export { InputGroupProps };
+export type { InputGroupProps };

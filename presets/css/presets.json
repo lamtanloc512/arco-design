@@ -1,0 +1,34 @@
+{
+  "modern": {
+    "label": "Modern",
+    "note": "Proposed default: Geist greys and shadows, near-black primary, blue focus ring, quiet borders."
+  },
+  "zinc": {
+    "label": "Zinc",
+    "note": "Neutral and crisp: a near-black primary, zinc greys, outlined fields, thin shadows."
+  },
+  "indigo": {
+    "label": "Indigo",
+    "note": "Product-tool calm: indigo on slate, tight corners, a dark mode on near-black."
+  },
+  "ember": {
+    "label": "Ember",
+    "note": "Warm and friendly: orange on stone, a cream page, squircle cards."
+  },
+  "lumo": {
+    "label": "Lumo",
+    "note": "Vaadin's Lumo: blue on a blue-grey contrast ramp, filled fields, small corners."
+  },
+  "atlassian": {
+    "label": "Atlassian",
+    "note": "After atlassian.design: Atlassian blue, bold tight headings, outlined buttons, pale-blue selection."
+  },
+  "material": {
+    "label": "Material 3",
+    "note": "Material 3: ripples, state layers and the growing focus ring; tonal buttons, Roboto, tinted surfaces."
+  },
+  "violet": {
+    "label": "Violet",
+    "note": "Soft and playful: violet on a mauve grey, the smoothest squircles."
+  }
+}

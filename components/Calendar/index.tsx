@@ -215,4 +215,4 @@ Calendar.displayName = 'Calendar';
 
 export default Calendar;
 
-export { CalendarProps };
+export type { CalendarProps };

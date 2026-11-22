@@ -601,4 +601,4 @@ InputTagRef.displayName = 'InputTag';
 
 export default InputTagRef;
 
-export { InputTagProps };
+export type { InputTagProps };

@@ -182,4 +182,4 @@ ItemRef.displayName = 'CollapseItem';
 
 export default ItemRef;
 
-export { CollapseItemProps };
+export type { CollapseItemProps };

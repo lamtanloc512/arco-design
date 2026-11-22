@@ -15,4 +15,4 @@ Grid.GridItem = GridItem;
 
 export default Grid;
 
-export { RowProps, ColProps, GridProps, ResponsiveValue } from './interface';
+export type { RowProps, ColProps, GridProps, ResponsiveValue } from './interface';

@@ -394,7 +394,7 @@ function Modal(baseProps: PropsWithChildren<ModalProps>, ref) {
             ...(wrapStyle || {}),
             // 必须 visible=false，立即设置display:none，否则modal加载react-monaco-editor的时候，编辑器显示异常
             display: visible || wrapperVisible ? 'block' : 'none',
-            overflow: !visible && wrapperVisible ? 'hidden' : '',
+            overflow: !visible && wrapperVisible ? 'hidden' : undefined,
           }}
           // 如果 autoFocus 是 false 需要在 modal 外层绑定 onKeyDown, 因为此时 FocusLock 绑定的 onKeyDown 不起作用
           onKeyDown={!innerFocusLock || !innerAutoFocus ? onEscExit : null}
@@ -499,4 +499,4 @@ ExportedModalComponent.destroyAll = () => {
 
 export default ExportedModalComponent;
 
-export { ModalProps, ModalReturnProps };
+export type { ModalProps, ModalReturnProps };

@@ -1,0 +1,14 @@
+{
+  "name": "arco-presets",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "@arco-design/color": "0.4.0"
+  },
+  "dependencies": {
+    "@monokai/monoco": "0.3.2"
+  }
+}

@@ -22,4 +22,4 @@ GroupComponent.displayName = 'ButtonGroup';
 
 export default GroupComponent;
 
-export { ButtonGroupProps };
+export type { ButtonGroupProps };

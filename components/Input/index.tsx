@@ -5,7 +5,7 @@ import { InputPasswordProps } from './password';
 import { InputSearchProps } from './search';
 import { RefTextAreaType } from './textarea';
 
-export {
+export type {
   InputProps,
   TextAreaProps,
   InputPasswordProps,

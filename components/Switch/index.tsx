@@ -145,4 +145,4 @@ SwitchComponent.displayName = 'Switch';
 
 export default SwitchComponent;
 
-export { SwitchProps };
+export type { SwitchProps };

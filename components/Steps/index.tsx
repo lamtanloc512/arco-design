@@ -108,4 +108,4 @@ StepsComponent.Step = Step;
 
 export default StepsComponent;
 
-export { StepsProps };
+export type { StepsProps };

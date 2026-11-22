@@ -1,0 +1,179 @@
+/* Page layout for the playground only. Colours and radius come from Arco variables, so the
+   sections follow whichever preset is on. */
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--color-bg-1); color: var(--color-text-1); }
+a { color: inherit; text-decoration: none; }
+
+.pg-container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.pg-narrow { max-width: 760px; }
+.pg-section { padding: 88px 0; }
+.pg-section-tight { padding: 40px 0; }
+.pg-muted { background: var(--color-bg-3); border-block: 1px solid var(--color-border-1); }
+.pg-heading { text-align: center; max-width: 640px; margin: 0 auto 40px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.pg-heading h2.arco-typography { margin: 8px 0 4px; letter-spacing: -0.02em; }
+.pg-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.pg-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.pg-grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.pg-gap-s { gap: 0 16px; }
+.pg-stack { display: flex; flex-direction: column; gap: 24px; }
+.pg-mt { margin-top: 24px; }
+.pg-mt-s { margin-top: 10px; }
+.pg-full { width: 100%; }
+.pg-grow { flex: 1; }
+.pg-tight.arco-typography { margin: 0; }
+.pg-small { font-size: 13px; }
+.pg-end { width: 100%; justify-content: flex-end; }
+.pg-between { display: flex; justify-content: space-between; align-items: center; }
+.pg-link { color: rgb(var(--primary-6)); cursor: pointer; }
+.pg-check { color: rgb(var(--success-6)); margin-right: 4px; }
+.pg-num { font-variant-numeric: tabular-nums; font-weight: 500; }
+
+/* Preset switcher */
+.pg-switcher { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 100; background: color-mix(in srgb, var(--color-bg-2) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--color-border-2); }
+.pg-switcher-inner { max-width: 1160px; margin: 0 auto; padding: 10px 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.pg-switcher-note { font-size: 13px; flex: 1; min-width: 200px; }
+
+/* Navbar */
+.pg-nav { border-bottom: 1px solid var(--color-border-1); background: var(--color-bg-1); }
+.pg-nav-inner { display: flex; align-items: center; gap: 32px; height: 64px; }
+.pg-brand { display: inline-flex; align-items: center; gap: 10px; font-weight: 700; font-size: 17px; letter-spacing: -0.01em; }
+.pg-brand-mark { width: 28px; height: 28px; border-radius: var(--border-radius-medium); background: rgb(var(--primary-6)); color: var(--preset-on-primary, #fff); display: inline-grid; place-items: center; font-size: 14px; }
+.pg-nav-links { display: flex; gap: 24px; flex: 1; }
+.pg-nav-links a { color: var(--color-text-2); font-size: 14px; font-weight: 500; }
+.pg-nav-links a:hover { color: var(--color-text-1); }
+
+/* Hero */
+.pg-hero { padding: 96px 0 72px; background:
+  radial-gradient(60% 50% at 50% 0%, rgba(var(--primary-6), 0.10), transparent 70%), var(--color-bg-1); }
+.pg-hero-inner { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.pg-pill.arco-tag { border-radius: var(--border-radius-medium); padding: 0 12px; height: 28px; background: var(--color-bg-2); border-color: var(--color-border-2); color: var(--color-text-2); }
+.pg-hero-title.arco-typography { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; letter-spacing: -0.035em; font-weight: 700; margin: 24px 0 16px; max-width: 820px; }
+.pg-hero-lead.arco-typography { font-size: 18px; line-height: 1.6; max-width: 620px; }
+.pg-hero-form { display: flex; gap: 8px; width: 100%; max-width: 440px; margin-top: 12px; }
+.pg-hero-checks { margin-top: 18px; }
+.pg-hero-proof { display: flex; align-items: center; gap: 12px; margin-top: 36px; }
+.pg-hero-proof .arco-avatar-group { display: flex; flex-shrink: 0; }
+
+/* Logos */
+.pg-logos { padding: 8px 0 48px; text-align: center; }
+.pg-logos-label { font-size: 13px; }
+.pg-logos-row { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px 48px; margin-top: 18px; }
+.pg-logo { font-weight: 700; font-size: 20px; letter-spacing: -0.02em; color: var(--color-text-3); opacity: .85; }
+
+/* Features */
+.pg-feature .arco-card-body { padding: 24px; }
+.pg-feature-icon { width: 40px; height: 40px; border-radius: var(--border-radius-medium); display: grid; place-items: center; font-size: 20px; margin-bottom: 16px; color: rgb(var(--primary-6)); background: var(--color-primary-light-1); }
+.pg-feature h6.arco-typography { margin: 0 0 6px; }
+
+/* Stats */
+.pg-stats .arco-card-body { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 32px; }
+.pg-stats .arco-statistic-value { font-weight: 700; letter-spacing: -0.02em; }
+
+/* App */
+.pg-kpi-value { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; margin: 6px 0 10px; font-variant-numeric: tabular-nums; }
+.pg-flush > .arco-card-body { padding: 0; }
+.pg-table-head { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 20px 20px 4px; flex-wrap: wrap; }
+.pg-search { width: 220px; }
+.pg-select { width: 120px; }
+.pg-tabs { padding: 0 20px; }
+.pg-tabs .arco-tabs-content { display: none; }
+.pg-badge { margin-left: 6px; }
+.pg-badge .arco-badge-number { box-shadow: none; }
+.pg-person { display: flex; align-items: center; gap: 12px; }
+/* Online dot: bottom-right of the avatar, ringed in the card's colour so it reads as on top. */
+.pg-presence { position: relative; display: inline-flex; flex-shrink: 0; }
+.pg-presence-dot { position: absolute; right: -1px; bottom: -1px; width: 10px; height: 10px; border-radius: 50%; background: rgb(var(--success-6)); box-shadow: 0 0 0 2px var(--color-bg-2); }
+.pg-login .arco-card-body { padding: 28px; }
+
+/* Pricing */
+.pg-billing { display: flex; align-items: center; gap: 10px; margin-top: 12px; }
+.pg-pricing { align-items: stretch; }
+.pg-plan .arco-card-body { padding: 28px; }
+body .pg-plan-popular.arco-card.arco-card-bordered { border: 2px solid rgb(var(--primary-6)); box-shadow: var(--preset-shadow-md, 0 4px 10px rgba(0,0,0,.1)); }
+.pg-plan-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.pg-price { display: flex; align-items: baseline; gap: 6px; margin: 8px 0 20px; }
+.pg-price-value { color: var(--color-text-1); font-size: 44px; font-weight: 700; letter-spacing: -0.03em; }
+.pg-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; color: var(--color-text-2); }
+
+/* Testimonials */
+.pg-rate { font-size: 16px; }
+.pg-quote.arco-typography { font-size: 15px; line-height: 1.65; margin: 12px 0 20px; }
+
+/* CTA */
+.pg-cta { position: relative; isolation: isolate; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 40px; border-radius: var(--preset-radius-card, 8px); border: 1px solid var(--color-border-2); background: var(--color-bg-2); flex-wrap: wrap; }
+/* The tint sits on a layer of its own: Monoco paints the squircle border as the box's background image. */
+.pg-cta::before { content: ""; position: absolute; inset: 1px; z-index: -1; border-radius: inherit; background: linear-gradient(135deg, rgba(var(--primary-6), 0.10), transparent 60%); }
+.pg-cta-form { display: flex; gap: 8px; min-width: 320px; }
+
+/* Footer */
+.pg-footer { padding: 56px 0 32px; border-top: 1px solid var(--color-border-1); }
+.pg-footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 24px; }
+.pg-footer-blurb.arco-typography { margin-top: 10px; }
+.pg-footer-links { list-style: none; padding: 0; margin: 12px 0 0; display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--color-text-2); }
+
+@media (max-width: 900px) {
+  .pg-grid-3, .pg-grid-4, .pg-stats .arco-card-body { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pg-grid-2 { grid-template-columns: 1fr; }
+  .pg-nav-links { display: none; }
+  .pg-nav-inner { justify-content: space-between; }
+}
+@media (max-width: 600px) {
+  .pg-container, .pg-switcher-inner { padding-left: 16px; padding-right: 16px; }
+  .pg-grid-3, .pg-grid-4, .pg-footer-inner { grid-template-columns: 1fr; }
+  .pg-section { padding: 56px 0; }
+  .pg-hero { padding: 56px 0 48px; }
+  .pg-hero-form, .pg-cta-form { flex-direction: column; min-width: 0; width: 100%; }
+  .pg-cta { padding: 24px; }
+}
+
+/* View separator in the switcher */
+.pg-switcher-sep { width: 1px; height: 20px; background: var(--color-border-2); }
+
+/* Component gallery */
+.gl { padding-block: 40px 80px; }
+.gl-intro { display: flex; flex-direction: column; gap: 8px; margin-bottom: 32px; max-width: 720px; }
+.gl-jump { display: flex; flex-wrap: wrap; gap: 6px 16px; margin-top: 8px; font-size: 14px; }
+.gl-jump a { color: rgb(var(--primary-6)); }
+.gl-group { margin-top: 48px; scroll-margin-top: 72px; }
+.gl-group-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-1); }
+.gl-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
+.gl-demo { min-width: 0; border: 1px solid var(--color-border-2); border-radius: var(--preset-radius-card, 4px); background: var(--color-bg-2); scroll-margin-top: 72px; }
+.gl-wide { grid-column: 1 / -1; }
+.gl-demo-head { padding: 12px 16px; border-bottom: 1px solid var(--color-border-1); }
+.gl-demo-body { padding: 20px 16px; min-width: 0; overflow-x: auto; }
+.gl-row { margin-top: 14px; }
+.gl-pad-top { padding-top: 6px; }
+.gl-icons { font-size: 20px; color: var(--color-text-2); }
+.gl-big-icon { font-size: 22px; color: var(--color-text-2); }
+.gl-cell { padding: 10px 0; text-align: center; border-radius: var(--border-radius-small); background: var(--color-primary-light-1); color: rgb(var(--primary-6)); font-size: 13px; }
+.gl-layout { border: 1px solid var(--color-border-2); border-radius: var(--border-radius-medium); overflow: hidden; text-align: center; font-size: 13px; }
+.gl-layout-header, .gl-layout-footer { padding: 12px; background: var(--color-fill-2); }
+.gl-layout-sider.arco-layout-sider { background: var(--color-fill-1); padding: 40px 0; box-shadow: none; }
+.gl-layout-content { padding: 40px 0; background: var(--color-bg-2); }
+.gl-split { height: 120px; border: 1px solid var(--color-border-2); border-radius: var(--border-radius-medium); }
+.gl-pane { height: 100%; display: grid; place-items: center; color: var(--color-text-3); font-size: 13px; }
+.gl-menu-side { margin-top: 16px; max-width: 240px; border: 1px solid var(--color-border-1); border-radius: var(--border-radius-medium); overflow: hidden; }
+.gl-menu-v.arco-menu { width: 100%; }
+.gl-carousel { height: 160px; border-radius: var(--border-radius-medium); overflow: hidden; }
+.gl-slide { height: 160px; display: grid; place-items: center; font-size: 20px; font-weight: 600; color: #fff; }
+.gl-slide-0 { background: rgb(var(--primary-6)); }
+.gl-slide-1 { background: rgb(var(--primary-5)); }
+.gl-slide-2 { background: rgb(var(--primary-7)); }
+.gl-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.gl-trigger { padding: 12px 14px; max-width: 240px; border-radius: var(--preset-radius-popup, 4px); background: var(--color-bg-popup); border: 1px solid var(--color-border-2); box-shadow: var(--preset-shadow-lg, 0 4px 10px rgba(0,0,0,.1)); font-size: 13px; }
+.gl-watermark { height: 120px; display: grid; place-items: center; color: var(--color-text-3); border: 1px dashed var(--color-border-2); border-radius: var(--border-radius-medium); }
+.gl-ok { color: rgb(var(--success-6)); }
+.gl-warn { color: rgb(var(--warning-6)); }
+.gl-err { color: rgb(var(--danger-6)); }
+.gl-info { color: rgb(var(--primary-6)); }
+@media (max-width: 900px) {
+  .gl-grid, .gl-results { grid-template-columns: 1fr; }
+}
+
+/* The playground's own frames take the preset's corner shape too (Modern: squircle). */
+@supports (corner-shape: squircle) {
+  .gl-demo, .gl-cell, .gl-layout, .gl-split, .gl-menu-side, .gl-carousel, .gl-trigger, .gl-watermark,
+  .pg-cta, .pg-feature-icon, .pg-brand-mark, .pg-pill.arco-tag {
+    corner-shape: var(--preset-corner-shape, round);
+  }
+}

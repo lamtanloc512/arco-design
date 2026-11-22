@@ -1,0 +1,27 @@
+{
+  "name": "arco-presets-playground",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build:client": "vite build",
+    "build:server": "SSR_BUILD=1 vite build --ssr src/entry-server.tsx",
+    "build": "npm --prefix ../presets run build && npm run build:client && npm run build:server && node prerender.mjs",
+    "preview": "vite preview --outDir dist/client",
+    "ssr:check": "node ssr-check.mjs"
+  },
+  "dependencies": {
+    "@arco-design/web-react": "2.66.18",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "@vitejs/plugin-react": "4.3.4",
+    "less": "^4.2.0",
+    "typescript": "5.6.3",
+    "vite": "5.4.11",
+    "vite-plugin-singlefile": "2.0.3"
+  }
+}

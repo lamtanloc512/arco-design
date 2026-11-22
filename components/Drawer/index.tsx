@@ -340,4 +340,4 @@ DrawerComponent.displayName = 'Drawer';
 
 export default DrawerComponent;
 
-export { DrawerProps };
+export type { DrawerProps };

@@ -1,6 +1,6 @@
 import Watermark from './watermark';
 import { WatermarkProps } from './interface';
 
-export { WatermarkProps };
+export type { WatermarkProps };
 
 export default Watermark;

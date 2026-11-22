@@ -169,4 +169,4 @@ ButtonComponent.displayName = 'Button';
 
 export default ButtonComponent;
 
-export { ButtonProps };
+export type { ButtonProps };

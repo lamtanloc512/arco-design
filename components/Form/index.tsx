@@ -11,7 +11,7 @@ import useFormContext from './hooks/useContext';
 import useFormState from './hooks/useState';
 import { FormContext } from './context';
 
-export { FormInstance, FormProps, FormItemProps, FormProviderProps };
+export type { FormInstance, FormProps, FormItemProps, FormProviderProps };
 
 type RefForm = typeof Form;
 

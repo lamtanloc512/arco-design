@@ -116,4 +116,5 @@ export default ConfigProvider;
 
 export const ConfigConsumer = ConfigContext.Consumer;
 
-export { ConfigProviderProps, ConfigContext };
+export { ConfigContext };
+export type { ConfigProviderProps };

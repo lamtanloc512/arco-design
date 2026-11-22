@@ -254,4 +254,4 @@ MenuComponent.__ARCO_MENU__ = true;
 
 export default MenuComponent;
 
-export { MenuProps, MenuSubMenuProps, MenuItemGroupProps, MenuItemProps } from './interface';
+export type { MenuProps, MenuSubMenuProps, MenuItemGroupProps, MenuItemProps } from './interface';

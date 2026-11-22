@@ -386,4 +386,4 @@ CarouselComponent.displayName = 'Carousel';
 
 export default CarouselComponent;
 
-export { CarouselProps };
+export type { CarouselProps };

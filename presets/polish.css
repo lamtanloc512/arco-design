@@ -1,0 +1,417 @@
+/*
+ * Arco presets: the polish layer.
+ *
+ * Tokens (css/<preset>.css) change colour, greys, backgrounds and radius. A few things Arco compiles
+ * into its sheet instead of reading from a variable: fields are filled grey with no border, cards
+ * and popups share the small radius, shadows are fixed, focus has no ring. This layer changes only
+ * those, reads only --preset-* and Arco variables, and applies only under body[data-arco-preset],
+ * so a page without a preset is plain Arco.
+ */
+
+body[data-arco-preset] {
+  font-family: var(--preset-font);
+  background-color: var(--color-bg-1);
+  color: var(--color-text-1);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Arco breaks words anywhere (break-all), which splits English mid-word. Break between words. */
+body[data-arco-preset] .arco-typography,
+body[data-arco-preset] .arco-table-cell {
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+body[data-arco-preset] h1.arco-typography,
+body[data-arco-preset] h2.arco-typography,
+body[data-arco-preset] h3.arco-typography,
+body[data-arco-preset] h4.arco-typography,
+body[data-arco-preset] h5.arco-typography,
+body[data-arco-preset] h6.arco-typography,
+body[data-arco-preset] .arco-card-header-title,
+body[data-arco-preset] .arco-modal-title,
+body[data-arco-preset] .arco-statistic-value {
+  font-weight: var(--preset-heading-weight);
+  letter-spacing: var(--preset-heading-tracking);
+}
+
+/* ---------- Fields: outlined, the page's surface, a ring on focus ---------- */
+
+/* A disabled field steps back from a live one (filled presets set a lighter fill). */
+body[data-arco-preset] .arco-input-disabled,
+body[data-arco-preset] .arco-input-inner-wrapper-disabled,
+body[data-arco-preset] .arco-textarea-disabled,
+body[data-arco-preset] .arco-input-tag-disabled,
+body[data-arco-preset] .arco-picker-disabled,
+body[data-arco-preset] .arco-select-disabled .arco-select-view,
+body[data-arco-preset] .arco-cascader-disabled .arco-cascader-view,
+body[data-arco-preset] .arco-tree-select-disabled .arco-tree-select-view {
+  background-color: var(--preset-field-disabled-bg);
+}
+
+/* Every field takes the control radius, the same as the buttons beside it. */
+body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-group .arco-input),
+body[data-arco-preset] .arco-input-inner-wrapper:not(.arco-input-group .arco-input-inner-wrapper),
+body[data-arco-preset] .arco-textarea,
+body[data-arco-preset] .arco-input-tag,
+body[data-arco-preset] .arco-picker,
+body[data-arco-preset] .arco-select-view,
+body[data-arco-preset] .arco-tree-select-view,
+body[data-arco-preset] .arco-cascader-view,
+body[data-arco-preset] .arco-input-number,
+body[data-arco-preset] .arco-mentions .arco-textarea,
+body[data-arco-preset] .arco-verification-code .arco-input {
+  border-radius: var(--preset-radius-control);
+}
+/* In a group, only the outer ends are rounded, with the same radius. */
+body[data-arco-preset] .arco-input-group > :first-child {
+  border-top-left-radius: var(--preset-radius-control);
+  border-bottom-left-radius: var(--preset-radius-control);
+}
+body[data-arco-preset] .arco-input-group > :last-child,
+body[data-arco-preset] .arco-input-group > :last-child .arco-btn {
+  border-top-right-radius: var(--preset-radius-control);
+  border-bottom-right-radius: var(--preset-radius-control);
+}
+
+body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-error):not(.arco-input-warning):not(.arco-input-disabled),
+body[data-arco-preset] .arco-input-inner-wrapper:not(.arco-input-inner-wrapper-error):not(.arco-input-inner-wrapper-warning):not(.arco-input-inner-wrapper-disabled),
+body[data-arco-preset] .arco-textarea:not(.arco-textarea-error):not(.arco-textarea-warning):not(.arco-textarea-disabled),
+body[data-arco-preset] .arco-input-tag:not(.arco-input-tag-error):not(.arco-input-tag-warning):not(.arco-input-tag-disabled),
+body[data-arco-preset] .arco-picker:not(.arco-picker-error):not(.arco-picker-warning):not(.arco-picker-disabled),
+body[data-arco-preset] .arco-select:not(.arco-select-error):not(.arco-select-warning):not(.arco-select-disabled):not(.arco-select-no-border) .arco-select-view,
+body[data-arco-preset] .arco-cascader:not(.arco-cascader-error):not(.arco-cascader-warning):not(.arco-cascader-disabled) .arco-cascader-view,
+body[data-arco-preset] .arco-tree-select:not(.arco-tree-select-error):not(.arco-tree-select-disabled) .arco-tree-select-view {
+  background-color: var(--preset-field-bg);
+  border-color: var(--preset-field-border);
+  box-shadow: var(--preset-field-shadow);
+}
+
+body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-error):not(.arco-input-warning):not(.arco-input-disabled):hover,
+body[data-arco-preset] .arco-input-inner-wrapper:not(.arco-input-inner-wrapper-error):not(.arco-input-inner-wrapper-warning):not(.arco-input-inner-wrapper-disabled):hover,
+body[data-arco-preset] .arco-textarea:not(.arco-textarea-error):not(.arco-textarea-warning):not(.arco-textarea-disabled):hover,
+body[data-arco-preset] .arco-input-tag:not(.arco-input-tag-error):not(.arco-input-tag-warning):not(.arco-input-tag-disabled):hover,
+body[data-arco-preset] .arco-picker:not(.arco-picker-error):not(.arco-picker-warning):not(.arco-picker-disabled):hover,
+body[data-arco-preset] .arco-cascader:not(.arco-cascader-error):not(.arco-cascader-warning):not(.arco-cascader-disabled):hover .arco-cascader-view,
+body[data-arco-preset] .arco-tree-select:not(.arco-tree-select-error):not(.arco-tree-select-disabled):hover .arco-tree-select-view,
+body[data-arco-preset] .arco-select:not(.arco-select-error):not(.arco-select-warning):not(.arco-select-disabled):not(.arco-select-no-border):hover .arco-select-view {
+  background-color: var(--preset-field-hover-bg);
+  border-color: var(--preset-field-hover-border);
+}
+/* Focus outranks the outline and hover rules above (:not(#_) adds an id's weight and always
+   matches), so a focused field keeps its focus border and ring while the pointer is over it. */
+
+body[data-arco-preset] .arco-input:not(.arco-input-inner-wrapper .arco-input):not(.arco-input-error):not(.arco-input-warning):focus:not(#_),
+body[data-arco-preset] .arco-input.arco-input-focus:not(.arco-input-inner-wrapper .arco-input):not(#_),
+body[data-arco-preset] .arco-input-inner-wrapper.arco-input-inner-wrapper-focus:not(.arco-input-inner-wrapper-error):not(#_),
+body[data-arco-preset] .arco-textarea:not(.arco-textarea-error):focus:not(#_),
+body[data-arco-preset] .arco-textarea.arco-textarea-focus:not(#_),
+body[data-arco-preset] .arco-input-tag.arco-input-tag-focus:not(.arco-input-tag-error):not(#_),
+body[data-arco-preset] .arco-picker.arco-picker-focused:not(.arco-picker-error):not(#_),
+body[data-arco-preset] .arco-cascader.arco-cascader-focused:not(.arco-cascader-error) .arco-cascader-view:not(#_),
+body[data-arco-preset] .arco-tree-select.arco-tree-select-focused:not(.arco-tree-select-error) .arco-tree-select-view:not(#_),
+body[data-arco-preset] .arco-select.arco-select-focused:not(.arco-select-error):not(.arco-select-no-border) .arco-select-view:not(#_) {
+  background-color: var(--preset-field-focus-bg);
+  border-color: var(--preset-field-focus-border);
+  box-shadow: var(--preset-ring);
+}
+
+/* An input with text addons (addBefore / addAfter) is one control. The group carries the outline,
+   fill and focus ring, and corners.js draws it as one squircle; inside, the joins are square and
+   an addon is set off by a single divider. corners.js marks such groups .preset-joined (groups
+   whose addon is a button, like Input.Search, are left as they are). */
+body[data-arco-preset] .arco-input-group.preset-joined {
+  border: 1px solid var(--preset-field-border);
+  border-radius: var(--preset-radius-control);
+  background-color: var(--preset-field-bg);
+  box-shadow: var(--preset-field-shadow);
+}
+body[data-arco-preset] .arco-input-group.preset-joined:hover {
+  border-color: var(--preset-field-hover-border);
+}
+body[data-arco-preset] .arco-input-group.preset-joined:focus-within {
+  border-color: var(--preset-field-focus-border);
+  box-shadow: var(--preset-ring);
+}
+body[data-arco-preset] .arco-input-group.preset-joined > * {
+  border-radius: 0 !important;
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input,
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-inner-wrapper {
+  border-color: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addbefore,
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addafter {
+  background-color: transparent;
+  border: 0;
+  color: var(--color-text-3);
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addbefore {
+  border-right: 1px solid var(--color-border-2);
+}
+body[data-arco-preset] .arco-input-group.preset-joined > .arco-input-group-addafter {
+  border-left: 1px solid var(--color-border-2);
+}
+/* InputNumber's -/+ buttons live in the addons: no fill of their own, so nothing square shows
+   past the group's squircle; hover darkens the sign instead. */
+body[data-arco-preset] .arco-input-group.preset-joined .arco-input-number-step-button {
+  background-color: transparent;
+  border-color: transparent;
+}
+body[data-arco-preset] .arco-input-group.preset-joined .arco-input-number-step-button:not(.arco-input-number-step-button-disabled):hover {
+  background-color: transparent;
+  color: var(--color-text-1);
+}
+
+/* A field with a button addon (Input.Search) is one control too: on focus the ring goes round the
+   whole group, field and button, not round the field alone (where the button would cut it). */
+body[data-arco-preset] .arco-input-group:has(> .arco-input-group-addafter .arco-btn, > .arco-input-group-addbefore .arco-btn) {
+  border-radius: var(--preset-radius-control);
+}
+body[data-arco-preset] .arco-input-group:has(> .arco-input-group-addafter .arco-btn, > .arco-input-group-addbefore .arco-btn):focus-within {
+  box-shadow: var(--preset-ring);
+}
+body[data-arco-preset] .arco-input-group:has(> .arco-input-group-addafter .arco-btn, > .arco-input-group-addbefore .arco-btn) > :is(.arco-input, .arco-input-inner-wrapper):not(#_) {
+  box-shadow: none;
+}
+
+/* A field inside a group or a form item with feedback keeps the group's frame. */
+body[data-arco-preset] .arco-input-group .arco-input-inner-wrapper,
+body[data-arco-preset] .arco-input-group > .arco-input {
+  box-shadow: none;
+}
+
+/* ---------- Buttons ---------- */
+
+body[data-arco-preset] .arco-btn:not(.arco-btn-shape-circle):not(.arco-btn-shape-round):not(.arco-btn-group .arco-btn):not(.arco-input-group .arco-btn) {
+  border-radius: var(--preset-radius-control);
+}
+body[data-arco-preset] .arco-btn-group .arco-btn:first-child {
+  border-top-left-radius: var(--preset-radius-button);
+  border-bottom-left-radius: var(--preset-radius-button);
+}
+body[data-arco-preset] .arco-btn-group .arco-btn:last-child {
+  border-top-right-radius: var(--preset-radius-button);
+  border-bottom-right-radius: var(--preset-radius-button);
+}
+body[data-arco-preset] .arco-btn {
+  font-weight: 500;
+}
+body[data-arco-preset] .arco-btn-primary {
+  font-weight: var(--preset-primary-weight);
+}
+body[data-arco-preset] .arco-btn-text:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success) {
+  color: var(--preset-text-button);
+}
+body[data-arco-preset] .arco-btn-secondary:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success) {
+  color: var(--preset-secondary-text);
+  border-color: var(--preset-secondary-border);
+}
+body[data-arco-preset] .arco-btn-primary:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success) {
+  color: var(--preset-on-primary);
+  box-shadow: var(--preset-shadow-sm);
+}
+body[data-arco-preset] .arco-btn-outline:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success) {
+  background-color: var(--color-bg-2);
+  border-color: var(--preset-outline-border);
+  color: var(--preset-outline-text);
+  box-shadow: var(--preset-shadow-sm);
+}
+body[data-arco-preset] .arco-btn-outline:not(.arco-btn-disabled):not(.arco-btn-status-danger):not(.arco-btn-status-warning):not(.arco-btn-status-success):hover {
+  background-color: var(--color-fill-1);
+  border-color: var(--preset-outline-hover-border);
+  color: var(--preset-outline-text);
+}
+body[data-arco-preset] .arco-btn:focus-visible {
+  box-shadow: var(--preset-ring);
+}
+
+/* ---------- Controls that draw on the primary colour ---------- */
+
+body[data-arco-preset] .arco-checkbox-mask {
+  border-radius: var(--preset-radius-checkbox);
+}
+body[data-arco-preset] .arco-checkbox-mask-icon {
+  color: var(--preset-on-primary);
+}
+body[data-arco-preset] .arco-switch-checked .arco-switch-dot {
+  background-color: var(--preset-on-primary);
+}
+body[data-arco-preset] .arco-radio-checked .arco-radio-mask::after {
+  background-color: var(--preset-on-primary);
+}
+body[data-arco-preset] .arco-radio-group-button {
+  border-radius: var(--border-radius-medium);
+  padding: 2px;
+}
+body[data-arco-preset] .arco-radio-button {
+  border-radius: var(--border-radius-small);
+}
+body[data-arco-preset] .arco-radio-button.arco-radio-checked {
+  box-shadow: var(--preset-shadow-sm);
+}
+
+/* ---------- Surfaces: cards, popups, dialogs ---------- */
+
+body[data-arco-preset] .arco-card {
+  border-radius: var(--preset-radius-card);
+  background-color: var(--color-bg-2);
+}
+body[data-arco-preset] .arco-card-bordered {
+  border-color: var(--color-border-2);
+  box-shadow: var(--preset-shadow-sm);
+}
+body[data-arco-preset] .arco-card-header {
+  border-bottom-color: var(--color-border-1);
+}
+body[data-arco-preset] .arco-card-hoverable:hover {
+  box-shadow: var(--preset-shadow-md);
+}
+
+body[data-arco-preset] .arco-select-popup,
+body[data-arco-preset] .arco-dropdown-menu,
+body[data-arco-preset] .arco-picker-container,
+body[data-arco-preset] .arco-cascader-popup,
+body[data-arco-preset] .arco-tree-select-popup,
+body[data-arco-preset] .arco-popover-content,
+body[data-arco-preset] .arco-popconfirm-content,
+body[data-arco-preset] .arco-trigger-popup .arco-color-picker-panel {
+  border-radius: var(--preset-radius-popup);
+  border: 1px solid var(--color-border-2);
+  box-shadow: var(--preset-shadow-lg);
+  background-color: var(--color-bg-popup);
+}
+body[data-arco-preset] .arco-select-popup .arco-select-option,
+body[data-arco-preset] .arco-dropdown-menu-item {
+  border-radius: calc(var(--preset-radius-popup) - 3px);
+  margin: 0 4px;
+  width: auto;
+}
+body[data-arco-preset] .arco-tooltip-content {
+  border-radius: var(--preset-radius-tooltip);
+  box-shadow: var(--preset-shadow-md);
+}
+
+body[data-arco-preset] .arco-modal {
+  border-radius: var(--preset-radius-card);
+  border: 1px solid var(--color-border-1);
+  box-shadow: var(--preset-shadow-lg);
+}
+body[data-arco-preset] .arco-modal-header,
+body[data-arco-preset] .arco-drawer-header {
+  border-bottom-color: var(--color-border-1);
+}
+body[data-arco-preset] .arco-message,
+body[data-arco-preset] .arco-notification {
+  border-radius: var(--preset-radius-popup);
+  border: 1px solid var(--color-border-2);
+  box-shadow: var(--preset-shadow-lg);
+}
+
+/* ---------- Data ---------- */
+
+body[data-arco-preset] .arco-table-th {
+  background-color: var(--color-bg-3);
+  color: var(--color-text-3);
+  font-weight: 500;
+}
+body[data-arco-preset] .arco-table-container {
+  border-radius: var(--border-radius-medium);
+}
+body[data-arco-preset] .arco-table-tr:not(.arco-table-empty-row):hover .arco-table-td {
+  background-color: var(--color-fill-1);
+}
+
+body[data-arco-preset] .arco-tag {
+  border-radius: var(--preset-radius-tag);
+  font-weight: 500;
+}
+body[data-arco-preset] .arco-tabs-header-title {
+  font-weight: 500;
+}
+body[data-arco-preset] .arco-menu-light:not(.arco-menu-horizontal) .arco-menu-item.arco-menu-selected,
+body[data-arco-preset] .arco-anchor-link-active > .arco-anchor-link-title {
+  background-color: var(--preset-selected-bg);
+  color: var(--preset-selected-text);
+  border-radius: var(--border-radius-small);
+  font-weight: 500;
+}
+body[data-arco-preset] .arco-menu-item,
+body[data-arco-preset] .arco-menu-inline-header {
+  border-radius: var(--border-radius-small);
+}
+body[data-arco-preset] .arco-collapse {
+  border-radius: var(--preset-radius-card);
+  border-color: var(--color-border-2);
+}
+body[data-arco-preset] .arco-alert {
+  border-radius: var(--preset-radius-alert);
+}
+body[data-arco-preset] .arco-progress-line-inner,
+body[data-arco-preset] .arco-progress-line-outer {
+  border-radius: 999px;
+}
+
+/* ---------- Squircle corners, natively ----------
+   Where the browser has CSS corner-shape (Chrome and Edge 139+), a preset that sets
+   --preset-corner-shape (Modern: squircle) gets it on every rounded control and surface, with
+   borders, shadows and focus rings intact. Shapes that must stay circles (avatars, radios,
+   switches, round buttons, badges) are not listed. Elsewhere corners.js draws the surfaces with
+   Monoco and controls stay round. */
+@supports (corner-shape: squircle) {
+  body[data-arco-preset] .arco-btn:not(.arco-btn-shape-circle):not(.arco-btn-shape-round),
+  body[data-arco-preset] .arco-input,
+  body[data-arco-preset] .arco-input-inner-wrapper,
+  body[data-arco-preset] .arco-input-group > *,
+  body[data-arco-preset] .arco-input-group.preset-joined,
+  body[data-arco-preset] .arco-input-group:has(.arco-btn),
+  body[data-arco-preset] .arco-input-number,
+  body[data-arco-preset] .arco-textarea,
+  body[data-arco-preset] .arco-input-tag,
+  body[data-arco-preset] .arco-picker,
+  body[data-arco-preset] .arco-select-view,
+  body[data-arco-preset] .arco-cascader-view,
+  body[data-arco-preset] .arco-tree-select-view,
+  body[data-arco-preset] .arco-verification-code .arco-input,
+  body[data-arco-preset] .arco-tag,
+  body[data-arco-preset] .arco-checkbox-mask,
+  body[data-arco-preset] .arco-radio-group-button,
+  body[data-arco-preset] .arco-radio-button,
+  body[data-arco-preset] .arco-menu-item,
+  body[data-arco-preset] .arco-menu-inline-header,
+  body[data-arco-preset] .arco-dropdown-menu-item,
+  body[data-arco-preset] .arco-select-option,
+  body[data-arco-preset] .arco-cascader-list-item,
+  body[data-arco-preset] .arco-tabs-header-title,
+  body[data-arco-preset] .arco-pagination-item,
+  body[data-arco-preset] .arco-anchor-link-title,
+  body[data-arco-preset] .arco-upload-list-item,
+  body[data-arco-preset] .arco-image,
+  body[data-arco-preset] .arco-avatar-square,
+  body[data-arco-preset] .arco-tooltip-content,
+  body[data-arco-preset] .arco-card,
+  body[data-arco-preset] .arco-modal,
+  body[data-arco-preset] .arco-drawer,
+  body[data-arco-preset] .arco-collapse,
+  body[data-arco-preset] .arco-alert,
+  body[data-arco-preset] .arco-select-popup,
+  body[data-arco-preset] .arco-dropdown-menu,
+  body[data-arco-preset] .arco-picker-container,
+  body[data-arco-preset] .arco-cascader-popup,
+  body[data-arco-preset] .arco-tree-select-popup,
+  body[data-arco-preset] .arco-popover-content,
+  body[data-arco-preset] .arco-popconfirm-content,
+  body[data-arco-preset] .arco-message,
+  body[data-arco-preset] .arco-notification,
+  body[data-arco-preset] .arco-table-container,
+  body[data-arco-preset] .arco-descriptions-border .arco-descriptions-body,
+  body[data-arco-preset] .arco-transfer-view,
+  body[data-arco-preset] .arco-upload-drag,
+  body[data-arco-preset] .arco-progress-steps-item,
+  body[data-arco-preset] [data-corners] {
+    corner-shape: var(--preset-corner-shape);
+  }
+}

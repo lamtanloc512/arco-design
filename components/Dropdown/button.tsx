@@ -79,4 +79,4 @@ ButtonComponent.displayName = 'DropdownButton';
 
 export default ButtonComponent;
 
-export { DropdownButtonProps };
+export type { DropdownButtonProps };

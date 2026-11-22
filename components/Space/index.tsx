@@ -117,4 +117,4 @@ SpaceComponent.displayName = 'Space';
 
 export default SpaceComponent;
 
-export { SpaceSize, SpaceProps };
+export type { SpaceSize, SpaceProps };

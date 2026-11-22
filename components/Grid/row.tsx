@@ -122,4 +122,4 @@ RowComponent.displayName = 'Row';
 
 export default RowComponent;
 
-export { RowProps };
+export type { RowProps };

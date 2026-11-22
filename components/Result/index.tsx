@@ -88,4 +88,4 @@ ResultRef.displayName = 'Result';
 
 export default ResultRef;
 
-export { ResultProps };
+export type { ResultProps };

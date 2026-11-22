@@ -96,4 +96,4 @@ SpinComponent.displayName = 'Spin';
 
 export default SpinComponent;
 
-export { SpinProps };
+export type { SpinProps };

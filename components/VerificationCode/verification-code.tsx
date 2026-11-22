@@ -37,9 +37,11 @@ export function VerificationCodeComponent(baseProps: VerificationCodeProps, _) {
       style={props.style}
     >
       {filledValue.map((v, index) => {
-        const { onChange, onClick, onPaste, onKeyDown, ...restInputProps } = getInputProps(index);
+        // getInputProps returns the key too; it goes on the Fragment, not into the input's spread.
+        const { key, onChange, onClick, onPaste, onKeyDown, ...restInputProps } =
+          getInputProps(index);
         return (
-          <Fragment key={index}>
+          <Fragment key={key}>
             <InputComponent
               disabled={props.disabled}
               readOnly={props.readOnly}

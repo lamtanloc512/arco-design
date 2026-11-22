@@ -119,4 +119,4 @@ Radio.GroupContext = RadioGroupContext;
 
 export default Radio;
 
-export { RadioProps };
+export type { RadioProps };

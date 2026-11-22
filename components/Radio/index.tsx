@@ -3,6 +3,6 @@ import { RadioGroupProps } from './group';
 
 export default Radio;
 
-export { RadioProps, RadioGroupProps };
+export type { RadioProps, RadioGroupProps };
 
 export { ClearRadioGroupContext } from './group';

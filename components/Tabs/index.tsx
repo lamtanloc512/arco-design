@@ -1,6 +1,6 @@
 import Tabs from './tabs';
 import { TabsProps, TabPaneProps } from './interface';
 
-export { TabsProps, TabPaneProps };
+export type { TabsProps, TabPaneProps };
 
 export default Tabs;

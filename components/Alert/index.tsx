@@ -107,4 +107,4 @@ AlertComponent.displayName = 'Alert';
 
 export default AlertComponent;
 
-export { AlertProps };
+export type { AlertProps };

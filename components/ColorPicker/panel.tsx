@@ -266,7 +266,9 @@ export const Panel: React.FC<PanelProps> = ({
     <div className={`${prefixCls}-panel`}>
       <div
         className={
-          (isMultiMode(mode) || isGradientMode(activeMode)) && `${prefixCls}-panel-control-gradient`
+          isMultiMode(mode) || isGradientMode(activeMode)
+            ? `${prefixCls}-panel-control-gradient`
+            : undefined
         }
       >
         {isMultiMode(mode) && renderModeTag()}

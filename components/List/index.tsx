@@ -369,4 +369,4 @@ ListComponent.Item = Item;
 
 export default ListComponent;
 
-export { ListProps };
+export type { ListProps };

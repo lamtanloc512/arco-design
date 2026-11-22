@@ -98,7 +98,9 @@ const Avatar = forwardRef<HTMLElement, PropsWithChildren<AvatarProps>>(
         style={{
           width: size,
           height: size,
-          fontSize: isNumber(size) ? size / 2 : '',
+          // undefined, not '': React renders an empty style value differently on the server
+          // and the client, which shows up as a hydration mismatch.
+          fontSize: isNumber(size) ? size / 2 : undefined,
           ...style,
         }}
         className={classNames}

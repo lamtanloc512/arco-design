@@ -203,4 +203,4 @@ AffixComponent.displayName = 'Affix';
 
 export default AffixComponent;
 
-export { AffixProps };
+export type { AffixProps };

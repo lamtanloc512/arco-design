@@ -200,4 +200,4 @@ MentionsComponent.displayName = 'Mentions';
 
 export default MentionsComponent;
 
-export { MentionsProps };
+export type { MentionsProps };

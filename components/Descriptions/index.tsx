@@ -215,4 +215,4 @@ Descriptions.displayName = 'Descriptions';
 
 export default Descriptions;
 
-export { DescriptionsProps };
+export type { DescriptionsProps };

@@ -117,7 +117,7 @@ function Tr<T>(props: TrType<T>, ref) {
   const InnerComponentBodyRow = virtualized ? 'div' : ComponentBodyRow;
   const InnerComponentTd = virtualized ? 'div' : ComponentTd;
 
-  const baseTrProps = { className: classNameTr, key: trKey, ...rowProps, ...rowClickProps };
+  const baseTrProps = { className: classNameTr, ...rowProps, ...rowClickProps };
   const trProps = isString(ComponentBodyRow) ? baseTrProps : { ...baseTrProps, record, index };
 
   function renderExpandIcon(record, rowK) {
@@ -194,7 +194,7 @@ function Tr<T>(props: TrType<T>, ref) {
   const bodyOperations = getBodyComponentOperations({ selectionNode, expandNode });
 
   return (
-    <InnerComponentBodyRow {...trProps} ref={ref}>
+    <InnerComponentBodyRow key={trKey} {...trProps} ref={ref}>
       {columns.map((col, colIndex) => {
         const stickyOffset: number = stickyOffsets[colIndex];
         const stickyClassName: string = stickyClassNames[colIndex];

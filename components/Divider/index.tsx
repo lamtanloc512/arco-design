@@ -40,4 +40,4 @@ DividerComponent.displayName = 'Divider';
 
 export default DividerComponent;
 
-export { DividerProps };
+export type { DividerProps };

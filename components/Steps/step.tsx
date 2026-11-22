@@ -112,4 +112,4 @@ StepComponent.displayName = 'Step';
 
 export default StepComponent;
 
-export { StepProps };
+export type { StepProps };

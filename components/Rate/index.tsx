@@ -186,4 +186,4 @@ RateComponent.displayName = 'Rate';
 
 export default RateComponent;
 
-export { RateProps };
+export type { RateProps };

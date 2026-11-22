@@ -113,4 +113,4 @@ CardComponent.displayName = 'Card';
 
 export default CardComponent;
 
-export { CardProps };
+export type { CardProps };

@@ -160,17 +160,20 @@ function THead<T>(props: TheadProps<T>) {
                 columnFixedStyle[rtl ? 'left' : 'right'] = stickyOffset;
               }
 
+              // column carries its own key; keep it out of the spread below.
+              const { key: columnKey, ...columnProps } = column;
+
               return (
                 <Column<T>
-                  key={column.key}
+                  key={columnKey}
                   index={colIndex}
                   onSort={onSort}
                   onHandleFilter={onHandleFilter}
                   onHandleFilterReset={onHandleFilterReset}
                   currentSorter={activeSorters.find((item) => item.field === column.key)}
                   currentFilters={currentFilters}
-                  _key={column.key || column.dataIndex || colIndex}
-                  {...column}
+                  _key={columnKey || column.dataIndex || colIndex}
+                  {...columnProps}
                   column={column}
                   headerCellProps={headerCellProps}
                   prefixCls={prefixCls}

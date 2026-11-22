@@ -120,4 +120,4 @@ ColComponent.displayName = 'Col';
 
 export default ColComponent;
 
-export { ColProps };
+export type { ColProps };
