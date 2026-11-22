@@ -168,6 +168,18 @@ body[data-arco-preset] .arco-input-group.preset-joined .arco-input-number-step-b
   color: var(--color-text-1);
 }
 
+/* A field with a button addon (Input.Search) is one control too: on focus the ring goes round the
+   whole group, field and button, not round the field alone (where the button would cut it). */
+body[data-arco-preset] .arco-input-group:has(> .arco-input-group-addafter .arco-btn, > .arco-input-group-addbefore .arco-btn) {
+  border-radius: var(--preset-radius-control);
+}
+body[data-arco-preset] .arco-input-group:has(> .arco-input-group-addafter .arco-btn, > .arco-input-group-addbefore .arco-btn):focus-within {
+  box-shadow: var(--preset-ring);
+}
+body[data-arco-preset] .arco-input-group:has(> .arco-input-group-addafter .arco-btn, > .arco-input-group-addbefore .arco-btn) > :is(.arco-input, .arco-input-inner-wrapper):not(#_) {
+  box-shadow: none;
+}
+
 /* A field inside a group or a form item with feedback keeps the group's frame. */
 body[data-arco-preset] .arco-input-group .arco-input-inner-wrapper,
 body[data-arco-preset] .arco-input-group > .arco-input {
@@ -358,6 +370,7 @@ body[data-arco-preset] .arco-progress-line-outer {
       .arco-input-inner-wrapper,
       .arco-input-group > *,
       .arco-input-group.preset-joined,
+      .arco-input-group:has(.arco-btn),
       .arco-input-number,
       .arco-textarea,
       .arco-input-tag,
