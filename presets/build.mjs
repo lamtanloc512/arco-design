@@ -170,6 +170,11 @@ function block(name, p, mode) {
   v('preset-selected-text', picked ? picked.text[mode] : 'inherit');
   v('preset-radius-alert', p.shape.alert ?? 'var(--border-radius-medium)');
 
+  // Interaction model: Material's state layers, ripple and focus ring (interaction-material.css,
+  // ripple.js), or none (the polish layer's own hover colours and ring).
+  v('preset-ripple', p.interaction === 'material' ? '1' : '0');
+  if (p.focusColor) v('preset-focus-color', p.focusColor[mode]);
+
   // Light mode comes first and dark second; the dark selector is more specific, so it wins
   // over this preset's light block and over Arco's own body[arco-theme='dark'].
   const sel = dark
@@ -183,7 +188,11 @@ const header = (name) =>
 
 const all = [];
 for (const [name, p] of Object.entries(presets)) {
-  const css = header(name) + block(name, p, 'light') + '\n' + block(name, p, 'dark');
+  let css = header(name) + block(name, p, 'light') + '\n' + block(name, p, 'dark');
+  if (p.interaction) {
+    const template = readFileSync(join(here, `interaction-${p.interaction}.css`), 'utf8');
+    css += '\n' + template.replaceAll('__P__', `body[data-arco-preset='${name}']`);
+  }
   writeFileSync(join(out, `${name}.css`), css);
   all.push(css);
 }

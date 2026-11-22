@@ -36,7 +36,12 @@ public face. Other presets can use the same knobs: `type`, `selected`, `shape.al
 md-ref-typeface, and the elevation recipe): the baseline scheme on tinted surfaces, Roboto with
 regular-weight headlines, tonal default buttons (`secondary-container`), outlined buttons and fields
 on the `outline` colour with a 2px primary focus, the navigation indicator for selection, and M3's
-key + ambient shadows. Two departures, on purpose: buttons use corner-small (8px), not corner-full
+key + ambient shadows. It also moves like M3 (`interaction: 'material'`, from @material/web's ripple and focus-ring
+sources): a state layer at 8% of the content colour on hover; a press ripple that grows from the
+pointer over 450ms with the standard easing, holds 12% for at least 225ms and fades over 375ms
+(`ripple.js`, Web Animations on `::after`, no added elements); a 3px focus ring in the secondary
+colour that grows to 8px and settles; no colour change on hover or press; body and label
+letter-spacing from the typescale. Two departures, on purpose: buttons use corner-small (8px), not corner-full
 pills, and dialogs and popups stop at 12px / 8px (squircles) instead of 28px. In dark mode, error
 uses error60 so it stays readable on the dark surface.
 
@@ -52,7 +57,8 @@ where Lumo's are 36px and 16px.
 import '@arco-design/web-react/dist/css/arco.css';
 import 'path/to/presets/css/all.css'; // every preset + the polish layer
 import { startCorners } from 'path/to/presets/corners.js'; // squircle surfaces with Monoco
-useEffect(() => startCorners(), []);   // in the app root; after hydration when server-rendered
+import { startRipple } from 'path/to/presets/ripple.js';   // Material press ripple
+useEffect(() => { const a = startCorners(); const b = startRipple(); return () => { a(); b(); }; }, []); // app root, after hydration
 ```
 
 ```js

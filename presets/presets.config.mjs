@@ -179,7 +179,11 @@ export const presets = {
   // stop at corner-medium / corner-small instead of 28px, drawn as squircles.
   material: {
     label: 'Material 3',
-    note: 'Material 3 baseline: #6750A4, tonal buttons, Roboto, tinted surfaces; corners kept small.',
+    note: 'Material 3: ripples, state layers and the growing focus ring; tonal buttons, Roboto, tinted surfaces.',
+    // State layers, the press ripple and the focus ring of @material/web (interaction-material.css
+    // and ripple.js); focus ring in the secondary colour (secondary40 / secondary80).
+    interaction: 'material',
+    focusColor: { light: '#625b71', dark: '#ccc2dc' },
     font: "'Roboto', system-ui, sans-serif", // md-ref-typeface brand / plain
     type: { headingWeight: 400, headingTracking: '0' }, // headline styles are regular weight
     primary: '#6750a4', // primary40
@@ -211,8 +215,9 @@ export const presets = {
     secondaryButton: {
       // filled tonal button: secondary-container / on-secondary-container
       bg: { light: '#e8def8', dark: '#4a4458' },
-      hover: { light: '#ddd2ee', dark: '#554f63' },
-      active: { light: '#d2c7e3', dark: '#605a6e' },
+      // no colour change on hover or press: the state layer and ripple show it
+      hover: { light: '#e8def8', dark: '#4a4458' },
+      active: { light: '#e8def8', dark: '#4a4458' },
       text: { light: '#1d192b', dark: '#e8def8' },
     },
     outlineButton: {

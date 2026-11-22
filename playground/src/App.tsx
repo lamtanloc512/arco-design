@@ -6,6 +6,7 @@ import { Pricing, Testimonials, Faq, Cta, Footer } from './blocks/conversion';
 import { Dashboard, FormShowcase, Login, Overlays } from './blocks/app';
 import { Gallery } from './gallery';
 import { startCorners } from '../../presets/corners.js';
+import { startRipple } from '../../presets/ripple.js';
 import { bodyAttributes, presetOptions, readClientState, type PageState } from './state';
 
 export function App({ initial }: { initial: PageState }) {
@@ -17,7 +18,12 @@ export function App({ initial }: { initial: PageState }) {
   useEffect(() => {
     setState(readClientState(initial));
     // Effects run after hydration, so Monoco never touches server HTML before React has it.
-    return startCorners();
+    const stopCorners = startCorners();
+    const stopRipple = startRipple();
+    return () => {
+      stopCorners();
+      stopRipple();
+    };
   }, []);
 
   useEffect(() => {

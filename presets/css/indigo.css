@@ -72,6 +72,7 @@ body[data-arco-preset='indigo'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-ripple: 0;
 }
 
 body[data-arco-preset='indigo'][arco-theme='dark'] {
@@ -156,4 +157,5 @@ body[data-arco-preset='indigo'][arco-theme='dark'] {
   --preset-selected-bg: var(--color-fill-2);
   --preset-selected-text: inherit;
   --preset-radius-alert: var(--border-radius-medium);
+  --preset-ripple: 0;
 }

@@ -21,7 +21,7 @@
   },
   "material": {
     "label": "Material 3",
-    "note": "Material 3 baseline: #6750A4, tonal buttons, Roboto, tinted surfaces; corners kept small."
+    "note": "Material 3: ripples, state layers and the growing focus ring; tonal buttons, Roboto, tinted surfaces."
   },
   "violet": {
     "label": "Violet",
