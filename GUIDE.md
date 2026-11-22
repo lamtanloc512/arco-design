@@ -109,6 +109,12 @@ modifyVars: {
 }
 ```
 
+### Runtime presets
+
+`presets/` holds four ready looks (zinc, indigo, ember, violet) that apply on top of the stock
+`arco.css` through CSS variables, with no rebuild. Switch them with `<body data-arco-preset="zinc">`.
+`playground/` shows them on marketing and app sections. See `presets/README.md`.
+
 ## 5. Component Customization
 
 Adjust component token files before writing extra styles:

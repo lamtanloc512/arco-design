@@ -1,0 +1,18 @@
+{
+  "zinc": {
+    "label": "Zinc",
+    "note": "Neutral and crisp: a near-black primary, zinc greys, outlined fields, thin shadows."
+  },
+  "indigo": {
+    "label": "Indigo",
+    "note": "Product-tool calm: indigo on slate, tight corners, a dark mode on near-black."
+  },
+  "ember": {
+    "label": "Ember",
+    "note": "Warm and friendly: orange on stone, cream page, generous corners."
+  },
+  "violet": {
+    "label": "Violet",
+    "note": "Soft and playful: violet on a mauve grey, pill buttons, round cards."
+  }
+}
